@@ -68,7 +68,7 @@ public class Pickup : MonoBehaviour
         if (!objInRange.Contains(obj) && collision.CompareTag("Item"))
         {
             objInRange.Add(obj);
-            Debug.Log("collided with " + obj.name);
+            //Debug.Log("collided with " + obj.name);
         }
     }
 
@@ -78,7 +78,7 @@ public class Pickup : MonoBehaviour
         if (objInRange.Contains(obj) && collision.CompareTag("Item"))
         {
             objInRange.Remove(obj);
-            Debug.Log("stopped colliding with " + obj.name);
+            //Debug.Log("stopped colliding with " + obj.name);
         }
     }
 }

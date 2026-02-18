@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 // sets up inventory UI
 public class InventoryUI : MonoBehaviour
 {
     public GameObject slotPrefab; // prefab of the slot panel
-    public List<SlotUI> slots = new(); // list of created slot panels
+    private List<SlotUI> slots = new(); // list of created slot panels
 
-    public void Setup(int slotCount)
+    public void Setup(int slotCount, Inventory inv)
     {
+        
         // create the provided amount of slot
         for (int i = 0; i < slotCount; i++)
         {
@@ -20,10 +20,20 @@ public class InventoryUI : MonoBehaviour
 
             // get slot component and set it up
             SlotUI slot = slotObj.GetComponent<SlotUI>();
-            slot.Setup(i);
+            slot.Setup(i, inv);
 
             slots.Add(slot); // add slot component to slots list
         }
+    }
+
+    public void SelectItem(int i)
+    {
+        slots[i].SelectItem();
+    }
+
+    public void DeselectItem(int i)
+    {
+        slots[i].DeselectItem();
     }
 
     public void AddItemToSlot(Item item, int i)
@@ -31,8 +41,8 @@ public class InventoryUI : MonoBehaviour
         slots[i].AddItem(item);
     }
 
-    public void RemoveItemFromSlot(Item item, int i)
+    public void RemoveItemFromSlot(int i)
     {
-        slots[i].RemoveItem(item);
+        slots[i].RemoveItem();
     }
 }
