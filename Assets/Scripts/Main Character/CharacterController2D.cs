@@ -60,7 +60,7 @@ public class CharacterController2D : MonoBehaviour
         }
 
         // When player is standing, pressing 'Z' triggers pickup animation.
-        if (Input.GetKeyDown(KeyCode.Z) && motionVector == Vector2.zero && !isBusy)
+        if (Input.GetKeyDown(KeyCode.E) && motionVector == Vector2.zero && !isBusy)
         {
             animator.SetTrigger("pickUpMovement");
         }
