@@ -1,17 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
     public GameObject inventory; // the in game inventory UI
-    private InventoryUI invUI; // inventory UI component
+   [HideInInspector] public InventoryUI invUI; // inventory UI component
 
     public int slotCount;
     public Transform dropPoint;
 
     private List<Item> items;
-    private Item selectedItem;
+    private int selectedIndex = -1;
+
+    private Item GetSelectedItem()
+    {
+        if (selectedIndex < 0) return null;
+        return items[selectedIndex];
+    }
 
     private void Awake()
     {
@@ -25,9 +30,14 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            Drop();
+            Drop(selectedIndex);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Use();
         }
 
         // get number inputs from 1 to slotCount
@@ -40,27 +50,56 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    private void Use()
+    {
+        if (selectedIndex >= 0)
+        {
+            GetSelectedItem().Use(gameObject);
+        }
+    }
+
     // select or deselect item
     public void Select(int i)
     {
-        // return if index is above item count or slot is empty
-        if (i > items.Count || items[i] == null) { return; } 
-
-        // if selected item doesn't currently equal to the new selected item
-        if (selectedItem != items[i])
-        {
-            if (selectedItem != null)
-            {
-                // deselect currently selected slot
-                invUI.DeselectItem(items.IndexOf(selectedItem)); 
-            }
-            invUI.SelectItem(i);
-            selectedItem = items[i];
-        }
-        else // remove selection if selecting the same item
+        // return if index is above item count
+        if (i > items.Count) return;
+        
+        if (selectedIndex == i)
         {
             invUI.DeselectItem(i);
-            selectedItem = null;
+            selectedIndex = -1;
+        } else
+        {
+            if (selectedIndex >= 0)
+            {
+                invUI.DeselectItem(selectedIndex);
+            }
+            invUI.SelectItem(i);
+            selectedIndex = i;
+        }
+    }
+
+    // swap the values of two slot indexes
+    public void Swap(int i0,  int i1)
+    {
+        if (i0 == i1) return; // return if they're the same index
+
+        // swap values
+        Item i1Value = items[i1];
+        items[i1] = items[i0];
+        items[i0] = i1Value;
+        invUI.AddItemToSlot(items[i0], i0);
+        invUI.AddItemToSlot(items[i1], i1);
+
+        if (selectedIndex < 0) return; // return if no slot is selected
+
+        // check if one of the swapped items were selected
+        if (selectedIndex == i0)
+        {
+            Select(i1);
+        } else if (selectedIndex == i1)
+        {
+            Select(i0);
         }
     }
 
@@ -69,7 +108,7 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i] == null) { return i; }
+            if (items[i] == null) return i;
         }
         return -1;
     }
@@ -92,17 +131,15 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    // drops the selected item
-    public void Drop()
+    // drops the the item from the provided index
+    public void Drop(int i)
     {
-        if (selectedItem != null)
-        {
-            // put item object on the drop point
-            selectedItem.transform.position = dropPoint.position;
-            selectedItem.gameObject.SetActive(true);
+        if (i < 0) return;
+        Item item = items[i];
+        item.transform.position = dropPoint.position;
+        item.gameObject.SetActive(true);
 
-            Remove(selectedItem);
-        }
+        Remove(item);
     }
 
     // remove item using the actual item
@@ -114,7 +151,7 @@ public class Inventory : MonoBehaviour
     // remove item using item's index
     public void Remove(int i)
     {
-        if (selectedItem == items[i]) { selectedItem = null; }
+        if (selectedIndex == i) selectedIndex = -1; 
         invUI.RemoveItemFromSlot(i);
         items[i] = null;
     }

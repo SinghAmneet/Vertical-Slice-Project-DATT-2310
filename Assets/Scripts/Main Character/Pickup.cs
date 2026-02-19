@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -126,8 +125,12 @@ public class Pickup : MonoBehaviour
             if (objsInRange.Count == 0)
             {
                 // clear objInRange
-                UpdateIndicator(objInRange, false);
-                objInRange = null;
+                if (objInRange != null)
+                {
+                    UpdateIndicator(objInRange, false);
+                    objInRange = null;
+                }
+                
             } else
             {
                 SetClosestObj(); // update closest object
