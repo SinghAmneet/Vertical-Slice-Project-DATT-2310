@@ -127,6 +127,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 31d146707aa66e24d93e4c3575176841, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6565982763253769062}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 31d146707aa66e24d93e4c3575176841, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4191880205027514348}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 31d146707aa66e24d93e4c3575176841, type: 3}
 --- !u!4 &596658128548239031 stripped
 Transform:
@@ -294,7 +297,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.43, y: 4.79}
+  m_Offset: {x: -0.28, y: 1.51}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -305,5 +308,17 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.34, y: 7.15}
+  m_Size: {x: 2.28, y: 0.99}
   m_EdgeRadius: 0
+--- !u!210 &4191880205027514348
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769871483917356756}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0

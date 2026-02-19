@@ -20,7 +20,7 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler
 
         transform.localScale = Vector3.one; // for some reason the scale increases randomly so set to 1 in case it happens
 
-        icon = transform.GetChild(0).gameObject.GetComponent<Image>(); // get image component icon under the slot
+        icon = transform.GetChild(0).GetComponent<Image>(); // get image component icon under the slot
 
         slot = GetComponent<Image>();
         RemoveItem(); // disable icon and set deselect color

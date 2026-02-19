@@ -10,7 +10,6 @@ public class InventoryUI : MonoBehaviour
 
     public void Setup(int slotCount, Inventory inv)
     {
-        
         // create the provided amount of slot
         for (int i = 0; i < slotCount; i++)
         {

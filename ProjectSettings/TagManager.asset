@@ -42,3 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Items
+    uniqueID: 1094681577
+    locked: 0
+  - name: Behind Player
+    uniqueID: 235203455
+    locked: 0
+  - name: Player
+    uniqueID: 571289579
+    locked: 0
+  - name: Infront of Player
+    uniqueID: 4219482155
+    locked: 0

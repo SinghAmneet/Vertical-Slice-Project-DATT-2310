@@ -19,7 +19,8 @@ public class Inventory : MonoBehaviour
         invUI = inventory.GetComponent<InventoryUI>();
         invUI.Setup(slotCount, GetComponent<Inventory>());
 
-        items = new(new Item[slotCount]);
+        // define size of items list using slotCount
+        items = new(new Item[slotCount]); 
     }
 
     private void Update()
@@ -28,19 +29,30 @@ public class Inventory : MonoBehaviour
         {
             Drop();
         }
+
+        // get number inputs from 1 to slotCount
+        for (int i = 0; i < slotCount; i ++)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+            {
+                Select(i);
+            }
+        }
     }
 
     // select or deselect item
     public void Select(int i)
     {
-        if (i > items.Count || items[i] == null) { return; } // return if there are no stored items
+        // return if index is above item count or slot is empty
+        if (i > items.Count || items[i] == null) { return; } 
 
         // if selected item doesn't currently equal to the new selected item
         if (selectedItem != items[i])
         {
             if (selectedItem != null)
             {
-                invUI.DeselectItem(items.IndexOf(selectedItem)); // deselect currently selected slot
+                // deselect currently selected slot
+                invUI.DeselectItem(items.IndexOf(selectedItem)); 
             }
             invUI.SelectItem(i);
             selectedItem = items[i];
@@ -70,8 +82,6 @@ public class Inventory : MonoBehaviour
         // inventory is not full
         if (i >= 0) 
         {
-            //items.Add(item);
-            
             items[i] = item;
             invUI.AddItemToSlot(item, i);
             
@@ -92,7 +102,6 @@ public class Inventory : MonoBehaviour
             selectedItem.gameObject.SetActive(true);
 
             Remove(selectedItem);
-            selectedItem = null;
         }
     }
 
@@ -105,6 +114,7 @@ public class Inventory : MonoBehaviour
     // remove item using item's index
     public void Remove(int i)
     {
+        if (selectedItem == items[i]) { selectedItem = null; }
         invUI.RemoveItemFromSlot(i);
         items[i] = null;
     }
