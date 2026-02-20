@@ -15,8 +15,8 @@ public class SlotUI : MonoBehaviour,
     private Inventory inventory; // the inventory system
     private Canvas dragCanvas; // canvas for dragging slot icons
 
-    private Color SELECT_COLOR = new Color(0.5f, 0.5f, 0.5f);
-    private Color DESELECT_COLOR = new Color(1f, 1f, 1f);
+    public Color SelectColor = new Color(0.5f, 0.5f, 0.5f);
+    public Color DeselectColor = new Color(1f, 1f, 1f);
 
     private bool hovering = false;
 
@@ -98,7 +98,7 @@ public class SlotUI : MonoBehaviour,
     // highlight or unhighlight slot
     public void Highlight(bool show)
     {
-        slot.color = show ? SELECT_COLOR : DESELECT_COLOR;
+        slot.color = show ? SelectColor : DeselectColor;
     }
 
     // show or hide outline
