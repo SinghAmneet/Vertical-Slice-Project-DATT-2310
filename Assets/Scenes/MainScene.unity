@@ -255,7 +255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8738ecd136d9eb44da11162dd4d0e255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartPrefab: {fileID: 7703559882397454683, guid: a697e820c600ff841b24ed4be290cad6, type: 3}
 --- !u!114 &84767821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3368,8 +3367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d182eb11b3c60499f9da0837156a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotPrefab: {fileID: 1526595792514680517, guid: 3c29eef7b0c17e143bf3767c1c9f072f, type: 3}
-  dragCanvas: {fileID: 451769283}
 --- !u!114 &1828347243 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2022933583411564773, guid: a7606a4129d1ed344bb408052552f7b3, type: 3}
@@ -3692,6 +3689,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8379073008644354528, guid: a7606a4129d1ed344bb408052552f7b3, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: -8027202900658588695, guid: a7606a4129d1ed344bb408052552f7b3, type: 3}
       propertyPath: speed
       value: 15
