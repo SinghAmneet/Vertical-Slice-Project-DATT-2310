@@ -5,15 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - Mob
+  - Interactable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Items
-  - Monsters
+  - Mobs
   - Static
   - 
   - 

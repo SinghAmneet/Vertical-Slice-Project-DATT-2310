@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour
             Use();
         }
 
-        // get number inputs from 1 to slotCount
+        // get number inputs from 1 to number of slots
         for (int i = 0; i < slotCount; i ++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))

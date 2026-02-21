@@ -51,8 +51,10 @@ public class SlotUI : MonoBehaviour,
         return hovering;
     }
 
+    // started dragging slot
     public void OnBeginDrag(PointerEventData data)
     {
+        // put slot icon into the drag canvas
         icon.transform.SetParent(dragCanvas.transform, true);
     }
 
@@ -62,12 +64,14 @@ public class SlotUI : MonoBehaviour,
         inventory.Select(index);
     }
 
+    // hovering over slot
     public void OnPointerEnter(PointerEventData data)
     {
         hovering = true;
         Highlight(true);
     }
 
+    // stopped hovering over slot
     public void OnPointerExit(PointerEventData data)
     {
         hovering = false;

@@ -17,12 +17,16 @@ public class Pickup : MonoBehaviour
         inventory = GetComponent<Inventory>();
     }
 
-    // TODO: think about updating closest object in range per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             Take();
+        }
+
+        if (objsInRange.Count > 0)
+        {
+            SetClosestObj();
         }
     }
 
@@ -36,7 +40,7 @@ public class Pickup : MonoBehaviour
     public void Take()
     {
         // if there is an object in range
-        if (objInRange != null)
+        if (objInRange != null && IsItem(objInRange))
         {
             bool success = inventory.Add(GetItem(objInRange));
 
@@ -82,7 +86,14 @@ public class Pickup : MonoBehaviour
     // show or hide object name
     private void UpdateIndicator(GameObject obj, bool show)
     {
-        GetItem(obj).UpdateIndicator(show);
+        if (IsItem(obj))
+        {
+            GetItem(obj).UpdateIndicator(show);
+        } else
+        {
+
+        }
+        
     }
 
     // set closest obj and display an indicator 
@@ -101,15 +112,28 @@ public class Pickup : MonoBehaviour
         objInRange = obj;
     }
 
+    private bool IsItem(GameObject obj)
+    {
+        return obj.CompareTag("Item");
+    }
+
+    private bool HasValidTag(Collider2D collision)
+    {
+        return collision.CompareTag("Item") || collision.CompareTag("Interactable");
+    }
+
     // item enters pickup range
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject obj = collision.gameObject;
-        if (!objsInRange.Contains(obj) && collision.CompareTag("Item"))
+        if (!objsInRange.Contains(obj) && HasValidTag(collision))
         {
             objsInRange.Add(obj);
-            SetClosestObj(); // update closest object
             //Debug.Log("collided with " + obj.name);
+        }
+        else if (collision.CompareTag("Interactable"))
+        {
+            
         }
     }
 
@@ -117,24 +141,17 @@ public class Pickup : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         GameObject obj = collision.gameObject;
-        if (objsInRange.Contains(obj) && collision.CompareTag("Item"))
+        if (objsInRange.Contains(obj) && HasValidTag(collision))
         {
             objsInRange.Remove(obj);
 
-            // if there are no more objects in range
-            if (objsInRange.Count == 0)
+            // if there are no more objects in range 
+            if (objsInRange.Count == 0 && objInRange != null)
             {
-                // clear objInRange
-                if (objInRange != null)
-                {
-                    UpdateIndicator(objInRange, false);
-                    objInRange = null;
-                }
-                
-            } else
-            {
-                SetClosestObj(); // update closest object
+                UpdateIndicator(objInRange, false);
+                objInRange = null;
             }
+
             //Debug.Log("stopped colliding with " + obj.name);
         }
     }

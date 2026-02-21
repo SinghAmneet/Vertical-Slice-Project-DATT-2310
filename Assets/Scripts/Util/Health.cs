@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -6,7 +7,14 @@ public class Health : MonoBehaviour
     private float health;
     public HealthUI healthUI;
 
+    public event Action OnDeath; // death event when health reaches 0
+
     private void Awake()
+    {
+        Setup();
+    }
+
+    private void Setup()
     {
         health = maxHealth;
         if (healthUI != null) healthUI.Setup(Mathf.CeilToInt(maxHealth));
@@ -23,6 +31,12 @@ public class Health : MonoBehaviour
     //        Heal(0.5f);
     //    }
     //}
+
+    public void SetMaxHealth(float maxHealth)
+    {
+        this.maxHealth = maxHealth;
+        Setup();
+    }
 
     private void UpdateHealth(float newHp)
     {
@@ -49,6 +63,7 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("DEATH!!!!!");
+        OnDeath?.Invoke(); // call death event
+        Debug.Log(gameObject.name + " has died!!!!!");
     }
 }
