@@ -3,7 +3,7 @@ using UnityEngine;
 public class Combat : MonoBehaviour
 {
     public float cooldown = 0; // time before being able to attack again after an attack
-    private float lastAttacked = -1f;
+    private float? lastAttacked;
 
     public Transform attackPoint;
     public float hitboxRadius;
@@ -20,7 +20,7 @@ public class Combat : MonoBehaviour
     // if attacking for the first time, or time after attacking is more than the cooldown
     public bool CanAttack()
     {
-        return (lastAttacked == -1 || Time.time - lastAttacked > cooldown);
+        return (lastAttacked == null || Time.time - lastAttacked > cooldown);
     }
 
     // damages objects in the filtered layer within range

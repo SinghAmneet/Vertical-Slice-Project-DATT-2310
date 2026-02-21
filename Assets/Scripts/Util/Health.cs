@@ -54,11 +54,7 @@ public class Health : MonoBehaviour
     public void Deplete(float hp)
     {
         UpdateHealth(health - hp);
-
-        if (health == 0)
-        {
-            Die();
-        }
+        if (health == 0) Die();
     }
 
     public void Die()

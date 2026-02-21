@@ -903,6 +903,7 @@ GameObject:
   - component: {fileID: 437353538}
   - component: {fileID: 437353539}
   - component: {fileID: 437353540}
+  - component: {fileID: 437353541}
   m_Layer: 0
   m_Name: Pot
   m_TagString: Interactable
@@ -1022,6 +1023,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.69, y: 2.45}
   m_EdgeRadius: 0
+--- !u!114 &437353541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437353537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6134fadd6322942be533f6efd7a37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &451769282
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,11 +36,18 @@ public class Pickup : MonoBehaviour
         return obj.GetComponent<Item>();
     }
 
+    private Interactable GetInteractable(GameObject obj)
+    {
+        return obj.GetComponent<Interactable>();
+    }
+
     // put closest object in range into the player's inventory
     public void Take()
     {
-        // if there is an object in range
-        if (objInRange != null && IsItem(objInRange))
+        if (objInRange == null) return; // if there is an object in range
+
+        // is an item
+        if (IsItem(objInRange))
         {
             bool success = inventory.Add(GetItem(objInRange));
 
@@ -52,6 +59,9 @@ public class Pickup : MonoBehaviour
                 objInRange.SetActive(false);
                 objInRange = null;
             }
+        } else // is an interactable
+        {
+            GetInteractable(objInRange).Use(gameObject);
         }
     }
 
@@ -91,9 +101,8 @@ public class Pickup : MonoBehaviour
             GetItem(obj).UpdateIndicator(show);
         } else
         {
-
+            GetInteractable(obj).UpdateIndicator(show);
         }
-        
     }
 
     // set closest obj and display an indicator 
@@ -130,10 +139,6 @@ public class Pickup : MonoBehaviour
         {
             objsInRange.Add(obj);
             //Debug.Log("collided with " + obj.name);
-        }
-        else if (collision.CompareTag("Interactable"))
-        {
-            
         }
     }
 
