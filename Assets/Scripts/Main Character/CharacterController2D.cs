@@ -16,10 +16,14 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] Transform graphics;
     Vector2 motionVector;
     Animator animator;
+    Pickup pickup;
+    Combat combat;
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        pickup = GetComponent<Pickup>();
+        combat = GetComponent<Combat>();
     }
 
     private void Update(){
@@ -50,19 +54,35 @@ public class CharacterController2D : MonoBehaviour
             is unable to use AWSD/arrow movement until animation is complete
         */
         AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
-        bool isBusy = state.IsName("Chef_Pickup");
+        bool isPickUpBusy = state.IsName("Chef_Pickup");
+        bool isCombatBusy = state.IsName("Chef_Attack");
+        bool isCombatMovementBusy = state.IsName("Chef_MoveAttack");
 
-        if (isBusy)
+        if (isPickUpBusy || isCombatBusy)
         {
             motionVector = Vector2.zero;
             animator.SetBool("isRunning", false);
             return;
         }
 
-        // When player is standing, pressing 'Z' triggers pickup animation.
-        if (Input.GetKeyDown(KeyCode.E) && motionVector == Vector2.zero && !isBusy)
+
+        // When player is standing, pressing 'E' triggers pickup animation.
+        if (Input.GetKeyDown(KeyCode.E) && motionVector == Vector2.zero && !isPickUpBusy)
         {
             animator.SetTrigger("pickUpMovement");
+            pickup?.Take();
+        }
+
+        // When player is standing, pressing "Space" bar trigers idle combat animation
+        if (Input.GetKeyDown(KeyCode.Space) && motionVector == Vector2.zero && !isCombatBusy)
+        {
+            animator.SetTrigger("combatIdleMovement");
+        }
+
+        // When player is moving and press "Space" bar trigers moving combat animation.
+        if (Input.GetKeyDown(KeyCode.Space) && motionVector != Vector2.zero && !isCombatMovementBusy)
+        {
+            animator.SetTrigger("combatMovement");
         }
 
     }

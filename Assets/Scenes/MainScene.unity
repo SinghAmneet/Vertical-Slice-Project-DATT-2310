@@ -3619,6 +3619,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: -8379073008644354528, guid: a7606a4129d1ed344bb408052552f7b3, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8027202900658588695, guid: a7606a4129d1ed344bb408052552f7b3, type: 3}
       propertyPath: speed
       value: 15
