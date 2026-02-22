@@ -1,4 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
+
+// Enums for food stats
+public enum Stats
+{
+    Sweet,
+    Salty,
+    Sour,
+    Bitter,
+    Spicy,
+}
 
 [CreateAssetMenu(menuName = "Items/Food")]
 public class FoodData : ItemData
@@ -12,12 +23,3 @@ public class FoodData : ItemData
     }
 }
 
-// Enums for food stats
-public enum Stats
-{
-    Sweet,
-    Salty,
-    Sour,
-    Bitter,
-    Spicy,
-}
