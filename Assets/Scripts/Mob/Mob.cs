@@ -9,6 +9,7 @@ public enum MobState
     ReturningHome, // mob is returning to the home point
     Chase, // mob is chasing player
     Attack, // mob is attacking player
+    Dead,
 }
 
 public class Mob : MonoBehaviour
@@ -23,15 +24,18 @@ public class Mob : MonoBehaviour
     private float idleTimer;
     public float maxIdleTime; // max time for standing still
 
+    public Color damageColor;
+
     // systems
     private MobMovement movement;
     private Health health;
-    private Combat combat; 
+    private Combat combat;
 
     private Animator animator;
+    private SpriteRenderer spriteRender;
     private GameObject plr; // when player is set, it will be assumed that the mob is chasing them
 
-    private MobData data;
+    public MobData data;
     private MobState state = MobState.Roam;
 
     private void Awake()
@@ -39,7 +43,12 @@ public class Mob : MonoBehaviour
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
         combat = GetComponent<Combat>();
+        movement = GetComponent<MobMovement>();
+        spriteRender = GetComponent<SpriteRenderer>(); 
         homePoint = transform.position;
+
+        if (data != null) SetData(data);
+
         StartRoam();
     }
 
@@ -50,20 +59,23 @@ public class Mob : MonoBehaviour
         combat.Setup(attackPoint, data.hitboxRadius, data.attackCooldown);
 
         health.OnDeath += Die; // call Die() method when health is 0
-    }
-    
-    public void SetHomePoint(Vector3 pos)
-    { 
-        homePoint = pos; 
+        health.OnDamage += TakeDamage; // when mob takes damage
     }
 
-    private void FixedUpdate()
+    public void SetHomePoint(Vector3 pos)
+    {
+        homePoint = pos;
+    }
+
+    private void Update()
     {
         // dont do anything until data has been set
         if (data == null) return;
 
         switch (state)
         {
+            case MobState.Dead:
+                break;
             case MobState.Roam:
                 Roam();
                 break;
@@ -79,6 +91,11 @@ public class Mob : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        movement.Move();
+    }
+
     private float GetDistFromPos(Vector3 pos)
     {
         return Vector2.Distance(transform.position, pos);
@@ -86,20 +103,20 @@ public class Mob : MonoBehaviour
 
     private void StartReturningHome()
     {
+        Debug.Log("returning home");
         state = MobState.ReturningHome;
         movement.SetMotionVector(homePoint);
     }
 
     private void ReturnHome()
     {
-        movement.Move();
-
         // reached home point
         if (GetDistFromPos(homePoint) < 1) StartIdle();
     }
 
     private void StartIdle()
     {
+        Debug.Log("Start idle");
         state = MobState.Idle;
         // get random number from 0 to max idle time
         idleTimer = Random.Range(0, maxIdleTime);
@@ -116,16 +133,17 @@ public class Mob : MonoBehaviour
 
     private void StartRoam()
     {
+        Debug.Log("Start roam");
         state = MobState.Roam;
 
         // get a random position around the home point
         Vector2 randPoint = (Vector2) homePoint + Random.insideUnitCircle * homeRadius;
         movement.SetMotionVector(randPoint);
+        targetPos = randPoint;
     }
 
     private void Roam()
     {
-        movement.Move();
         // reached target roam position
         if (GetDistFromPos(targetPos) < 1) StartIdle();
     }
@@ -149,6 +167,7 @@ public class Mob : MonoBehaviour
         else if (dist < data.attackRange)
         {
             // stop moving and perform attack
+            movement.SetMotionless();
             Attack();
         } 
         
@@ -156,7 +175,6 @@ public class Mob : MonoBehaviour
         else
         {
             movement.SetMotionVector(plr.transform.position);
-            movement.Move();
         }
     }
 
@@ -170,8 +188,28 @@ public class Mob : MonoBehaviour
             state = MobState.Attack;
             // play attack animation
             // when attack animation is finished, set state back to "Chase"
+            Invoke("EndAttack", data.attackCooldown); // temporary
         }
+        
+    }
 
+    //temporary
+    private void EndAttack()
+    {
+        if (state == MobState.Dead) return;
+        state = MobState.Chase;
+    }
+
+    private void TakeDamage()
+    {
+        spriteRender.color = damageColor;
+        Invoke("StopDamage", 0.2f);
+    }
+
+    private void StopDamage()
+    {
+        if (state == MobState.Dead) return;
+        spriteRender.color = new Color(1f, 1f, 1f);
     }
 
     private void Die()
@@ -184,9 +222,16 @@ public class Mob : MonoBehaviour
         item.SetData(data.foodDrop);
 
         food.transform.SetParent(null, true);
+        food.transform.position = transform.position;
+        food.transform.localScale = itemPrefab.transform.localScale;
 
+        state = MobState.Dead;
+        movement.SetMotionless();
         // play die animation if there is one
         // after some delay, destroy mob object
+        //spriteRender.color = new Color(0, 0, 0);
+        GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.SetActive(false);
     }
 
     // player enters mob's collider
@@ -194,8 +239,15 @@ public class Mob : MonoBehaviour
     {
         if (plr == null && collision.CompareTag("Player"))
         {
+            Debug.Log("Start chasing");
             state = MobState.Chase;
             plr = collision.gameObject;
         }
+    }
+
+    // draw home point radius
+    public void OnDrawGizmos()
+    {
+        
     }
 }

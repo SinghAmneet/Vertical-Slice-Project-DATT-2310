@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 169586c6935531045a8b97e197155e6f, type: 3}
-  m_Name: New Mob Data
+  m_Name: Test
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  foodDrop: {fileID: 0}
-  maxHp: 0
-  damage: 0
+  animatorController: {fileID: 0}
+  foodDrop: {fileID: 11400000, guid: 9c214c1768859fb46acb5a3e2535fbff, type: 2}
+  maxHp: 2
+  damage: 0.5
+  attackCooldown: 1
+  chaseRange: 50
+  attackRange: 7
+  hitboxRadius: 7

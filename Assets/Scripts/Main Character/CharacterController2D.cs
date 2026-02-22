@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 /*
     [RequireComponent(typeof(Rigidbody2D))]
@@ -77,14 +78,27 @@ public class CharacterController2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && motionVector == Vector2.zero && !isCombatBusy)
         {
             animator.SetTrigger("combatIdleMovement");
+
+            Attack();
         }
 
         // When player is moving and press "Space" bar trigers moving combat animation.
         if (Input.GetKeyDown(KeyCode.Space) && motionVector != Vector2.zero && !isCombatMovementBusy)
         {
             animator.SetTrigger("combatMovement");
+            Attack();
         }
 
+    }
+
+    // temporary
+    private void Attack()
+    {
+        bool success = combat.Attack(0.5f);
+        if (success)
+        {
+
+        }
     }
 
     void FixedUpdate()

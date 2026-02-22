@@ -14,7 +14,7 @@ public class MobMovement : MonoBehaviour
     // set vector towards the provided position from the mob's position
     public void SetMotionVector(Vector3 pos)
     {
-
+        motionVector = (pos - transform.position).normalized;
     }
 
     public void SetMotionless()
@@ -22,10 +22,17 @@ public class MobMovement : MonoBehaviour
         motionVector = Vector2.zero;
     }
 
+    // set direction mob is facing
+    public void SetDirection()
+    {
+
+    }
+
     // set velocity
     public void Move()
     {
-        
+        SetDirection();
+        rigidBody.velocity = motionVector * speed;
     }
 
 }

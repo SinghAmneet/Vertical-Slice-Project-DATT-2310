@@ -23,6 +23,12 @@ public class Combat : MonoBehaviour
         return (lastAttacked == null || Time.time - lastAttacked > cooldown);
     }
 
+    private void Deplete(GameObject character, float damage)
+    {
+        character.GetComponent<Health>().Deplete(damage);
+        Debug.Log("hit: " + character.name);
+    }
+
     // damages objects in the filtered layer within range
     public bool Attack(float damage)
     {
@@ -33,12 +39,13 @@ public class Combat : MonoBehaviour
 
             // get objects in the filtered layer within range
             Collider2D[] hitList = Physics2D.OverlapCircleAll(attackPoint.position, hitboxRadius, filterLayer);
-
+            
             foreach (Collider2D hit in hitList)
             {
                 // get health component and deplete health
-                hit.GetComponent<Health>().Deplete(damage);
-                Debug.Log("hit: " + hit.name);
+                GameObject character = hit.transform.parent.gameObject;
+                character.GetComponent<Health>().Deplete(damage);
+                Debug.Log("hit: " + character.name);
             }
 
             return true;

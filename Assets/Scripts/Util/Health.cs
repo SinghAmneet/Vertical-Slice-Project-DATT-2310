@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public HealthUI healthUI;
 
     public event Action OnDeath; // death event when health reaches 0
+    public event Action OnDamage; // when character takes damage
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class Health : MonoBehaviour
     public void Deplete(float hp)
     {
         UpdateHealth(health - hp);
+        OnDamage?.Invoke();
         if (health == 0) Die();
     }
 

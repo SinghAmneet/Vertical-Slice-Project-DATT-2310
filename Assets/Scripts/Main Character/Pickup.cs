@@ -19,11 +19,6 @@ public class Pickup : MonoBehaviour
 
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.E))
-        // {
-        //     Take();
-        // }
-
         if (objsInRange.Count > 0)
         {
             SetClosestObj();
