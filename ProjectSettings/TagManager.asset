@@ -54,13 +54,13 @@ TagManager:
   - name: Collision
     uniqueID: 2124537623
     locked: 0
-  - name: Infront of Player
+  - name: Behind Player
     uniqueID: 4219482155
     locked: 0
   - name: Player
     uniqueID: 571289579
     locked: 0
-  - name: Behind Player
+  - name: Infront of Player
     uniqueID: 235203455
     locked: 0
   - name: Decor

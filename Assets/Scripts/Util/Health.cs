@@ -21,18 +21,6 @@ public class Health : MonoBehaviour
         if (healthUI != null) healthUI.Setup(Mathf.CeilToInt(maxHealth));
     }
 
-    // health testing
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Z))
-    //    {
-    //        Deplete(0.25f);
-    //    } else if (Input.GetKeyDown(KeyCode.X))
-    //    {
-    //        Heal(0.5f);
-    //    }
-    //}
-
     public void SetMaxHealth(float maxHealth)
     {
         this.maxHealth = maxHealth;

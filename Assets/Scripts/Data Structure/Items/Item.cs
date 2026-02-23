@@ -8,8 +8,6 @@ public class Item : MonoBehaviour
     private SpriteRenderer spriteRender;
     public ItemData data;
 
-    public Dictionary<Stats, int> stats;
-
     private GameObject textCanvas; // the canvas parenting the object's world text
 
     private void Awake()
@@ -32,8 +30,20 @@ public class Item : MonoBehaviour
         textCanvas.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = data.name;
 
         SetStats();
-
+        SetTextSize();
+        
         spriteRender.sprite = data.sprite; // set object sprite to sprite provided in data
+    }
+
+    // temporary until item sprites have consistent sizes
+    public void SetTextSize()
+    {
+        transform.localScale *= data.scaleMultiplier;
+        if (data.scaleMultiplier < 1)
+        {
+            textCanvas.transform.position += Vector3.up * 2.5f;
+            textCanvas.transform.localScale *= 7f;
+        }
     }
 
     // display stats above item if it's a food
@@ -43,10 +53,11 @@ public class Item : MonoBehaviour
         GameObject template = textCanvas.transform.GetChild(1).gameObject;
         if (data is FoodData foodData)
         {
-            for (int i = 0; i < foodData.stats.Length; i++)
+            for (int i = 0; i < foodData.stats.Count; i++)
             {
+                Stat stat = foodData.stats[i];
                 GameObject statObj = Instantiate(template, textCanvas.transform);
-                statObj.GetComponent<TextMeshProUGUI>().text = foodData.stats[i].ToString();
+                statObj.GetComponent<TextMeshProUGUI>().text = $"{stat.stat.ToString()}: {stat.value}";
             }
         }
 

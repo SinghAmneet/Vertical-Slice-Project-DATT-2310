@@ -103,7 +103,7 @@ public class Mob : MonoBehaviour
 
     private void StartReturningHome()
     {
-        Debug.Log("returning home");
+        //Debug.Log("returning home");
         state = MobState.ReturningHome;
         movement.SetMotionVector(homePoint);
     }
@@ -116,7 +116,7 @@ public class Mob : MonoBehaviour
 
     private void StartIdle()
     {
-        Debug.Log("Start idle");
+        //Debug.Log("Start idle");
         state = MobState.Idle;
         // get random number from 0 to max idle time
         idleTimer = Random.Range(0, maxIdleTime);
@@ -133,7 +133,7 @@ public class Mob : MonoBehaviour
 
     private void StartRoam()
     {
-        Debug.Log("Start roam");
+        //Debug.Log("Start roam");
         state = MobState.Roam;
 
         // get a random position around the home point
@@ -239,7 +239,7 @@ public class Mob : MonoBehaviour
     {
         if (plr == null && collision.CompareTag("Player"))
         {
-            Debug.Log("Start chasing");
+            //Debug.Log("Start chasing");
             state = MobState.Chase;
             plr = collision.gameObject;
         }
