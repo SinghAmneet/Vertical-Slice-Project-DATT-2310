@@ -7,6 +7,7 @@ TagManager:
   - Item
   - Mob
   - Interactable
+  - Activator
   layers:
   - Default
   - TransparentFX
@@ -64,4 +65,7 @@ TagManager:
     locked: 0
   - name: Decor
     uniqueID: 2581058965
+    locked: 0
+  - name: Arrow(Rhythm)
+    uniqueID: 2290272641
     locked: 0
