@@ -101,6 +101,11 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+
     void FixedUpdate()
     {
         Move();

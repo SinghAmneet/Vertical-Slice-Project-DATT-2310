@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour
         // get all children in HUD excluding pause menu
         foreach (Transform child in menu.transform.parent.transform)
         {
-            if (child == menu.transform) continue;
+            if (child == menu.transform || child.name == "Cheat Menu") continue;
             hudChildren.Add(child.gameObject);
         }
     }
@@ -26,6 +26,11 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ToggleMenu();
+        }
+
+        if (Input.GetKeyUp(KeyCode.M)) 
+        { 
+            bgm.mute = !bgm.mute;
         }
     }
 
@@ -44,13 +49,7 @@ public class PauseMenu : MonoBehaviour
             child.SetActive(!menu.activeSelf);
         }
 
-        if (menu.activeSelf)
-        {
-            Time.timeScale = 0f; // pause time
-        } else
-        {
-            Time.timeScale = 1f; // resume time
-        }
+        Time.timeScale = menu.activeSelf ? 0f : 1f;
     }
 
     public void Exit()

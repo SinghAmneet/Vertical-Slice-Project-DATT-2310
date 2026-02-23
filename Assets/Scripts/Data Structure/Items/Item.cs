@@ -43,6 +43,7 @@ public class Item : MonoBehaviour
         {
             textCanvas.transform.position += Vector3.up * 2.5f;
             textCanvas.transform.localScale *= 7f;
+            GetComponent<CircleCollider2D>().radius = 10;
         }
     }
 

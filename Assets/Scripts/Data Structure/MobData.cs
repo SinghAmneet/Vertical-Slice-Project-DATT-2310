@@ -6,7 +6,7 @@ public class MobData : ScriptableObject
 {
     //public Sprite sprite;
     public AnimatorController animatorController;
-    public FoodData foodDrop; // the food the mob will drop
+    public FoodData[] foodDrops; // the foods the mob can drop
 
     public float maxHp;
     public float damage; // how much hp the mob will deal each attack

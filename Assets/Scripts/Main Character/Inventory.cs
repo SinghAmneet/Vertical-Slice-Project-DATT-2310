@@ -54,7 +54,7 @@ public class Inventory : MonoBehaviour
     {
         if (selectedIndex >= 0)
         {
-            GetSelectedItem().Use(gameObject);
+            GetSelectedItem()?.Use(gameObject);
         }
     }
 
@@ -136,6 +136,7 @@ public class Inventory : MonoBehaviour
     {
         if (i < 0) return;
         Item item = items[i];
+        if (item == null) return;
         item.transform.position = dropPoint.position;
         item.gameObject.SetActive(true);
 

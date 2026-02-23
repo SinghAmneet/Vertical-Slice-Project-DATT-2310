@@ -19,7 +19,6 @@ public class Mob : MonoBehaviour
     private Vector2 targetPos; // target position while in roam state
 
     public Transform attackPoint;
-    public GameObject itemPrefab;
 
     private float idleTimer;
     public float maxIdleTime; // max time for standing still
@@ -33,7 +32,7 @@ public class Mob : MonoBehaviour
 
     private Animator animator;
     private SpriteRenderer spriteRender;
-    private GameObject plr; // when player is set, it will be assumed that the mob is chasing them
+    private GameObject plr;
 
     public MobData data;
     private MobState state = MobState.Roam;
@@ -49,6 +48,7 @@ public class Mob : MonoBehaviour
 
         if (data != null) SetData(data);
 
+        SetHomePoint(transform.position);
         StartRoam();
     }
 
@@ -174,7 +174,7 @@ public class Mob : MonoBehaviour
         // else move towards player
         else
         {
-            movement.SetMotionVector(plr.transform.position);
+            movement.SetMotionVector(plr.transform.position + Vector3.up * 3.5f);
         }
     }
 
@@ -215,21 +215,16 @@ public class Mob : MonoBehaviour
     private void Die()
     {
         // drop mob food
-        GameObject food = Instantiate(itemPrefab, transform);
-        Item item = food.GetComponent<Item>();
-        food.name = data.foodDrop.name;
-
-        item.SetData(data.foodDrop);
-
-        food.transform.SetParent(null, true);
-        food.transform.position = transform.position;
-        food.transform.localScale = itemPrefab.transform.localScale;
+        ItemSpawner itemSpawner = GetComponent<ItemSpawner>();
+        itemSpawner.SpawnRandom(data.foodDrops, null, transform.position);
+        
+        //food.transform.localScale = itemPrefab.transform.localScale;
 
         state = MobState.Dead;
         movement.SetMotionless();
         // play die animation if there is one
         // after some delay, destroy mob object
-        //spriteRender.color = new Color(0, 0, 0);
+        
         GetComponent<SpriteRenderer>().enabled = false;
         gameObject.SetActive(false);
     }
@@ -245,9 +240,32 @@ public class Mob : MonoBehaviour
         }
     }
 
-    // draw home point radius
-    public void OnDrawGizmos()
+    // draw helpful gizmos
+    private void OnDrawGizmosSelected()
     {
-        
+        if (data == null) return;
+
+        // draw home point
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(homePoint, homeRadius);
+
+        // draw chase range
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, data.chaseRange);
+
+        Gizmos.color = Color.yellow;
+
+        switch(state)
+        {
+            case MobState.Chase:
+                Gizmos.DrawLine(transform.position, plr.transform.position);
+                break;
+            case MobState.ReturningHome:
+                Gizmos.DrawLine(transform.position, homePoint);
+                break;
+            case MobState.Roam:
+                Gizmos.DrawLine(transform.position, targetPos);
+                break;
+        }
     }
 }
