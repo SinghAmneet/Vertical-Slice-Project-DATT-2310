@@ -8,12 +8,12 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        ItemSpawner itemSpawner = GetComponent<ItemSpawner>();
-        for (int i = 0; i < amount; i ++)
-        {
-            Vector2 randPos = (Vector2) transform.position + Random.insideUnitCircle * randomSpawnRadius;
-            itemSpawner.SpawnRandom(itemDataList, transform.parent.transform, randPos);
-        }
+        GetComponent<ItemSpawner>().SpawnRadius(
+            itemDataList, 
+            transform.parent.transform, 
+            transform.position, 
+            amount, 
+            randomSpawnRadius);
         
         Destroy(gameObject);
     }

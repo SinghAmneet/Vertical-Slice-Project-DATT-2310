@@ -28,6 +28,8 @@ public struct TimeOfDay
 
 public class DayCycle : MonoBehaviour
 {
+    public bool convertToAMPM;
+
     public int startingTime = 6;
     private int time;
 
@@ -126,13 +128,23 @@ public class DayCycle : MonoBehaviour
         int minute = time - (hour * 60);
 
         // append strings to string builder
-        if (hour < 10) timeText.Append("0");
-        timeText.Append(hour);
+
+        if (convertToAMPM)
+        {
+            timeText.Append(hour - 12 > 0 ? hour - 12 : hour);
+        } else
+        {
+            if (hour < 10) timeText.Append("0");
+            timeText.Append(hour);
+        }
+        
         timeText.Append(":");
         if (minute < 10) timeText.Append("0");
         timeText.Append(minute);
 
-        tmp.text = timeText.ToString();
+        if (convertToAMPM) timeText.Append(hour >= 12 ? " pm" : " am");
+
+            tmp.text = timeText.ToString();
     }
 
     private void IncreaseTime()

@@ -1,11 +1,15 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject menu;
     public AudioSource bgm;
+
+    public Sprite muteOn;
+    public Sprite muteOff;
+    public GameObject muteButton;
 
     private List<GameObject> hudChildren = new();
 
@@ -13,7 +17,7 @@ public class PauseMenu : MonoBehaviour
     {
         menu.SetActive(false);
 
-        // get all children in HUD excluding pause menu
+        // get all children in HUD excluding pause menu and cheat menu
         foreach (Transform child in menu.transform.parent.transform)
         {
             if (child == menu.transform || child.name == "Cheat Menu") continue;
@@ -30,8 +34,14 @@ public class PauseMenu : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.M)) 
         { 
-            bgm.mute = !bgm.mute;
+            ToggleMute();
         }
+    }
+
+    public void ToggleMute()
+    {
+        bgm.mute = !bgm.mute;
+        muteButton.GetComponent<Image>().sprite = (bgm.mute ? muteOn : muteOff);
     }
 
     public void AudioChanged(float value)
