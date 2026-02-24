@@ -511157,6 +511157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5115c639ad6e0974787eb0c6218bd9b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  convertToAMPM: 0
   startingTime: 5
   rate: 2
 --- !u!1 &1709593346
