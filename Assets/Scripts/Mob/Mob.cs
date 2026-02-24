@@ -63,7 +63,7 @@ public class Mob : MonoBehaviour
         health.OnDamage += TakeDamage; // when mob takes damage
 
         movement.speed = data.speed;
-        spriteRender.sprite = data.sprite;
+        if (animator == null) spriteRender.sprite = data.sprite;
     }
 
     public void SetHomePoint(Vector3 pos)
@@ -190,11 +190,15 @@ public class Mob : MonoBehaviour
         if (success)
         {
             state = MobState.Attack;
-            // play attack animation
-            // when attack animation is finished, set state back to "Chase"
-            Invoke("EndAttack", data.attackCooldown); // temporary
+            if (animator != null) animator.SetTrigger("Attack");
+            if (animator == null) Invoke("EndAttack", data.attackCooldown);
         }
         
+    }
+
+    public void AttackAnimationFinished()
+    {
+        Invoke("EndAttack", data.attackCooldown);
     }
 
     //temporary
@@ -206,14 +210,15 @@ public class Mob : MonoBehaviour
 
     private void TakeDamage()
     {
-        spriteRender.color = damageColor;
+        if (spriteRender != null) spriteRender.color = damageColor;
+        if (animator != null) animator.SetTrigger("Hurt");
         Invoke("StopDamage", 0.2f);
     }
 
     private void StopDamage()
     {
         if (state == MobState.Dead) return;
-        spriteRender.color = new Color(1f, 1f, 1f);
+        if (spriteRender != null)  spriteRender.color = new Color(1f, 1f, 1f);
     }
 
     private void Die()
@@ -230,10 +235,22 @@ public class Mob : MonoBehaviour
 
         state = MobState.Dead;
         movement.SetMotionless();
-        // play die animation if there is one
-        // after some delay, destroy mob object
-        
-        GetComponent<SpriteRenderer>().enabled = false;
+
+        if (spriteRender != null) spriteRender.enabled = false;
+        if (animator == null) { DestroyMob(); } else
+        {
+            animator.SetBool("isDead", true);
+            DeadAnimationFinished();
+        }
+    }
+
+    public void DeadAnimationFinished()
+    {
+        Invoke("DestroyMob", 1);
+    }
+
+    private void DestroyMob()
+    {
         gameObject.SetActive(false);
     }
 

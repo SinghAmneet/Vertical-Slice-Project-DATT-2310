@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mushroom
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 728c9c927fc48a343bf4fb9e121433b5, type: 3}
-  animatorController: {fileID: 0}
+  mobPrefab: {fileID: 3467325718248550271, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
   dropAmount: 1
   foodDrops:
   - {fileID: 11400000, guid: 7684676b736b2484ba1e19002ef1b14e, type: 2}

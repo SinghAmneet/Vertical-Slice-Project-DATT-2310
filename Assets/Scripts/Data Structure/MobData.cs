@@ -6,7 +6,7 @@ public class MobData : ScriptableObject
 {
     [Header("Looks")]
     public Sprite sprite;
-    public AnimatorController animatorController;
+    public GameObject mobPrefab;
 
     [Header("Food Drop")]
     public int dropAmount = 1; // amount to drop

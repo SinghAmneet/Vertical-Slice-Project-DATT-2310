@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MobSpawner : MonoBehaviour
@@ -8,7 +9,7 @@ public class MobSpawner : MonoBehaviour
 
     private void Start()
     {
-        if (mobData != null) { 
+        if (mobData != null) {
             Spawn(mobData, transform.parent.transform, transform.position);
             Destroy(gameObject);
         }
@@ -16,7 +17,8 @@ public class MobSpawner : MonoBehaviour
 
     public void Spawn(MobData data, Transform parent, Vector2 pos)
     {
-        GameObject obj = Instantiate(mobPrefab, parent, true);
+        GameObject prefab = data.mobPrefab != null ? data.mobPrefab : mobPrefab;
+        GameObject obj = Instantiate(prefab, parent, true);
         obj.transform.position = pos;
         obj.name = data.name;
 
