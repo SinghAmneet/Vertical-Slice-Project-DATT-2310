@@ -16,17 +16,17 @@ public class BeatScroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!hasStarted)
-        {
-            if (Input.anyKeyDown)
-            {
-                hasStarted = true;
-            }
-            else
-            {
+        // if (!hasStarted)
+        // {
+        //     if (Input.anyKeyDown)
+        //     {
+        //         hasStarted = true;
+        //     }
+        //     else
+        //     {
 
-            }
-        }
+        //     }
+        // }
 
         transform.position -= new Vector3(0f, bpmTempo * Time.deltaTime, 0f);
     }

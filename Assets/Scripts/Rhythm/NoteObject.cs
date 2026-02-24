@@ -6,6 +6,8 @@ public class NoteObject : MonoBehaviour
 {
     public bool canBePressed;
     public KeyCode keyPress;
+    public GameObject lateEffect, goodEffect, perfectEffect, missEffect;
+
     void Start()
     {
         
@@ -19,6 +21,27 @@ public class NoteObject : MonoBehaviour
             if (canBePressed)
             {
                 gameObject.SetActive(false);
+
+                //GameManager.instance.NoteHit();
+
+                if(transform.position.y > -2.5f || transform.position.y < -3.4f)
+                {
+                    Debug.Log("Late");
+                    GameManager.instance.LateHit();
+                    Instantiate(lateEffect, transform.position, lateEffect.transform.rotation);
+                } 
+                else if(transform.position.y > -2.75f || transform.position.y < -3.25f)
+                {
+                    Debug.Log("Good");
+                    GameManager.instance.GoodHit();
+                    Instantiate(goodEffect, transform.position, goodEffect.transform.rotation);
+                }
+                else if(transform.position.y > -2.95f || transform.position.y < -3.05f)
+                {
+                    Debug.Log("Perfect");
+                    GameManager.instance.PerfectHit();
+                    Instantiate(perfectEffect, transform.position, perfectEffect.transform.rotation);
+                }
             }
         }
     }
@@ -31,11 +54,17 @@ public class NoteObject : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if(other.tag == "Activator")
+        if (gameObject.activeInHierarchy)
         {
-            canBePressed = false;
+            if (collision.tag == "Activator")
+            {
+                canBePressed = false;
+
+                GameManager.instance.NoteMiss();
+                Instantiate(missEffect, transform.position, missEffect.transform.rotation);
+            }
         }
     }
 }
