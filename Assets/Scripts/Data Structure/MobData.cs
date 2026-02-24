@@ -1,4 +1,3 @@
-using UnityEditor.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="Mob")]
@@ -9,17 +8,17 @@ public class MobData : ScriptableObject
     public GameObject mobPrefab;
 
     [Header("Food Drop")]
-    public int dropAmount = 1; // amount to drop
-    public FoodData[] foodDrops; // the foods the mob can drop
+    public int dropAmount = 1;
+    public FoodData[] foodDrops;
 
     [Header("Combat")]
     public float maxHp;
-    public float damage; // how much hp the mob will deal each attack
-    public float attackCooldown; // time before the mob can attack again after an attack
+    public float damage;
+    public float attackCooldown;
 
     [Header("Ranges")]
-    public float chaseRange; // if the player is out of this range, the mob will stop chasing
-    public int attackRange; // when the player is within this range the mob will stop and attack
+    public float chaseRange;
+    public int attackRange;
 
     [Tooltip("the radius of the attack hitbox from the mob's attack point")]
     public float hitboxRadius = 0.5f;
