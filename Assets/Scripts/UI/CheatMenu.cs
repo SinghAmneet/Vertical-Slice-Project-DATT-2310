@@ -5,10 +5,15 @@ public class CheatMenu : MonoBehaviour
 {
     public GameObject plr;
     public DayCycle dayCycle;
+
+    public FoodData[] items;
+    public MobData[] mobs;
+
     private ItemSpawner itemSpawner;
     private MobSpawner mobSpawner;
 
     private CharacterController2D charController;
+    private Health health;
 
     private Image menu;
 
@@ -19,18 +24,34 @@ public class CheatMenu : MonoBehaviour
         itemSpawner = GetComponent<ItemSpawner>();
         charController = plr.GetComponent<CharacterController2D>();
         mobSpawner = GetComponent<MobSpawner>();
+        health = plr.GetComponent<Health>();
         menu = GetComponent<Image>();
         Toggle(false);
     }
 
-    public void SetSpeed(int speed)
+    public void SetSpeed(float speed)
     {
         charController.SetSpeed(speed);
     }
 
-    public void SetTime(int time)
+    public void SetTime(float time)
     {
-        dayCycle.SetTime(time);
+        dayCycle.SetTime((int) time);
+    }
+
+    public void ToggleInvulnerable(bool invulnerable)
+    {
+        health.SetInvulnerable(invulnerable);
+    }
+
+    public void SpawnItem()
+    {
+        itemSpawner.SpawnRandom(items, null, plr.transform.position);
+    }
+
+    public void SpawnMob()
+    {
+        mobSpawner.Spawn(mobs[Random.Range(0, mobs.Length)], null, plr.transform.position + Vector3.up * 5);
     }
 
     private void Toggle()
@@ -53,7 +74,7 @@ public class CheatMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             Toggle();
         }

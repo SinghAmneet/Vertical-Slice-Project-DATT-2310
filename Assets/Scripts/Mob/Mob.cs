@@ -18,8 +18,6 @@ public class Mob : MonoBehaviour
     public int homeRadius; // the radius around the home point which the mob will roam around
     private Vector2 targetPos; // target position while in roam state
 
-    public Transform attackPoint;
-
     private float idleTimer;
     public float maxIdleTime; // max time for standing still
 
@@ -47,7 +45,10 @@ public class Mob : MonoBehaviour
         homePoint = transform.position;
 
         if (data != null) SetData(data);
+    }
 
+    private void Start()
+    {
         SetHomePoint(transform.position);
         StartRoam();
     }
@@ -56,10 +57,13 @@ public class Mob : MonoBehaviour
     {
         this.data = data;
         health.SetMaxHealth(data.maxHp);
-        combat.Setup(attackPoint, data.hitboxRadius, data.attackCooldown);
+        combat.Setup(data.hitboxRadius, data.attackCooldown);
 
         health.OnDeath += Die; // call Die() method when health is 0
         health.OnDamage += TakeDamage; // when mob takes damage
+
+        movement.speed = data.speed;
+        spriteRender.sprite = data.sprite;
     }
 
     public void SetHomePoint(Vector3 pos)
@@ -111,7 +115,7 @@ public class Mob : MonoBehaviour
     private void ReturnHome()
     {
         // reached home point
-        if (GetDistFromPos(homePoint) < 1) StartIdle();
+        if (GetDistFromPos(homePoint) < 5) StartIdle();
     }
 
     private void StartIdle()
@@ -145,7 +149,7 @@ public class Mob : MonoBehaviour
     private void Roam()
     {
         // reached target roam position
-        if (GetDistFromPos(targetPos) < 1) StartIdle();
+        if (GetDistFromPos(targetPos) < 5) StartIdle();
     }
 
     private void ChasePlayer()
@@ -216,9 +220,13 @@ public class Mob : MonoBehaviour
     {
         // drop mob food
         ItemSpawner itemSpawner = GetComponent<ItemSpawner>();
-        itemSpawner.SpawnRandom(data.foodDrops, null, transform.position);
-        
-        //food.transform.localScale = itemPrefab.transform.localScale;
+        if (data.dropAmount > 1)
+        {
+            itemSpawner.SpawnRadius(data.foodDrops, null, transform.position, data.dropAmount, 5);
+        } else
+        {
+            itemSpawner.SpawnRandom(data.foodDrops, null, transform.position);
+        }
 
         state = MobState.Dead;
         movement.SetMotionless();

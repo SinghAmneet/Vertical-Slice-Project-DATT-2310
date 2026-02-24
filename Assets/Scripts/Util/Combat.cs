@@ -10,9 +10,8 @@ public class Combat : MonoBehaviour
 
     public LayerMask filterLayer;
 
-    public void Setup(Transform attackPoint, float hitboxRadius, float cooldown)
+    public void Setup(float hitboxRadius, float cooldown)
     {
-        this.attackPoint = attackPoint;
         this.hitboxRadius = hitboxRadius;
         this.cooldown = cooldown;
     }
@@ -40,7 +39,7 @@ public class Combat : MonoBehaviour
                 // note: hitboxes will usually be its own separate object under the character
                 GameObject character = hit.transform.parent.gameObject;
                 character.GetComponent<Health>().Deplete(damage);
-                Debug.Log($"did {damage} to {character.name}");
+                Debug.Log($"did {damage} to {character.name} who has {character.GetComponent<Health>().GetHealth()} hp left");
             }
 
             return true;

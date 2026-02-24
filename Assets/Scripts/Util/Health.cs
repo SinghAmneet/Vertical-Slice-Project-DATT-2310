@@ -10,15 +10,17 @@ public class Health : MonoBehaviour
     public event Action OnDeath; // death event when health reaches 0
     public event Action OnDamage; // when character takes damage
 
+    private bool invulnerable = false;
+
     private void Awake()
     {
-        Setup();
+        if (maxHealth != 0) Setup();
     }
 
     private void Setup()
     {
         health = maxHealth;
-        if (healthUI != null) healthUI.Setup(Mathf.CeilToInt(maxHealth));
+        healthUI?.Setup(Mathf.CeilToInt(maxHealth));
     }
 
     public void SetMaxHealth(float maxHealth)
@@ -27,10 +29,21 @@ public class Health : MonoBehaviour
         Setup();
     }
 
+    public void SetInvulnerable(bool invulnerable)
+    {
+        this.invulnerable = invulnerable;
+    }
+
+    public float GetHealth()
+    {
+        return health;
+    }
+
     private void UpdateHealth(float newHp)
     {
+        if (invulnerable) return;
         health = Mathf.Clamp(newHp, 0, maxHealth);
-        if (healthUI != null) healthUI.UpdateHearts(health); // update UI
+        healthUI?.UpdateHearts(health); // update UI
     }
 
     // add to hp
@@ -50,6 +63,6 @@ public class Health : MonoBehaviour
     public void Die()
     {
         OnDeath?.Invoke(); // call death event
-        Debug.Log(gameObject.name + " has died!!!!!");
+        //Debug.Log(gameObject.name + " has died!!!!!");
     }
 }
