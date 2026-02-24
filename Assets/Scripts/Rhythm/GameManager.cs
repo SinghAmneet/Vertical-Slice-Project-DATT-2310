@@ -41,40 +41,37 @@ public class GameManager : MonoBehaviour
         currentMultiplier = 1;
 
         totalNotes = FindObjectsOfType<NoteObject>().Length;
+
+        startPlaying = true;
+        bs.hasStarted = true;
+        music.Play();
     }
 
     void Update()
     {
-        if (!startPlaying)
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (Input.anyKeyDown)
-            {
-                startPlaying = true;
-                bs.hasStarted = true;
-                music.Play();
-            }
-            else
-            {
-                if(!music.isPlaying && !resultsScreen.activeInHierarchy)
-                {
-                    resultsScreen.SetActive(false);
-                    lateText.text = lateHits.ToString();
-                    goodText.text = goodHits.ToString();
-                    perfectText.text = perfectHits.ToString();
-                    missedText.text = missedHits.ToString();
+            music.Stop();
+        }
 
-                    float totalHit = lateHits + goodHits + perfectHits;
-                    float percentage = (totalHit/totalNotes) * 100f;
+        if (!music.isPlaying && !resultsScreen.activeInHierarchy)
+        {
+            resultsScreen.SetActive(true);
+            lateText.text = lateHits.ToString();
+            goodText.text = goodHits.ToString();
+            perfectText.text = perfectHits.ToString();
+            missedText.text = missedHits.ToString();
 
-                    percentHitText.text = percentage.ToString("F1") + "%";
-                }
-            }
+            float totalHit = lateHits + goodHits + perfectHits;
+            float percentage = (totalHit / totalNotes) * 100f;
+
+            percentHitText.text = percentage.ToString("F1") + "%";
         }
     }
 
     public void NoteHit()
     {
-        Debug.Log("Hit on time");
+        //Debug.Log("Hit on time");
 
         if(currentMultiplier-1 < multiplierThresholds.Length)
         {

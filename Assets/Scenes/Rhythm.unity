@@ -308,7 +308,7 @@ MonoBehaviour:
   perfectHits: 0
   missedHits: 0
   resultsScreen: {fileID: 259881603}
-  percentHitText: {fileID: 493202807}
+  percentHitText: {fileID: 1165900211}
   lateText: {fileID: 1869482498}
   goodText: {fileID: 1675384012}
   perfectText: {fileID: 493202807}
