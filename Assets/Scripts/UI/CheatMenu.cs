@@ -1,5 +1,6 @@
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheatMenu : MonoBehaviour
 {
@@ -77,6 +78,11 @@ public class CheatMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             Toggle();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

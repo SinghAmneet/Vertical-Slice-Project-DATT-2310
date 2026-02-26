@@ -25,7 +25,7 @@ public class ItemSpawner : MonoBehaviour
     }
 
     // spawn in a random point in the radius
-    public void SpawnRadius(ItemData[] dataList, Transform parent, Vector2 pos, int dropAmount, float radius)
+    public void SpawnRandom(ItemData[] dataList, Transform parent, Vector2 pos, int dropAmount, float radius)
     {
         for (int i = 0; i < dropAmount; i++)
         {

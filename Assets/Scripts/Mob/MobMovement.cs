@@ -3,7 +3,7 @@ using UnityEngine;
 public class MobMovement : MonoBehaviour
 {
     public float speed;
-    private Vector2 motionVector = Vector2.zero;
+    private Vector2 motionVector;
     private Rigidbody2D rigidBody;
     private Animator animator;
 
@@ -17,19 +17,24 @@ public class MobMovement : MonoBehaviour
     public void SetMotionVector(Vector3 pos)
     {
         motionVector = (pos - transform.position).normalized;
-        if (animator != null) animator.SetBool("isRunning", true);
+        animator.SetBool("isRunning", true);
     }
 
     public void SetMotionless()
     {
         motionVector = Vector2.zero;
-        if (animator != null) animator.SetBool("isRunning", false);
+        animator.SetBool("isRunning", false);
     }
 
     // set direction mob is facing
     public void SetDirection()
     {
-
+        if (motionVector.x != 0)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = motionVector.x > 0 ? -1 : 1;
+            transform.localScale = scale;
+        }
     }
 
     // set velocity

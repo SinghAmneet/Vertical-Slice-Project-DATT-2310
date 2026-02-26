@@ -19,7 +19,7 @@ TagManager:
   - Mobs
   - Static
   - Player Hitbox
-  - 
+  - Mob Hitbox
   - 
   - 
   - 
@@ -56,6 +56,9 @@ TagManager:
     locked: 0
   - name: Behind Player
     uniqueID: 4219482155
+    locked: 0
+  - name: Mobs
+    uniqueID: 1173361847
     locked: 0
   - name: Player
     uniqueID: 571289579

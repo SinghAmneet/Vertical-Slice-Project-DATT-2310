@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        GetComponent<ItemSpawner>().SpawnRadius(
+        GetComponent<ItemSpawner>().SpawnRandom(
             itemDataList, 
             transform.parent.transform, 
             transform.position, 

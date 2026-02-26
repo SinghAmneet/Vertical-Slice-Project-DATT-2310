@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 // Enums for food stats
 public enum Stats

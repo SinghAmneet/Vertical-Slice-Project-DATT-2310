@@ -56,8 +56,7 @@ public class Health : MonoBehaviour
     public void Deplete(float hp)
     {
         UpdateHealth(health - hp);
-        OnDamage?.Invoke();
-        if (health == 0) Die();
+        if (health == 0) { Die(); } else { OnDamage?.Invoke(); }
     }
 
     public void Die()

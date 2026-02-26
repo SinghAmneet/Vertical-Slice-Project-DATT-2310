@@ -77,30 +77,29 @@ public class CharacterController2D : MonoBehaviour
         // When player is standing, pressing "Space" bar trigers idle combat animation
         if (Input.GetKeyDown(KeyCode.Space) && motionVector == Vector2.zero && !isCombatBusy)
         {
-            //animator.SetTrigger("combatIdleMovement");
-
             Attack("combatIdleMovement");
         }
 
         // When player is moving and press "Space" bar trigers moving combat animation.
         if (Input.GetKeyDown(KeyCode.Space) && motionVector != Vector2.zero && !isCombatMovementBusy)
         {
-            //animator.SetTrigger("combatMovement");
             Attack("combatMovement");
         }
 
     }
 
-    // temporary
+    // play attack animation
     private void Attack(string triggerName)
     {
-        bool success = combat.Attack(1f);
-        if (success)
+        // if not on attack cooldown
+        if (combat.CanAttack())
         {
             animator.SetTrigger(triggerName);
+            combat.Attack();
         }
     }
 
+    // set speed for the cheat menu
     public void SetSpeed(float speed)
     {
         this.speed = speed;

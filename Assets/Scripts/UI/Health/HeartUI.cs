@@ -9,6 +9,11 @@ public class HeartUI : MonoBehaviour
         barTransform.localScale = Vector3.one;
     }
 
+    private void Start()
+    {
+        transform.localScale = Vector3.one;
+    }
+
     public void UpdateProgress(float progress)
     {
         if (barTransform.localScale.x == progress) return;
