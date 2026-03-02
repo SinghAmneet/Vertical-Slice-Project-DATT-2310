@@ -1,4 +1,6 @@
 
+using UnityEngine;
+
 public class StateMachine
 {
     public State currentState;

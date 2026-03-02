@@ -102,6 +102,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &3095653835099725354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3700197483604148321}
+  m_Layer: 7
+  m_Name: RootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3700197483604148321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095653835099725354}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2366205692522313500}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3836407658604514205
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +474,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -7552582706839291426, guid: a8f256eaab1e8454d8acb129d4643d5a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6259598038361165311}
+    - targetCorrespondingSourceObject: {fileID: -7552582706839291426, guid: a8f256eaab1e8454d8acb129d4643d5a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3700197483604148321}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: a8f256eaab1e8454d8acb129d4643d5a, type: 3}
       insertIndex: -1
@@ -590,6 +624,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   homeRadius: 20
+  rootPoint: {fileID: 3700197483604148321}
+  itemDropRadius: 5
   maxIdleTime: 5
   plr: {fileID: 0}
   data: {fileID: 0}
@@ -635,6 +671,7 @@ MonoBehaviour:
   cooldown: 0
   attackPoint: {fileID: 6259598038361165311}
   hitboxRadius: 0
+  damage: 0
   filterLayer:
     serializedVersion: 2
     m_Bits: 512

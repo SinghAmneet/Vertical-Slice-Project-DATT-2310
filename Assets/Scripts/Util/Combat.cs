@@ -19,6 +19,11 @@ public class Combat : MonoBehaviour
         this.damage = damage;   
     }
 
+    public float GetDistFromPoint()
+    {
+        return Vector2.Distance(transform.position, attackPoint.position);
+    }
+
     // if animation not playing, and if attacking for the first time, or time after attacking is more than the cooldown
     public bool CanAttack()
     {
@@ -37,6 +42,7 @@ public class Combat : MonoBehaviour
         lastAttacked = Time.time;
         playingAttackAnimation = false;
     }
+
 
     public void RegisterHits(float damage)
     {
