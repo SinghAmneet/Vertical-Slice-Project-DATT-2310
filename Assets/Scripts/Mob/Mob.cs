@@ -176,6 +176,7 @@ public class Mob : MonoBehaviour
     // subscribed to OnDamage event
     private void TakeDamage()
     {
+        if (attack.IsAttacking()) return;
         animator.SetTrigger("Hurt");
     }
 
@@ -202,11 +203,11 @@ public class Mob : MonoBehaviour
         ItemSpawner itemSpawner = GetComponent<ItemSpawner>();
         if (data.dropAmount > 1)
         {
-            itemSpawner.SpawnRandom(data.foodDrops, null, transform.position, data.dropAmount, itemDropRadius);
+            itemSpawner.SpawnRandom(data.foodDrops, null, rootPoint.position, data.dropAmount, itemDropRadius);
         }
         else
         {
-            itemSpawner.SpawnRandom(data.foodDrops, null, transform.position);
+            itemSpawner.SpawnRandom(data.foodDrops, null, rootPoint.position);
         }
     }
 
@@ -223,6 +224,7 @@ public class Mob : MonoBehaviour
         Gizmos.DrawWireSphere(rootPoint.position, data.chaseRange);
 
         // draw attack range
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(rootPoint.position, data.attackRange);
 
         Gizmos.color = Color.yellow;

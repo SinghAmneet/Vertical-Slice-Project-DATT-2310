@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 public class Attack : State
 {
@@ -15,18 +16,21 @@ public class Attack : State
 
     private void StartAttack()
     {
+        Debug.Log("Start");
         playingAnim = true;
         mob.PlayAttackAnimation();
     }
 
     public void StartCooldown()
     {
+        Debug.Log("cd");
         playingAnim = false;
         cooldownTimer = mob.data.attackCooldown;
     }
 
     public void EndAttack() 
     {
+        Debug.Log("End");
         cooldownTimer = null;
         if (mob.PlrInAttackRange())
         {
@@ -35,6 +39,11 @@ public class Attack : State
         {
             stateMachine.ChangeState(mob.chase);
         }
+    }
+
+    public bool IsAttacking()
+    {
+        return playingAnim;
     }
 
     public override void Exit()

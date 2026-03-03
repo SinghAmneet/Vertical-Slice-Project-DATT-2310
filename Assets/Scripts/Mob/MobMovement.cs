@@ -32,7 +32,7 @@ public class MobMovement : MonoBehaviour
         if (motionVector.x != 0)
         {
             Vector3 scale = transform.localScale;
-            scale.x = motionVector.x > 0 ? -1 : 1;
+            scale.x = motionVector.x > 0 ? -scale.y : scale.y; // y value never changes
             transform.localScale = scale;
         }
     }
