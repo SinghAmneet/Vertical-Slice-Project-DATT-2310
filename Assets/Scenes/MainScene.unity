@@ -509581,7 +509581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7853352237713670585, guid: 8ee7dc32379e4c34da300dbd1e693909, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9042617879618601076, guid: 8ee7dc32379e4c34da300dbd1e693909, type: 3}
       propertyPath: m_LocalPosition.x
@@ -512205,7 +512205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8027202900658588695, guid: a7606a4129d1ed344bb408052552f7b3, type: 3}
       propertyPath: speed
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 537902309072035429, guid: a7606a4129d1ed344bb408052552f7b3, type: 3}
       propertyPath: healthUI
