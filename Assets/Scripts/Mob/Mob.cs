@@ -176,6 +176,7 @@ public class Mob : MonoBehaviour
     // subscribed to OnDamage event
     private void TakeDamage()
     {
+        if (attack.IsAttacking()) return;
         animator.SetTrigger("Hurt");
     }
 
@@ -223,6 +224,7 @@ public class Mob : MonoBehaviour
         Gizmos.DrawWireSphere(rootPoint.position, data.chaseRange);
 
         // draw attack range
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(rootPoint.position, data.attackRange);
 
         Gizmos.color = Color.yellow;
