@@ -202,11 +202,11 @@ public class Mob : MonoBehaviour
         ItemSpawner itemSpawner = GetComponent<ItemSpawner>();
         if (data.dropAmount > 1)
         {
-            itemSpawner.SpawnRandom(data.foodDrops, null, transform.position, data.dropAmount, itemDropRadius);
+            itemSpawner.SpawnRandom(data.foodDrops, null, rootPoint.position, data.dropAmount, itemDropRadius);
         }
         else
         {
-            itemSpawner.SpawnRandom(data.foodDrops, null, transform.position);
+            itemSpawner.SpawnRandom(data.foodDrops, null, rootPoint.position);
         }
     }
 

@@ -1788,7 +1788,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2976860398964954929, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: hitboxRadius
-      value: 4
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2575826130621828451, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
+      propertyPath: m_Radius
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 747402500003605815, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_Controller
@@ -1797,6 +1801,18 @@ PrefabInstance:
     - target: {fileID: 935854594700982789, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_LocalPosition.y
       value: 5.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366205692522313500, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366205692522313500, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366205692522313500, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2366205692522313500, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1865,6 +1881,10 @@ PrefabInstance:
     - target: {fileID: 7345684035802447671, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 12.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 7500798190483375776, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
+      propertyPath: itemDropRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
