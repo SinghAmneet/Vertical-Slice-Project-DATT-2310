@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// NOT IN USE ANYMORE
+// Used it for when I am manually placing notes on screen.
 [System.Serializable]
 public class NoteData
 {

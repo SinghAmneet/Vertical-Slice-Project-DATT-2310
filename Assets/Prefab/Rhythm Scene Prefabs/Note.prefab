@@ -215,6 +215,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitTime: 0
-  approachDuration: 1.5
+  approachDuration: 1
+  previewLead: 0.6
+  noPreviewForFirstSeconds: 1
+  forceStartActive: 0
   hitCircle: {fileID: 8663804586275913290}
   approachCircle: {fileID: 203146240707998551}
+  hitRenderer: {fileID: 1633136255543714185}
+  approachRenderer: {fileID: 3251663504530356245}

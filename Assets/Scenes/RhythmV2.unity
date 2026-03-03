@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27db16af54f54cfb9195666b5459295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1096883881}
+  audioSource: {fileID: 895150944}
   songOffset: 0
   bpm: 111
 --- !u!4 &1777187
@@ -383,7 +383,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songController: {fileID: 1777186}
   hitRadius: 0.5
---- !u!1 &987975647
+  perfectThreshold: 0.9
+  goodThreshold: 0.7
+  missWindow: 0.15
+--- !u!1 &895150943
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -391,83 +394,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 987975648}
-  - component: {fileID: 987975649}
+  - component: {fileID: 895150945}
+  - component: {fileID: 895150944}
   m_Layer: 0
-  m_Name: NoteSpawner
+  m_Name: music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &987975648
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 987975647}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &987975649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 987975647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8f5b2879368548bd88ca4b3e1580238, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notePrefab: {fileID: 6472058285600460027, guid: 6ebdabd06714d41ffa99705489b10c0c, type: 3}
-  notesParent: {fileID: 551470843}
-  chart:
-  - hitTime: 2
-    position: {x: 0, y: 0}
-  - hitTime: 3
-    position: {x: -3, y: 1}
-  - hitTime: 4
-    position: {x: 3, y: -1}
-  - hitTime: 5
-    position: {x: 5, y: -3}
-  - hitTime: 6
-    position: {x: -5, y: 3}
---- !u!1 &1096883880
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1096883882}
-  - component: {fileID: 1096883881}
-  m_Layer: 0
-  m_Name: Rhythm-Game-Music
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &1096883881
+--- !u!82 &895150944
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096883880}
+  m_GameObject: {fileID: 895150943}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 66c30300ad4364df68d7a85a753bead2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 79c582841b5b54cacb26b3a2efcf1b50, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -553,13 +499,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &1096883882
+--- !u!4 &895150945
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096883880}
+  m_GameObject: {fileID: 895150943}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -568,6 +514,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &987975647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 987975648}
+  - component: {fileID: 987975649}
+  m_Layer: 0
+  m_Name: NoteSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &987975648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987975647}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &987975649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987975647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f5b2879368548bd88ca4b3e1580238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notePrefab: {fileID: 6472058285600460027, guid: 6ebdabd06714d41ffa99705489b10c0c, type: 3}
+  notesParent: {fileID: 551470843}
+  songController: {fileID: 1777186}
+  useManualChart: 0
+  chart:
+  - hitTime: 2
+    position: {x: 0, y: 0}
+  - hitTime: 3
+    position: {x: -3, y: 1}
+  - hitTime: 4
+    position: {x: 3, y: -1}
+  - hitTime: 5
+    position: {x: 5, y: -3}
+  - hitTime: 6
+    position: {x: -5, y: 3}
+  approachDuration: 1
+  previewLead: 0.6
+  spawnBeatStride: 2
+  songLength: 64
+  endHitCutoffSeconds: 0.5
+  startingBeatIndex: 1
+  missWindow: 0.15
 --- !u!1 &1884010015
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,4 +621,4 @@ SceneRoots:
   - {fileID: 987975648}
   - {fileID: 551470843}
   - {fileID: 1884010016}
-  - {fileID: 1096883882}
+  - {fileID: 895150945}
