@@ -7,6 +7,9 @@ public class Mob : MonoBehaviour
     public int homeRadius; // the radius around the home point which the mob will roam around
     private Vector2 targetPos; // target position while in roam state
 
+    public Transform rootPoint;
+    private Vector3 offset;
+
     public float itemDropRadius = 5;
 
     private float idleTimer;
@@ -38,6 +41,8 @@ public class Mob : MonoBehaviour
         health = GetComponent<Health>();
         combat = GetComponent<Combat>();
         movement = GetComponent<MobMovement>();
+
+        offset = rootPoint.position - transform.position;
 
         if (data != null) SetData(data);
         SetStates();
@@ -215,10 +220,10 @@ public class Mob : MonoBehaviour
 
         // draw chase range
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, data.chaseRange);
+        Gizmos.DrawWireSphere(rootPoint.position, data.chaseRange);
 
         // draw attack range
-        Gizmos.DrawWireSphere(transform.position, data.attackRange);
+        Gizmos.DrawWireSphere(rootPoint.position, data.attackRange);
 
         Gizmos.color = Color.yellow;
         if (stateMachine.currentState is Chase)
