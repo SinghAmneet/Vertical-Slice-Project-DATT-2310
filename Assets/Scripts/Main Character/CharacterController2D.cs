@@ -68,21 +68,22 @@ public class CharacterController2D : MonoBehaviour
 
 
         // When player is standing, pressing 'E' triggers pickup animation.
-        if (Input.GetKeyDown(KeyCode.E) && motionVector == Vector2.zero && !isPickUpBusy)
+        if (Input.GetButtonDown("Pickup") && motionVector == Vector2.zero && !isPickUpBusy)
         {
             animator.SetTrigger("pickUpMovement");
             pickup?.Take();
         }
 
         // When player is standing, pressing "Space" bar trigers idle combat animation
-        if (Input.GetKeyDown(KeyCode.Space) && motionVector == Vector2.zero && !isCombatBusy)
+        if (Input.GetButtonDown("Attack") && motionVector == Vector2.zero && !isCombatBusy)
         {
             Attack("combatIdleMovement");
         }
 
         // When player is moving and press "Space" bar trigers moving combat animation.
-        if (Input.GetKeyDown(KeyCode.Space) && motionVector != Vector2.zero && !isCombatMovementBusy)
+        if (Input.GetButtonDown("Attack") && motionVector != Vector2.zero && !isCombatMovementBusy)
         {
+            Debug.Log("attack");
             Attack("combatMovement");
         }
 
