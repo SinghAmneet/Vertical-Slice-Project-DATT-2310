@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject mainMenu;
+    public GameObject credits;
+
+    public void goToIntro()
     {
-        
+        SceneManager.LoadScene("IntroDialogue");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void toggleCredits()
     {
-        
+        bool show  = !credits.activeSelf;
+        credits.SetActive(show);
+        mainMenu.SetActive(!show);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

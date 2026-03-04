@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class DialogueChoice : MonoBehaviour
+public class DialogueChoiceUI : MonoBehaviour
 {
     private int indexOption;
     private Dialogue dialogue;

@@ -1,21 +1,22 @@
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
+using UnityEngine.SceneManagement;
+using System.Text;
 
 public enum DialogueState
 {
+    Start,
     Typewriting,
     Waiting,
+    Skipping,
+    Paused,
     Choosing,
 }
 
 public class Dialogue : MonoBehaviour
 {
-    [TextArea]
-    public string tempDialogue;
-
-    public string[] options;
+    public DialogueTree startingDialogueTree;
+    private DialogueTree currentTree;
 
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI nameText;
@@ -23,19 +24,34 @@ public class Dialogue : MonoBehaviour
     public GameObject continueText;
     public GameObject choicePrefab;
 
-    public float typewriteRate = 0.1f;
+    public float typewriteRate = 0.1f; // write one letter per the provided rate
+    private float currentRate;
     private float accum;
 
+    private int dialogueIndex;
     private int letterIndex;
     private string currentLine;
-    private string displayedText;
+    private StringBuilder displayedText = new();
 
     private DialogueState state;
+
+    private DialogueModifier[] modifiers = new DialogueModifier[2];
+    private char modifierStart = '[';
+    private char modifierEnd = ']';
+    private char valueChar = ':';
+
+    private void Awake()
+    {
+        modifiers[0] = new PauseModifier(this);
+        modifiers[1] = new RateModifier(this);
+    }
 
     private void Start()
     {
         ClearDisplay();
-        state = DialogueState.Waiting;
+        currentTree = startingDialogueTree;
+        currentRate = typewriteRate;
+        NextDialogueLine();
     }
 
     private void Update()
@@ -43,63 +59,164 @@ public class Dialogue : MonoBehaviour
         switch(state)
         {
             case DialogueState.Typewriting:
-                if (Input.GetKeyDown(KeyCode.Space)) TypewriteSkip();
+                if (Input.GetKeyDown(KeyCode.Space)) SkipTypewrite();
                     Typewrite();
                 break;
             case DialogueState.Waiting:
-                if (Input.GetKeyDown(KeyCode.Space)) StartTypewrite("Demon king");
+                if (Input.GetKeyDown(KeyCode.Space)) NextDialogueLine();
+                break;
+            case DialogueState.Paused:
+                if (Input.GetKeyDown(KeyCode.Space)) Resume();
                 break;
             case DialogueState.Choosing:
                 break;
         }
     }
 
+    public void SetRate(float rate)
+    {
+        currentRate = rate;
+    }
+
     private void DisplayText(string text)
     {
         dialogueText.text = text;
-        displayedText = text;
     }
 
     private void ClearDisplay()
     {
         nameText.text = "";
         DisplayText("");
+        displayedText.Clear();
     }
 
-    private void StartTypewrite(string name)
+    // go to next dialogue line in the dialogue tree
+    private void NextDialogueLine()
     {
         ClearDisplay();
+
+        DialogueData data = currentTree.dialogueLines[dialogueIndex];
+        currentLine = data.dialogue;
+        nameText.text = data.speaker.ToString();
+        dialogueIndex++;
+
+        StartTypewrite();
+    }
+
+    // write a letter to the text box per rate
+    private void Typewrite()
+    {
+        accum += Time.deltaTime;
+        if (accum > currentRate)
+        {
+            accum = 0;
+            displayedText.Append(currentLine[letterIndex]);
+            DisplayText(displayedText.ToString());
+
+            letterIndex++;
+
+            if (letterIndex >= currentLine.Length)
+            {
+                EndTypewrite();
+            } else
+            {
+                ApplyModifier(currentLine[letterIndex]);
+            }
+        }
+    }
+
+    // apply dialogue modifier
+    private void ApplyModifier(char letter)
+    {
+        // if next letter is not the start of a modifier tag
+        if (!letter.Equals(modifierStart)) return;
+
+        // get the end of the modifier tag
+        int endIndex = currentLine.IndexOf(modifierEnd, letterIndex);
+
+        // get modifier name
+        string tagName = currentLine.Substring(letterIndex + 1, endIndex - (letterIndex + 1));
+        int valueIndex = tagName.IndexOf(valueChar); // get modifier value
+        string value;
+        
+        letterIndex = endIndex + 1;
+        
+        // if value was not found
+        if (valueIndex < 0)
+        {
+            value = "";
+        } else
+        {
+            value = tagName.Substring(valueIndex + 1);
+            tagName = tagName.Substring(0, valueIndex);
+        }
+        
+        // find the modifier and apply
+        foreach (DialogueModifier mod in modifiers)
+        {
+            if (mod.Equals(tagName))
+            {
+                mod.ApplyModifier(value);
+                break;
+            }
+        }
+    }
+
+    // set up typewriting
+    private void StartTypewrite()
+    {
         continueText.SetActive(false);
+
+        SetRate(typewriteRate);
         letterIndex = 0;
-        currentLine = tempDialogue;
-        nameText.text = name;
         state = DialogueState.Typewriting;
     }
 
-    private void TypewriteSkip()
+    // write the entire current dialogue instantly
+    private void SkipTypewrite()
     {
-        DisplayText(currentLine);
-        EndTypewrite();
+        SetRate(0);
     }
 
+    // stop type writing
     private void EndTypewrite()
     {
-        //state = DialogueState.Waiting;
-        //continueText.SetActive(true);
-        StartChoosing(options);
+        // if reached end of dialogue lines
+        if (dialogueIndex >= currentTree.dialogueLines.Length)
+        {
+            StartChoosing();
+        } else
+        {
+            continueText.SetActive(true);
+            state = DialogueState.Waiting;
+        }
     }
 
-    private void StartChoosing(string[] options)
+    public void Pause()
+    {
+        continueText.SetActive(true);
+        state = DialogueState.Paused;
+    }
+
+    private void Resume()
+    {
+        continueText.SetActive(false);
+        state = DialogueState.Typewriting;
+    }
+
+    // create option objects
+    private void StartChoosing()
     {
         DestroyOptions();
-        for (int i = 0; i < options.Length; i++)
+        for (int i = 0; i < currentTree.endChoices.Length; i++)
         {
             GameObject choice = Instantiate(choicePrefab, choiceBox);
-            choice.GetComponent<DialogueChoice>().SetText(i, options[i], GetComponent<Dialogue>());
+            choice.GetComponent<DialogueChoiceUI>().SetText(i, currentTree.endChoices[i].choiceDialogue, this);
         }
         state = DialogueState.Choosing;
     }
 
+    // destroy all option objects
     private void DestroyOptions()
     {
         for (int i = choiceBox.childCount - 1; i >= 0; i--)
@@ -108,26 +225,26 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    // choose the clicked option depending on its index
     public void ChooseOption(int index)
     {
         DestroyOptions();
-        Debug.Log("chose: " + options[index]);
-        StartTypewrite("You");
+        DialogueChoice data = currentTree.endChoices[index];
+        currentTree = data.choiceDialogueTree;
+
+        if (data.choiceAction != null)
+        {
+            data.choiceAction.StartAction();
+            if (data.choiceAction is LoadSceneDialogueAction) return;
+        }
+
+        dialogueIndex = 0;
+        NextDialogueLine();
     }
 
-    private void Typewrite()
+    public void goToGame()
     {
-        accum += Time.deltaTime;
-        if (accum > typewriteRate)
-        {
-            accum = 0;
-            char letter = currentLine[letterIndex];
-            DisplayText(displayedText + letter);
-
-            letterIndex++;
-
-            if (letterIndex + 1 >= currentLine.Length) EndTypewrite();
-        }
+        SceneManager.LoadScene("MainScene");
     }
 
 }
