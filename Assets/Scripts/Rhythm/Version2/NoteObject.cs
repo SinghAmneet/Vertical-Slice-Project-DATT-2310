@@ -149,4 +149,9 @@ public class NoteObject : MonoBehaviour
         judged = true;
         Destroy(gameObject);
     }
+
+    public bool IsActiveState()
+    {
+        return state == VisualState.Active;
+    }
 }

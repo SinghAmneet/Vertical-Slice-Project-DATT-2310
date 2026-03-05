@@ -14,27 +14,35 @@ public class NoteSpawner : MonoBehaviour
     public List<NoteData> chart = new List<NoteData>();
 
     [Header("Timing")]
-    public float approachDuration = 1.0f;
+    public float approachDuration = 0.8f;
     public float previewLead = 0.6f;
     public int spawnBeatStride = 2;
-    public double songLength = 64.0;    // The length of the song. After 64 sec, the notes stop spawning
+    public double songLength = 63.6;
 
     [Header("End Behavior")]
-    public double endHitCutoffSeconds = 0.0; 
+    public double endHitCutoffSeconds = 0.5;
 
     [Header("Start Behavior")]
-    public int startingBeatIndex = 1;      
-    public double missWindow = 0.15;      
+    public int startingBeatIndex = 1;
+    public double missWindow = 0.15;
+
+    [Header("Guide Line")]
+    public PathLineManager pathLine;
+
+    [Header("Spawn Spacing")]
+    public float minDistanceFromLastNote = 1.2f;
+    public float minDistanceFromAnyNote = 0.9f;
+    public int maxSpawnAttempts = 25;
 
     private double secondsPerBeat;
     private int nextBeatIndex;
     private int manualChartIndex = 0;
 
     private bool firstNoteSpawned = false;
+    private NoteObject lastSpawnedNote;
 
     void Start()
     {
-        // 
         if (songController == null)
         {
             Debug.LogError("NoteSpawner: songController not assigned.");
@@ -43,9 +51,10 @@ public class NoteSpawner : MonoBehaviour
         }
 
         secondsPerBeat = songController.GetSecondsPerBeat();
+
         chart.Sort((a, b) => a.hitTime.CompareTo(b.hitTime));
 
-        nextBeatIndex = Mathf.Max(1, startingBeatIndex); 
+        nextBeatIndex = Mathf.Max(1, startingBeatIndex);
     }
 
     void Update()
@@ -57,9 +66,7 @@ public class NoteSpawner : MonoBehaviour
         else SpawnAutoBeats(songTime);
     }
 
-    // IGNORE (Mainly for manual testing)
-    // This method is a placeholder if I need to place the notes manually instead of it spawing randomly. 
-    // THis is what I started off with.
+    // Manual chart spawning
     void SpawnFromManualChart(double songTime)
     {
         float spawnLead = previewLead + approachDuration;
@@ -68,7 +75,6 @@ public class NoteSpawner : MonoBehaviour
         {
             NoteData n = chart[manualChartIndex];
 
-            
             if (n.hitTime < songTime - missWindow)
             {
                 manualChartIndex++;
@@ -79,14 +85,22 @@ public class NoteSpawner : MonoBehaviour
 
             if (songTime >= spawnTime && n.hitTime <= songLength)
             {
-                GameObject obj = Instantiate(notePrefab, n.position, Quaternion.identity, notesParent);
+                Vector2 spawnPos = GetNonOverlappingPosition();
+
+                GameObject obj = Instantiate(notePrefab, spawnPos, Quaternion.identity, notesParent);
 
                 NoteObject noteObj = obj.GetComponent<NoteObject>();
                 noteObj.hitTime = n.hitTime;
                 noteObj.approachDuration = approachDuration;
                 noteObj.previewLead = previewLead;
 
-                
+                if (pathLine != null && lastSpawnedNote != null)
+                {
+                    pathLine.SetCurrentAndNext(lastSpawnedNote, noteObj);
+                }
+
+                lastSpawnedNote = noteObj;
+
                 if (!firstNoteSpawned)
                 {
                     noteObj.forceStartActive = true;
@@ -99,28 +113,25 @@ public class NoteSpawner : MonoBehaviour
         }
     }
 
-    // Method is about spawning the notes on beat and random positions.
+    // Auto beat spawning
     void SpawnAutoBeats(double songTime)
     {
         float spawnLead = previewLead + approachDuration;
 
-        // I implemented this line to delete the last note from spawning
         double lastAllowedHitTime = songLength - secondsPerBeat - endHitCutoffSeconds;
 
         while (true)
         {
             double nextBeatTime = nextBeatIndex * secondsPerBeat;
-            // Stop spawning when song time is finished,
+
             if (nextBeatTime > lastAllowedHitTime) break;
 
-            // If the beat of the song is a bit late, skip it
             if (nextBeatTime < songTime - missWindow)
             {
                 nextBeatIndex++;
                 continue;
             }
 
-            // Spawn early with a preview of the note with the the ring approaching the hit circle before the actual time
             if (songTime >= (nextBeatTime - spawnLead))
             {
                 if (spawnBeatStride <= 0) spawnBeatStride = 1;
@@ -132,14 +143,14 @@ public class NoteSpawner : MonoBehaviour
 
                 nextBeatIndex++;
             }
-            else break; // added this when not time to spawn the next note yet.
+            else break;
         }
     }
 
-    // spawn note randomly on screen (for SpawnAutoBeats() method.)
     void SpawnNoteAtRandomPosition(double hitTime)
     {
-        Vector2 spawnPos = GetRandomScreenPosition();
+        Vector2 spawnPos = GetNonOverlappingPosition();
+
         GameObject obj = Instantiate(notePrefab, spawnPos, Quaternion.identity, notesParent);
 
         NoteObject noteObj = obj.GetComponent<NoteObject>();
@@ -147,7 +158,13 @@ public class NoteSpawner : MonoBehaviour
         noteObj.approachDuration = approachDuration;
         noteObj.previewLead = previewLead;
 
-        
+        if (pathLine != null && lastSpawnedNote != null)
+        {
+            pathLine.SetCurrentAndNext(lastSpawnedNote, noteObj);
+        }
+
+        lastSpawnedNote = noteObj;
+
         if (!firstNoteSpawned)
         {
             noteObj.forceStartActive = true;
@@ -155,8 +172,46 @@ public class NoteSpawner : MonoBehaviour
         }
     }
 
-    // This method picks a random position inside the ortho camera view.
-    // Padding is for the notes to not spawn on the edges of the camera.
+    // NEW: Finds a spawn position that does not overlap other notes
+    Vector2 GetNonOverlappingPosition()
+    {
+        Vector2 best = GetRandomScreenPosition();
+
+        for (int attempt = 0; attempt < maxSpawnAttempts; attempt++)
+        {
+            Vector2 candidate = GetRandomScreenPosition();
+
+            if (lastSpawnedNote != null)
+            {
+                float dLast = Vector2.Distance(candidate, lastSpawnedNote.transform.position);
+                if (dLast < minDistanceFromLastNote)
+                    continue;
+            }
+
+            bool tooClose = false;
+            NoteObject[] notes = FindObjectsOfType<NoteObject>();
+
+            foreach (var n in notes)
+            {
+                if (n == null) continue;
+
+                float d = Vector2.Distance(candidate, n.transform.position);
+                if (d < minDistanceFromAnyNote)
+                {
+                    tooClose = true;
+                    break;
+                }
+            }
+
+            if (tooClose)
+                continue;
+
+            return candidate;
+        }
+
+        return best;
+    }
+
     Vector2 GetRandomScreenPosition()
     {
         Camera cam = Camera.main;

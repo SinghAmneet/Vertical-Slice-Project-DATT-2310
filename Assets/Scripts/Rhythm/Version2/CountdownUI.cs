@@ -10,8 +10,8 @@ public class CountdownUI : MonoBehaviour
 
     [Header("Countdown")]
     public int startNumber = 3;                 // 3, 2, 1
-    public float cookDisplayTime = 2f;          // how long "COOK!" stays visible
-    public float songStartDelayAfterCook = 2.5f;  // start song X seconds AFTER "COOK!" appears
+    public float cookDisplayTime = 1.5f;          // how long "COOK!" stays visible
+    public float songStartDelayAfterCook = 1.7f;  // start song X seconds AFTER "COOK!" appears
 
     void Start()
     {
