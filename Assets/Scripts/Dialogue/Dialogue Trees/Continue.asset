@@ -26,7 +26,8 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 0
     speech: 0
-    dialogue: "And so begins Kenny\u2019s questionable adventure to Elixir[Rate:0.5]\u2026"
+    dialogue: "And so begins Kenny\u2019s questionable adventure to Elixir[Rate:0.5]...[Pause] "
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: 46dc9a2c57236d24aa25b7db445fb7ca, type: 2}
   endChoices: []
+  nextTree: {fileID: 0}

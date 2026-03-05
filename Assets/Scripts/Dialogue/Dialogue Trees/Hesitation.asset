@@ -15,7 +15,9 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 2
     speech: 0
-    dialogue: Why do you keep silent? [Pause:0.5]Are you scared?
+    dialogue: 'Why do you keep silent? [Pause:0.5]
+
+      Are you scared?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
@@ -42,7 +44,7 @@ MonoBehaviour:
   - speaker: 1
     speech: 0
     dialogue: Six[Rate:0.3]... [Rate:Default]seven[Rate:0.3]...
-    startAction: {fileID: 0}
+    startAction: {fileID: 11400000, guid: 6596f639ab61a1743b4d88effa6393da, type: 2}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
@@ -75,5 +77,6 @@ MonoBehaviour:
     choiceDialogueTree: {fileID: 11400000, guid: 3ad6e33e93716fc42aa18efee4db8001, type: 2}
     choiceAction: {fileID: 0}
   - choiceDialogue: ...
-    choiceDialogueTree: {fileID: 11400000, guid: 9c0907d5cd2d4ac4f91302109e8a9949, type: 2}
+    choiceDialogueTree: {fileID: 11400000, guid: 8fa1cf89afec8ba4fbed94de7f853b61, type: 2}
     choiceAction: {fileID: 0}
+  nextTree: {fileID: 0}

@@ -2,10 +2,11 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Text;
+using System.Collections;
 
 public enum DialogueState
 {
-    Start,
+    Standby,
     Typewriting,
     Waiting,
     Skipping,
@@ -18,13 +19,14 @@ public class Dialogue : MonoBehaviour
     public DialogueTree startingDialogueTree;
     private DialogueTree currentTree;
 
+    public AudioSource typewriteSound;
+    public AudioSource audioSource;
+
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI nameText;
     public Transform choiceBox;
     public GameObject continueText;
     public GameObject choicePrefab;
-
-    public Color thinkingTextColor;
 
     public float typewriteRate = 0.1f; // write one letter per the provided rate
     private float currentRate;
@@ -42,6 +44,7 @@ public class Dialogue : MonoBehaviour
     private char modifierEnd = ']';
     private char valueChar = ':';
 
+    private Coroutine audioPlaying;
     private float pauseTimer;
 
     private void Awake()
@@ -76,6 +79,18 @@ public class Dialogue : MonoBehaviour
             case DialogueState.Choosing:
                 break;
         }
+    }
+
+    public void WaitForAudioToFinish(float audioLength)
+    {
+        audioPlaying = StartCoroutine(ResumeDialogue(audioLength));
+    }
+
+    IEnumerator ResumeDialogue(float audioLength)
+    {
+        yield return new WaitForSeconds(audioLength);
+        continueText.SetActive(true);
+        audioPlaying = null;
     }
 
     public void SetRate(float rate)
@@ -119,6 +134,11 @@ public class Dialogue : MonoBehaviour
     // go to next dialogue line in the dialogue tree
     private void NextDialogueLine()
     {
+        if (audioPlaying != null) { 
+            StopCoroutine(audioPlaying); 
+            audioPlaying = null;
+            audioSource.Stop();
+        }
         ClearDisplay();
 
         DialogueData data = currentTree.dialogueLines[dialogueIndex];
@@ -127,7 +147,7 @@ public class Dialogue : MonoBehaviour
         dialogueIndex++;
 
         if (data.speech == Speech.Thinking) UpdateTextBox();
-        if (data.startAction != null) data.startAction.StartAction();
+        if (data.startAction != null) data.startAction.StartAction(this);
 
         StartTypewrite();
     }
@@ -141,7 +161,6 @@ public class Dialogue : MonoBehaviour
             accum = 0;
             displayedText.Append(currentLine[letterIndex]);
             DisplayText(displayedText.ToString());
-
             letterIndex++;
 
             if (letterIndex >= currentLine.Length)
@@ -208,19 +227,28 @@ public class Dialogue : MonoBehaviour
     }
 
     // stop type writing
-    private void EndTypewrite()
+    public void EndTypewrite()
     {
         DialogueData data = currentTree.dialogueLines[dialogueIndex - 1];
-        if (data.endAction != null) data.endAction.StartAction();
+        if (data.endAction != null) data.endAction.StartAction(this);
 
-        // if reached end of dialogue lines
+        // if reached end of dialogue lines of the current dialogue tree
         if (dialogueIndex >= currentTree.dialogueLines.Length)
         {
-            StartChoosing();
+            // if there are end choices
+            if (currentTree.endChoices.Length > 0)
+            {
+                StartChoosing();
+            } else
+            {
+                NextTree(currentTree.nextTree);
+            }
+                
         } else
         {
-            continueText.SetActive(true);
             state = DialogueState.Waiting;
+            if (audioPlaying != null) return;
+            continueText.SetActive(true);
         }
     }
 
@@ -233,7 +261,7 @@ public class Dialogue : MonoBehaviour
     public void Pause(float timer)
     {
         pauseTimer = timer;
-        Pause();
+        state = DialogueState.Paused;
     }
 
     public void decreasePauseTimer()
@@ -279,12 +307,20 @@ public class Dialogue : MonoBehaviour
 
         if (data.choiceAction != null)
         {
-            data.choiceAction.StartAction();
+            data.choiceAction.StartAction(this);
             if (data.choiceAction is LoadSceneDialogueAction) return;
         }
 
         dialogueIndex = 0;
         NextDialogueLine();
+    }
+
+    public void NextTree(DialogueTree tree)
+    {
+        currentTree = tree;
+        dialogueIndex = 0;
+        state = DialogueState.Waiting;
+        //NextDialogueLine();
     }
 
     public void goToGame()

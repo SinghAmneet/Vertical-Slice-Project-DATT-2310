@@ -17,7 +17,7 @@ MonoBehaviour:
     speech: 0
     dialogue: Kenny chose honesty.
     startAction: {fileID: 0}
-    endAction: {fileID: 0}
+    endAction: {fileID: 11400000, guid: 16b67c3a272bdad4b9d0769bb52f67d3, type: 2}
   - speaker: 2
     speech: 0
     dialogue: Off with his head!
@@ -29,3 +29,4 @@ MonoBehaviour:
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: b5e253619bcdfc244973a0f554664419, type: 2}
   endChoices: []
+  nextTree: {fileID: 0}

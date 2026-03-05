@@ -6,7 +6,7 @@ public class LoadSceneDialogueAction : DialogueAction
 {
     public string sceneName;
 
-    public override void StartAction()
+    public override void StartAction(Dialogue dialogue)
     {
         SceneManager.LoadScene(sceneName);
     }

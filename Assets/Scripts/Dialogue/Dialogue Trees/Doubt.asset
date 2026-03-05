@@ -23,17 +23,5 @@ MonoBehaviour:
     dialogue: Nothing, sir.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
-  - speaker: 1
-    speech: 0
-    dialogue: So, do you accept my request or not?
-    startAction: {fileID: 0}
-    endAction: {fileID: 0}
-  endChoices:
-  - choiceDialogue: This is not a request. This is suicide. Going to Elixir means
-      death sentence.
-    choiceDialogueTree: {fileID: 11400000, guid: 0731bb119856fa74eae209fc444f9003, type: 2}
-    choiceAction: {fileID: 0}
-  - choiceDialogue: "Either way, if I\u2019m going to die, I\u2019d prefer to live
-      a little longer. Thank you for the opportunity."
-    choiceDialogueTree: {fileID: 11400000, guid: 9c0907d5cd2d4ac4f91302109e8a9949, type: 2}
-    choiceAction: {fileID: 0}
+  endChoices: []
+  nextTree: {fileID: 11400000, guid: 8fa1cf89afec8ba4fbed94de7f853b61, type: 2}

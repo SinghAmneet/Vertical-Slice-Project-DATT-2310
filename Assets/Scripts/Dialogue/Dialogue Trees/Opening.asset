@@ -26,19 +26,19 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     dialogue: "Yes, I have always admired your cooking skills, but it is getting
-      boring now. I\u2019ve been wondering[Rate:0.5]\u2026 [Rate:Default]how do the
+      boring now. I\u2019ve been wondering[Rate:0.4]... [Rate:Default]how do the
       monsters from Elixir taste?"
     startAction: {fileID: 0}
-    endAction: {fileID: 0}
+    endAction: {fileID: 11400000, guid: 16b07c9fb1c66e54c837e9a0d907ea03, type: 2}
   - speaker: 1
     speech: 0
-    dialogue: " [Rate:0.5]\u2026[Rate:Default]Your Majesty?"
+    dialogue: ' [Rate:0.25]...[Rate:Default]Your Majesty?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     dialogue: Beyond the outer border lies Elixir, they say monsters roam freely
-      there. [Rate:0.4]Go. [Rate:Default]Bring me something extraordinary!
+      there. [Rate:0.1]Go. [Rate:Default]Bring me something extraordinary!
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices:
@@ -48,3 +48,4 @@ MonoBehaviour:
   - choiceDialogue: ...
     choiceDialogueTree: {fileID: 11400000, guid: 550b0e0c7949d2c4cbef122a39c1e046, type: 2}
     choiceAction: {fileID: 0}
+  nextTree: {fileID: 0}

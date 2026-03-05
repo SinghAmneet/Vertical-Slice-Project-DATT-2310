@@ -19,6 +19,7 @@ public class DialogueTree : ScriptableObject
 {
     public DialogueData[] dialogueLines; // dialogue lines
     public DialogueChoice[] endChoices; // choices after the dialogue lines
+    public DialogueTree nextTree; // next dialogue tree if there are no choices
 }
 
 [Serializable]
