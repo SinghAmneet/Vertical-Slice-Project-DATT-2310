@@ -16,21 +16,21 @@ public class Attack : State
 
     private void StartAttack()
     {
-        Debug.Log("Start");
+        //Debug.Log("Start");
         playingAnim = true;
         mob.PlayAttackAnimation();
     }
 
     public void StartCooldown()
     {
-        Debug.Log("cd");
+        //Debug.Log("cd");
         playingAnim = false;
         cooldownTimer = mob.data.attackCooldown;
     }
 
     public void EndAttack() 
     {
-        Debug.Log("End");
+        //Debug.Log("End");
         cooldownTimer = null;
         if (mob.PlrInAttackRange())
         {

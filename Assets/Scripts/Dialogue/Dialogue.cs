@@ -24,6 +24,8 @@ public class Dialogue : MonoBehaviour
     public GameObject continueText;
     public GameObject choicePrefab;
 
+    public Color thinkingTextColor;
+
     public float typewriteRate = 0.1f; // write one letter per the provided rate
     private float currentRate;
     private float accum;
@@ -39,6 +41,8 @@ public class Dialogue : MonoBehaviour
     private char modifierStart = '[';
     private char modifierEnd = ']';
     private char valueChar = ':';
+
+    private float pauseTimer;
 
     private void Awake()
     {
@@ -67,6 +71,7 @@ public class Dialogue : MonoBehaviour
                 break;
             case DialogueState.Paused:
                 if (Input.GetKeyDown(KeyCode.Space)) Resume();
+                decreasePauseTimer();
                 break;
             case DialogueState.Choosing:
                 break;
@@ -87,7 +92,28 @@ public class Dialogue : MonoBehaviour
     {
         nameText.text = "";
         DisplayText("");
+        ResetTextBox();
         displayedText.Clear();
+    }
+
+    private void ResetTextBox()
+    {
+        dialogueText.fontStyle = FontStyles.Normal;
+        dialogueText.color = Color.white;
+    }
+
+    private void UpdateTextBox()
+    {
+        dialogueText.fontStyle = FontStyles.Italic;
+        dialogueText.color = Color.gray;
+    }
+
+    private string UpdateName(string name)
+    {
+        if (name.Equals("Flint"))
+        {
+            return "King Flint";
+        } else { return name; }
     }
 
     // go to next dialogue line in the dialogue tree
@@ -97,8 +123,11 @@ public class Dialogue : MonoBehaviour
 
         DialogueData data = currentTree.dialogueLines[dialogueIndex];
         currentLine = data.dialogue;
-        nameText.text = data.speaker.ToString();
+        nameText.text = UpdateName(data.speaker.ToString());
         dialogueIndex++;
+
+        if (data.speech == Speech.Thinking) UpdateTextBox();
+        if (data.startAction != null) data.startAction.StartAction();
 
         StartTypewrite();
     }
@@ -181,6 +210,9 @@ public class Dialogue : MonoBehaviour
     // stop type writing
     private void EndTypewrite()
     {
+        DialogueData data = currentTree.dialogueLines[dialogueIndex - 1];
+        if (data.endAction != null) data.endAction.StartAction();
+
         // if reached end of dialogue lines
         if (dialogueIndex >= currentTree.dialogueLines.Length)
         {
@@ -196,6 +228,19 @@ public class Dialogue : MonoBehaviour
     {
         continueText.SetActive(true);
         state = DialogueState.Paused;
+    }
+
+    public void Pause(float timer)
+    {
+        pauseTimer = timer;
+        Pause();
+    }
+
+    public void decreasePauseTimer()
+    {
+        if (pauseTimer < 0) return;
+        pauseTimer = Mathf.Max(pauseTimer - Time.deltaTime, 0);
+        if (pauseTimer == 0) Resume();
     }
 
     private void Resume()

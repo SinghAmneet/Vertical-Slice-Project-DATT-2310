@@ -24,7 +24,8 @@ public class PauseModifier : DialogueModifier
 
     public override void ApplyModifier(string value)
     {
-        dialogue.Pause();
+        float timer = value.Equals("") ? -1 : float.Parse(value); // convert to float
+        dialogue.Pause(timer);
     }
 }
 

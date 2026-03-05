@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rhythm.unity
     guid: 2e3b80111a4c36943a3890501c016eac
+  - enabled: 1
+    path: Assets/Scenes/GameOverTemp.unity
+    guid: e2470e868600c364ca1c0ef62bacd5a3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: f4d43c50010c4471aa724dbccb7c3cc9, type: 3}

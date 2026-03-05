@@ -8,6 +8,12 @@ public enum Character
     Flint,
 }
 
+public enum Speech
+{
+    Talking,
+    Thinking,
+}
+
 [CreateAssetMenu(menuName ="Dialogue/Dialogue Tree")]
 public class DialogueTree : ScriptableObject
 {
@@ -19,9 +25,11 @@ public class DialogueTree : ScriptableObject
 public class DialogueData
 {
     public Character speaker;
+    public Speech speech;
 
     [TextArea]
     public string dialogue;
+    public DialogueAction startAction; // action that happens at the start of the dialogue
     public DialogueAction endAction; // action that happens at the end of the dialogue
 }
 

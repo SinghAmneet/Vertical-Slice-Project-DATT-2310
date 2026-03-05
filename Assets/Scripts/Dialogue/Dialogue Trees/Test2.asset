@@ -14,14 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueLines:
   - speaker: 1
+    speech: 0
     dialogue: Welcome to the second dialogue tree!
+    startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 0
-    dialogue: Ohh im exited
+    speech: 0
+    dialogue: Ohh im[Pause:2] excited
+    startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
+    speech: 0
     dialogue: Now[Rate:0.5]... [Rate:Default]do you want to get an ending, or go
       into the game?
+    startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices:
   - choiceDialogue: GET THE ENDING
