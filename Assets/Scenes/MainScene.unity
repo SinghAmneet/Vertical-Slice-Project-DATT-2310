@@ -20231,7 +20231,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.2
+  m_Value: 0.4
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -21820,7 +21820,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0405204205faf60488f654db01ab5426, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -45634,7 +45634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7681627688509284612, guid: b2a1feb6e2a7c9c43849195e48f738bb, type: 3}
       propertyPath: itemDataList.Array.size
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7681627688509284612, guid: b2a1feb6e2a7c9c43849195e48f738bb, type: 3}
       propertyPath: itemDataList.Array.data[0]
@@ -45675,7 +45675,7 @@ PrefabInstance:
     - target: {fileID: 7681627688509284612, guid: b2a1feb6e2a7c9c43849195e48f738bb, type: 3}
       propertyPath: itemDataList.Array.data[9]
       value: 
-      objectReference: {fileID: 11400000, guid: 4718bc989bc98cb4b9e625d334e3b885, type: 2}
+      objectReference: {fileID: 11400000, guid: 739c675dadbff7b46b4ffaf09437202e, type: 2}
     - target: {fileID: 7681627688509284612, guid: b2a1feb6e2a7c9c43849195e48f738bb, type: 3}
       propertyPath: itemDataList.Array.data[10]
       value: 
@@ -45683,7 +45683,7 @@ PrefabInstance:
     - target: {fileID: 7681627688509284612, guid: b2a1feb6e2a7c9c43849195e48f738bb, type: 3}
       propertyPath: itemDataList.Array.data[11]
       value: 
-      objectReference: {fileID: 11400000, guid: 739c675dadbff7b46b4ffaf09437202e, type: 2}
+      objectReference: {fileID: 11400000, guid: b247f08ef374a6f458cb49f870964c65, type: 2}
     - target: {fileID: 7902935851401150467, guid: b2a1feb6e2a7c9c43849195e48f738bb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14

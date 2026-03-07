@@ -43,8 +43,8 @@ MonoBehaviour:
     endAction: {fileID: 0}
   endChoices:
   - choiceDialogue: Yes, my lord. I will try my best to satisfy your taste
-    choiceDialogueTree: {fileID: 0}
-    choiceAction: {fileID: 11400000, guid: 46dc9a2c57236d24aa25b7db445fb7ca, type: 2}
+    choiceDialogueTree: {fileID: 11400000, guid: a48c775b51f540b48884b5c19cbb7c6f, type: 2}
+    choiceAction: {fileID: 11400000, guid: fcaf8392df2bc3c4ab677e0c684f1990, type: 2}
   - choiceDialogue: ...
     choiceDialogueTree: {fileID: 11400000, guid: 550b0e0c7949d2c4cbef122a39c1e046, type: 2}
     choiceAction: {fileID: 0}
