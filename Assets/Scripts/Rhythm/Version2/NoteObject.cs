@@ -87,8 +87,7 @@ public class NoteObject : MonoBehaviour
 
         judged = true;
 
-        if (inputManager != null)
-            inputManager.RegisterMiss();
+        if (inputManager != null) inputManager.RegisterMissAtPosition(transform.position);
 
         Destroy(gameObject);
     }

@@ -5,22 +5,27 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public SongController songController;
+    public GameManager gameManager;
     public float hitRadius = 0.5f;
 
     [Header("Judgement by Approach Progress (0 to 1)")]
-    [Tooltip("If approach progress is >= this, it's PERFECT (very close).")]
     [Range(0f, 1f)] public float perfectThreshold = 0.90f;
-
-    [Tooltip("If approach progress is >= this (but < perfect), it's GOOD (about halfway+).")]
     [Range(0f, 1f)] public float goodThreshold = 0.70f;
 
     [Header("Strict Hit Lock")]
-    [Tooltip("Player cannot click until approach progress reaches this value. (0.0 = not strict, 0.3+ = strict)")]
     [Range(0f, 1f)] public float minClickableProgress = 0.25f;
 
     [Header("Safety")]
-    [Tooltip("Ignore clicks for notes that are already past this late window (seconds).")]
     public double missWindow = 0.15;
+
+    [Header("Popup Prefabs")]
+    public GameObject perfectPopupPrefab;
+    public GameObject goodPopupPrefab;
+    public GameObject latePopupPrefab;
+    public GameObject missPopupPrefab;
+    public GameObject firePopupPrefab;
+
+    public Vector3 popupOffset = Vector3.zero;
 
     void Update()
     {
@@ -58,35 +63,73 @@ public class InputManager : MonoBehaviour
     {
         double timeUntilHit = note.hitTime - songTime;
 
-        // Too late: ignore (note will auto-miss)
-        if (timeUntilHit < -missWindow)
-            return;
-
-        // Too early: outside approach window entirely
+        // Too early
         if (timeUntilHit > note.approachDuration)
             return;
 
-        // Compute approach progress (0..1)
+        // Too late
+        if (timeUntilHit < -missWindow)
+            return;
+
         float progress = 1f - (float)(timeUntilHit / note.approachDuration);
         progress = Mathf.Clamp01(progress);
 
-        // STRICT: don't allow hits until the ring has meaningfully started collapsing
         if (progress < minClickableProgress)
             return;
 
+        string judgement;
+
         if (progress >= perfectThreshold)
-            Debug.Log("PERFECT");
+        {
+            judgement = "PERFECT";
+            SpawnPopup(perfectPopupPrefab, note.transform.position);
+        }
         else if (progress >= goodThreshold)
-            Debug.Log("GOOD");
+        {
+            judgement = "GOOD";
+            SpawnPopup(goodPopupPrefab, note.transform.position);
+        }
         else
-            Debug.Log("LATE");
+        {
+            judgement = "LATE";
+            SpawnPopup(latePopupPrefab, note.transform.position);
+        }
+
+        Debug.Log(judgement);
+
+        bool multiplierIncreased = false;
+        if (gameManager != null)
+            multiplierIncreased = gameManager.RegisterJudgement(judgement);
+
+        // Spawn fire effect if multiplier increased on this hit
+        if (multiplierIncreased)
+            SpawnPopup(firePopupPrefab, note.transform.position);
 
         double signedOffset = songTime - note.hitTime;
         note.Judge(signedOffset);
     }
 
+    public void RegisterMissAtPosition(Vector3 worldPosition)
+    {
+        SpawnPopup(missPopupPrefab, worldPosition);
+        Debug.Log("MISS");
+
+        if (gameManager != null)
+            gameManager.RegisterJudgement("MISS");
+    }
+
     public void RegisterMiss()
     {
         Debug.Log("MISS");
+
+        if (gameManager != null)
+            gameManager.RegisterJudgement("MISS");
+    }
+
+    void SpawnPopup(GameObject popupPrefab, Vector3 worldPosition)
+    {
+        if (popupPrefab == null) return;
+
+        Instantiate(popupPrefab, worldPosition + popupOffset, Quaternion.identity);
     }
 }

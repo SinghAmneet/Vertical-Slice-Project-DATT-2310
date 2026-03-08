@@ -9,13 +9,19 @@ public class SongController : MonoBehaviour
 
     [Header("Song Settings")]
     public float bpm = 111f;
-    public double songLength = 63.6; // length of your song in seconds
+    public double songLength = 63.6;
+
+    [Header("UI")]
+    public GameplayUI gameplayUI;
+    public float gameplayUIDelay = 0.3f; // small delay after COOK!
+
+    public GameManager gameManager;
 
     private double dspSongStartTime;
     private double secondsPerBeat;
 
     private bool started = false;
-    private bool songFinished = false; // prevents multiple console prints
+    private bool songFinished = false;
 
     void Awake()
     {
@@ -28,24 +34,34 @@ public class SongController : MonoBehaviour
 
         double songTime = GetSongTime();
 
-        // Detect when the song finishes
         if (songTime >= songLength)
         {
             songFinished = true;
             Debug.Log("The song has finished playing!");
+
+            if (gameManager != null)
+                gameManager.ShowFinalResults();
         }
     }
 
-    // Called by CountdownUI when COOK! appears
     public void BeginSong()
     {
         if (started) return;
 
         started = true;
 
-        // Start the audio using DSP time for accurate syncing
+        // Show gameplay UI shortly after COOK!
+        if (gameplayUI != null)
+            StartCoroutine(ShowGameplayUIDelayed());
+
         dspSongStartTime = AudioSettings.dspTime + 0.05;
         audioSource.PlayScheduled(dspSongStartTime);
+    }
+
+    IEnumerator ShowGameplayUIDelayed()
+    {
+        yield return new WaitForSeconds(gameplayUIDelay);
+        gameplayUI.ShowUI();
     }
 
     public double GetSongTime()

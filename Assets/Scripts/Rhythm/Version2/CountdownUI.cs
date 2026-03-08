@@ -37,7 +37,7 @@ public class CountdownUI : MonoBehaviour
         }
 
         // Show COOK!
-        countdownText.text = "COOK!";
+        countdownText.text = "Cook!";
 
         // Start the song after a short delay (while COOK! is still on screen)
         yield return new WaitForSeconds(songStartDelayAfterCook);

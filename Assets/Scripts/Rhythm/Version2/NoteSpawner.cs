@@ -8,6 +8,7 @@ public class NoteSpawner : MonoBehaviour
     public GameObject notePrefab;
     public Transform notesParent;
     public SongController songController;
+    public GameManager gameManager;
 
     [Header("Mode")]
     public bool useManualChart = false;
@@ -51,9 +52,7 @@ public class NoteSpawner : MonoBehaviour
         }
 
         secondsPerBeat = songController.GetSecondsPerBeat();
-
         chart.Sort((a, b) => a.hitTime.CompareTo(b.hitTime));
-
         nextBeatIndex = Mathf.Max(1, startingBeatIndex);
     }
 
@@ -66,7 +65,6 @@ public class NoteSpawner : MonoBehaviour
         else SpawnAutoBeats(songTime);
     }
 
-    // Manual chart spawning
     void SpawnFromManualChart(double songTime)
     {
         float spawnLead = previewLead + approachDuration;
@@ -107,17 +105,18 @@ public class NoteSpawner : MonoBehaviour
                     firstNoteSpawned = true;
                 }
 
+                if (gameManager != null)
+                    gameManager.RegisterSpawnedNote();
+
                 manualChartIndex++;
             }
             else break;
         }
     }
 
-    // Auto beat spawning
     void SpawnAutoBeats(double songTime)
     {
         float spawnLead = previewLead + approachDuration;
-
         double lastAllowedHitTime = songLength - secondsPerBeat - endHitCutoffSeconds;
 
         while (true)
@@ -150,7 +149,6 @@ public class NoteSpawner : MonoBehaviour
     void SpawnNoteAtRandomPosition(double hitTime)
     {
         Vector2 spawnPos = GetNonOverlappingPosition();
-
         GameObject obj = Instantiate(notePrefab, spawnPos, Quaternion.identity, notesParent);
 
         NoteObject noteObj = obj.GetComponent<NoteObject>();
@@ -170,9 +168,11 @@ public class NoteSpawner : MonoBehaviour
             noteObj.forceStartActive = true;
             firstNoteSpawned = true;
         }
+
+        if (gameManager != null)
+            gameManager.RegisterSpawnedNote();
     }
 
-    // NEW: Finds a spawn position that does not overlap other notes
     Vector2 GetNonOverlappingPosition()
     {
         Vector2 best = GetRandomScreenPosition();
@@ -218,7 +218,7 @@ public class NoteSpawner : MonoBehaviour
         float height = 2f * cam.orthographicSize;
         float width = height * cam.aspect;
 
-        float padding = 0.6f;
+        float padding = 1f;
         float minX = -width / 2f + padding;
         float maxX = width / 2f - padding;
         float minY = -height / 2f + padding;
