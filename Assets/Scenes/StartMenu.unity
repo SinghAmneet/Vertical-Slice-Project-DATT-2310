@@ -2098,16 +2098,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982582345}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4857584, y: 1.4857584, z: 1.4857584}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1734914011}
+  m_Father: {fileID: 1002439174}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -715, y: 371}
+  m_AnchoredPosition: {x: 176.80548, y: -46.78653}
   m_SizeDelta: {x: 241.0267, y: 49.337}
   m_Pivot: {x: 0.27183396, y: -0.59053516}
 --- !u!114 &982582347
@@ -2252,13 +2252,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6730569, y: 0.6730569, z: 0.6730569}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 982582346}
   m_Father: {fileID: 1734914011}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -834, y: 402.49}
-  m_SizeDelta: {x: 363.4186, y: 273.1902}
+  m_AnchoredPosition: {x: -846.7428, y: 403.09677}
+  m_SizeDelta: {x: 325.5532, y: 271.387}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1002439175
 MonoBehaviour:
@@ -4216,10 +4217,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Slay And Saut\xE9"
+  m_text: Slay And Saute
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 411fc472073d94714a77eac84af3643a, type: 2}
-  m_sharedMaterial: {fileID: 3410589388480921058, guid: 411fc472073d94714a77eac84af3643a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0c0cb25d4f6aac44eaf3df671f0f1575, type: 2}
+  m_sharedMaterial: {fileID: 3403362411669993872, guid: 0c0cb25d4f6aac44eaf3df671f0f1575, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4243,8 +4244,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 200
+  m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4326,7 +4327,6 @@ RectTransform:
   - {fileID: 1723351730}
   - {fileID: 1507792952}
   - {fileID: 1002439174}
-  - {fileID: 982582346}
   m_Father: {fileID: 1235211413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
