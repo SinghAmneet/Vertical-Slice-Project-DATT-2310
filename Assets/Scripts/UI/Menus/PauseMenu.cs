@@ -11,6 +11,8 @@ public class PauseMenu : MonoBehaviour
     public Sprite muteOff;
     public GameObject muteButton;
 
+
+    private List<GameObject> wasOpen = new();
     private List<GameObject> hudChildren = new();
 
     private void Awake()
@@ -53,11 +55,16 @@ public class PauseMenu : MonoBehaviour
     {
         menu.SetActive(!menu.activeSelf);
 
+        List<GameObject> hud = menu.activeSelf ? hudChildren : wasOpen;
+
         // update active states for all children in HUD
-        foreach (GameObject child in hudChildren)
+        foreach (GameObject child in hud)
         {
+            if (menu.activeSelf && child.activeSelf) wasOpen.Add(child);
             child.SetActive(!menu.activeSelf);
         }
+
+        if (!menu.activeSelf) wasOpen.Clear();
 
         Time.timeScale = menu.activeSelf ? 0f : 1f;
     }
