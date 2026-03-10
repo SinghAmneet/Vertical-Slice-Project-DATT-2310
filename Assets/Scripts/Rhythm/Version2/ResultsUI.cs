@@ -29,13 +29,13 @@ public class ResultsUI : MonoBehaviour
     {
         resultsPanel.SetActive(true);
 
-        rankText.text = "Rank: " + rank;
-        scoreText.text = "Score: " + score.ToString();
-        accuracyText.text = "Accuracy: " + accuracy.ToString("F1") + "%";
+        rankText.text = "Dish Rank: " + rank;
+        scoreText.text = "Rhythm Score: " + score.ToString();
+        accuracyText.text = "Note Accuracy: " + accuracy.ToString("F1") + " per.";
 
-        perfectText.text = "Perfect: " + perfect;
-        goodText.text = "Good: " + good;
-        lateText.text = "Late: " + late;
-        missText.text = "Missed: " + miss;
+        perfectText.text = "Perfect Notes: " + perfect;
+        goodText.text = "Good Notes: " + good;
+        lateText.text = "Late Notes: " + late;
+        missText.text = "Missed Notes: " + miss;
     }
 }

@@ -105,7 +105,7 @@ public class GameplayUI : MonoBehaviour
         }
 
         if (rankText != null)
-            rankText.text = "Rank: " + rank;
+            rankText.text = "Dish Rank: " + rank;
 
         lastScore = score;
         lastMultiplier = multiplier;
@@ -136,5 +136,10 @@ public class GameplayUI : MonoBehaviour
         }
 
         target.localScale = baseScale;
+    }
+
+    public void HideUI()
+    {
+        gameObject.SetActive(false);
     }
 }

@@ -133,6 +133,8 @@ public class GameManager : MonoBehaviour
         if (resultsShown) return;
         resultsShown = true;
 
+        if (gameplayUI != null) gameplayUI.HideUI();
+
         float percent = 0f;
         if (maxRawJudgementScore > 0)
             percent = (float)rawJudgementScore / maxRawJudgementScore * 100f;
