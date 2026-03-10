@@ -1,6 +1,8 @@
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using TMPro;
 
 public class CheatMenu : MonoBehaviour
 {
@@ -18,6 +20,9 @@ public class CheatMenu : MonoBehaviour
 
     private Image menu;
 
+    public GameObject listPanel;
+    private string openedList;
+
     private bool active = false;
 
     private void Awake()
@@ -27,6 +32,8 @@ public class CheatMenu : MonoBehaviour
         mobSpawner = GetComponent<MobSpawner>();
         health = plr.GetComponent<Health>();
         menu = GetComponent<Image>();
+        listPanel.SetActive(false);
+        listPanel.transform.GetChild(0).gameObject.SetActive(false);
         Toggle(false);
     }
 
@@ -45,21 +52,62 @@ public class CheatMenu : MonoBehaviour
         health.SetInvulnerable(invulnerable);
     }
 
-    public void SpawnItem()
+    public void SpawnItem(string name)
     {
-        itemSpawner.SpawnRandom(items, null, plr.transform.position);
+        foreach (ItemData item in items)
+        {
+            if (item.name.Equals(name)) itemSpawner.Spawn(item, null, plr.transform.position);
+        }
     }
 
-    public void SpawnMob()
+    public void SpawnMob(string name)
     {
-        mobSpawner.Spawn(mobs[Random.Range(0, mobs.Length)], null, plr.transform.position + Vector3.up * 5);
+        foreach (MobData mob in mobs)
+        {
+            if (mob.name.Equals(name)) mobSpawner.Spawn(mob, null, plr.transform.position + Vector3.up * 5);
+        }
+    }
+
+    public void ToggleMob()
+    {
+        if (openedList == "Mob")
+        {
+            listPanel.SetActive(false);
+            openedList = "";
+            return;
+        }
+        openedList = "Mob";
+        SetList();
+        foreach (MobData mob in mobs)
+        {
+            GameObject button = CreateButton();
+            button.GetComponentInChildren<TextMeshProUGUI>().text = mob.name;
+            button.name = mob.name;
+        }
+    }
+
+    public void ToggleItem()
+    {
+        if (openedList == "Item")
+        {
+            listPanel.SetActive(false);
+            openedList = "";
+            return;
+        }
+        openedList = "Item";
+        SetList();
+        foreach (ItemData item in items)
+        {
+            GameObject button = CreateButton();
+            button.GetComponentInChildren<TextMeshProUGUI>().text = item.name;
+            button.name = item.name;
+        }
     }
 
     private void Toggle()
     {
         active = !active;
         Toggle(active);
-        
     }
 
     private void Toggle(bool show)
@@ -71,6 +119,40 @@ public class CheatMenu : MonoBehaviour
         }
 
         menu.color = active ? new Color(0, 0, 0, 0.5f) : new Color(0, 0, 0, 0);
+    }
+
+    private void ButtonClicked(string name)
+    {
+        if (openedList.Equals("Mob"))
+        {
+            SpawnMob(name);
+        } else if (openedList.Equals("Item"))
+        {
+            SpawnItem(name);
+        }
+    }
+
+    private void ClearList()
+    {
+        for (int i = listPanel.transform.childCount - 1; i > 0; i--)
+        {
+            Destroy(listPanel.transform.GetChild(i).gameObject);
+        }
+    }
+
+    private GameObject CreateButton()
+    {
+        GameObject template = listPanel.transform.GetChild(0).gameObject;
+        GameObject obj = Instantiate(template, listPanel.transform);
+        obj.SetActive(true);
+        obj.GetComponent<Button>().onClick.AddListener(() => ButtonClicked(obj.name));
+        return obj;
+    }
+
+    private void SetList()
+    {
+        ClearList();
+        listPanel.SetActive(true);
     }
 
     void Update()

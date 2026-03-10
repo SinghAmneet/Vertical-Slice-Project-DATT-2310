@@ -37,11 +37,26 @@ public class Inventory : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Use();
+            //Use();
+        }
+
+        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+        if (scrollInput > 0)
+        {
+            int index = selectedIndex;
+            if (index + 1 >= slotCount) index = -1;
+            index++;
+            Select(index);
+        } else if (scrollInput < 0)
+        {
+            int index = selectedIndex;
+            if (index - 1 < 0) index = slotCount - 1;
+            index--;
+            Select(index);
         }
 
         // get number inputs from 1 to number of slots
-        for (int i = 0; i < slotCount; i ++)
+        for (int i = 0; i < slotCount; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
@@ -155,5 +170,16 @@ public class Inventory : MonoBehaviour
         if (selectedIndex == i) selectedIndex = -1; 
         invUI.RemoveItemFromSlot(i);
         items[i] = null;
+    }
+
+    public List<Item> GetItems()
+    {
+        List<Item> occupiedSlots = new();
+
+        foreach (Item item in items)
+        {
+            if (item != null) occupiedSlots.Add(item);
+        }
+        return occupiedSlots;
     }
 }

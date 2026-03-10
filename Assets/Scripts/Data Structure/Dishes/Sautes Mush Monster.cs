@@ -1,18 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SautesMushMonster : MonoBehaviour
+[CreateAssetMenu(menuName ="Dish/Sautes Mush Monster")]
+public class SautesMushMonster : Dish
 {
-    // Start is called before the first frame update
-    void Start()
+    public override bool Evaluate(List<FoodData> foods)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (foods.Count == inventorySlots)
+        {
+            int foundMushrooms = GetNameCount(foods, "Mushroom");
+            return IsEntireInventory(foundMushrooms);
+        }
+        return false;
     }
 }
