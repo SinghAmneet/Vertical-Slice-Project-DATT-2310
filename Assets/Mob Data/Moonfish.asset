@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 169586c6935531045a8b97e197155e6f, type: 3}
   m_Name: Moonfish
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 65a5ffd4f0d8ee3498b26671e48f3a58, type: 3}
-  animatorController: {fileID: 0}
+  mobPrefab: {fileID: 6478331162814611469, guid: 7bcd4aaba24881d4891d3d037c424821, type: 3}
   dropAmount: 3
   foodDrops:
   - {fileID: 11400000, guid: 0a0d56818856e4a4ca3a33bfbfbee968, type: 2}
@@ -21,6 +20,6 @@ MonoBehaviour:
   damage: 1.5
   attackCooldown: 0.5
   chaseRange: 40
-  attackRange: 7
-  hitboxRadius: 7
-  speed: 10
+  attackRange: 14
+  speed: 12
+  forwardDirection: 1

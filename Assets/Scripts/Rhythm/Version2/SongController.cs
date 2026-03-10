@@ -5,26 +5,72 @@ using UnityEngine;
 public class SongController : MonoBehaviour
 {
     public AudioSource audioSource;
-    public double songOffset = 0.0; // Just in case if the music doesn't start at 0
-    
-    public float bpm = 111f; // Current song bpm
-    private double dspSongStartTime;    // FOr stable timing which will help to not drift during frame rate.
+    public double songOffset = 0.0;
+
+    [Header("Song Settings")]
+    public float bpm = 111f;
+    public double songLength = 63.6;
+
+    [Header("UI")]
+    public GameplayUI gameplayUI;
+    public float gameplayUIDelay = 0.3f; // small delay after COOK!
+
+    public GameManager gameManager;
+
+    private double dspSongStartTime;
     private double secondsPerBeat;
 
-    void Start()
+    private bool started = false;
+    private bool songFinished = false;
+
+    void Awake()
     {
-        secondsPerBeat = 60f / bpm; // Tempo calc
-        dspSongStartTime = AudioSettings.dspTime + 1.0; // 1 sec delay at the start of the song
+        secondsPerBeat = 60f / bpm;
+    }
+
+    void Update()
+    {
+        if (!started || songFinished) return;
+
+        double songTime = GetSongTime();
+
+        if (songTime >= songLength)
+        {
+            songFinished = true;
+            Debug.Log("The song has finished playing!");
+
+            if (gameManager != null)
+                gameManager.ShowFinalResults();
+        }
+    }
+
+    public void BeginSong()
+    {
+        if (started) return;
+
+        started = true;
+
+        // Show gameplay UI shortly after COOK!
+        if (gameplayUI != null)
+            StartCoroutine(ShowGameplayUIDelayed());
+
+        dspSongStartTime = AudioSettings.dspTime + 0.05;
         audioSource.PlayScheduled(dspSongStartTime);
     }
 
-    // Method for returning the current song time in sec when the track started.
+    IEnumerator ShowGameplayUIDelayed()
+    {
+        yield return new WaitForSeconds(gameplayUIDelay);
+        gameplayUI.ShowUI();
+    }
+
     public double GetSongTime()
     {
+        if (!started) return -999.0;
+
         return AudioSettings.dspTime - dspSongStartTime - songOffset;
     }
 
-    // FOr NoteSpawner.cs to place the notes on beat
     public double GetSecondsPerBeat()
     {
         return secondsPerBeat;

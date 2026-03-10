@@ -6,6 +6,7 @@ public class GoingHome : State
 
     public override void Enter()
     {
+        mob.SetPlayerNull();
         mob.movement.SetMotionVector(mob.homePoint);
         //mob.SetTargetPos(randPoint);
     }

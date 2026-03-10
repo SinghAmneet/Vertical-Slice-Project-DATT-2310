@@ -87,8 +87,7 @@ public class NoteObject : MonoBehaviour
 
         judged = true;
 
-        if (inputManager != null)
-            inputManager.RegisterMiss();
+        if (inputManager != null) inputManager.RegisterMissAtPosition(transform.position);
 
         Destroy(gameObject);
     }
@@ -148,5 +147,10 @@ public class NoteObject : MonoBehaviour
 
         judged = true;
         Destroy(gameObject);
+    }
+
+    public bool IsActiveState()
+    {
+        return state == VisualState.Active;
     }
 }

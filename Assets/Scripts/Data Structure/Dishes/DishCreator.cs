@@ -3,23 +3,21 @@ using UnityEngine;
 
 public class DishCreator : MonoBehaviour
 {
-    private List<Dish> dishEvals;
+    public List<Dish> dishEvals;
+    public Dish slop;
 
-    public void AddDishEval(Dish dish)
+    public Dish GetDish(List<FoodData> foods)
     {
-        dishEvals.Add(dish);
-    }
-
-    public void GetDish(List<FoodData> foods)
-    {
-        foreach (var eval in dishEvals)
+        foreach (Dish dish in dishEvals)
         {
-            bool result = eval.Evaluate(foods);
+            bool result = dish.Evaluate(foods);
             if (result)
             {
-                Debug.Log("cooked up: " + eval.dishName);
-                return;
+                Debug.Log("cooked up: " + dish.dishName);
+                return dish;
             }
         }
+        Debug.Log("cooked up: slop");
+        return slop;
     }
 }

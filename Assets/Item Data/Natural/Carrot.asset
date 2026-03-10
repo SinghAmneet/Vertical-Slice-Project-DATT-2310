@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930f5cf3d2a8ff24c9733320431fffd6, type: 3}
   m_Name: Carrot
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 2297cd4c860e24323b3474a3c2454ff6, type: 3}
+  sprite: {fileID: 21300000, guid: 808f1b9edbc75b14cb289fa17592d21f, type: 3}
   scaleMultiplier: 0.4
   type: 0
   stats:

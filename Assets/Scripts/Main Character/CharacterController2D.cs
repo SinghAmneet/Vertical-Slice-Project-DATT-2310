@@ -83,7 +83,6 @@ public class CharacterController2D : MonoBehaviour
         // When player is moving and press "Space" bar trigers moving combat animation.
         if (Input.GetButtonDown("Attack") && motionVector != Vector2.zero && !isCombatMovementBusy)
         {
-            Debug.Log("attack");
             Attack("combatMovement");
         }
 

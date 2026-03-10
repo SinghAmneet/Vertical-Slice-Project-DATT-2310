@@ -20,10 +20,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7210a82108fc7d94091b51d69974a90d, type: 2}
   - {fileID: 11400000, guid: b8295804215dfce4a83235f212d96777, type: 2}
   - {fileID: 11400000, guid: 002ddfb96654a0a47bf42886c6aa7f1e, type: 2}
-  - {fileID: 11400000, guid: 4718bc989bc98cb4b9e625d334e3b885, type: 2}
   maxHp: 10
   damage: 2
   attackCooldown: 0.9
   chaseRange: 30
-  attackRange: 10
+  attackRange: 14
   speed: 5

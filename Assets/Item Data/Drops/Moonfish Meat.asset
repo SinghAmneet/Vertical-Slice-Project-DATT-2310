@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930f5cf3d2a8ff24c9733320431fffd6, type: 3}
   m_Name: Moonfish Meat
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 485100e33000f4af58cb5fa38fb5d0ed, type: 3}
+  sprite: {fileID: 21300000, guid: c1441334bdfb5064d8143084264dbc8e, type: 3}
   scaleMultiplier: 0.4
   type: 2
   stats:

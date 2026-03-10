@@ -31,7 +31,7 @@ public class Item : MonoBehaviour
 
         SetStats();
         SetTextSize();
-        
+
         spriteRender.sprite = data.sprite; // set object sprite to sprite provided in data
     }
 
@@ -51,18 +51,13 @@ public class Item : MonoBehaviour
     private void SetStats()
     {
         // the second child of Canvas is a template stat text object
-        GameObject template = textCanvas.transform.GetChild(1).gameObject;
         if (data is FoodData foodData)
         {
-            for (int i = 0; i < foodData.stats.Count; i++)
-            {
-                Stat stat = foodData.stats[i];
-                GameObject statObj = Instantiate(template, textCanvas.transform);
-                statObj.GetComponent<TextMeshProUGUI>().text = $"{stat.stat.ToString()}: {stat.value}";
-            }
+            GameObject template = textCanvas.transform.GetChild(1).gameObject;
+            template.GetComponent<TextMeshProUGUI>().text = foodData.type.ToString();
+            template.GetComponent<TextMeshProUGUI>().color = foodData.GetColor();
         }
-
-        Destroy(template);
+        
     }
 
     // show or hide object name
