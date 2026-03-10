@@ -17,6 +17,26 @@ public class FoodData : ItemData
     public Types type;
     public List<Stat> stats = new();
 
+    private List<Color> colors = new()
+    {
+        Color.green,
+        Color.blue,
+        Color.red,
+        Color.yellow,
+        Color.white,
+        Color.gray,
+    };
+
+    public bool Equals(FoodData other)
+    {
+        return this.name.Equals(other.name);
+    }
+
+    public Color GetColor()
+    {
+        return colors[(int) type];
+    }
+
     // when the player consumes the food
     public override void Use(GameObject plr)
     {
