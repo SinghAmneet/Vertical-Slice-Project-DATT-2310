@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -7,11 +8,12 @@ public class CountdownUI : MonoBehaviour
     [Header("References")]
     public SongController songController;
     public TMP_Text countdownText;
+    public BackgroundVisualController backgroundVisualController;
 
     [Header("Countdown")]
-    public int startNumber = 3;                 // 3, 2, 1
-    public float cookDisplayTime = 1.5f;          // how long "COOK!" stays visible
-    public float songStartDelayAfterCook = 1.7f;  // start song X seconds AFTER "COOK!" appears
+    public int startNumber = 3;
+    public float cookDisplayTime = 1.5f;
+    public float songStartDelayAfterCook = 1.7f;
 
     void Start()
     {
@@ -22,6 +24,10 @@ public class CountdownUI : MonoBehaviour
             return;
         }
 
+        // Start the background transition as soon as countdown begins
+        if (backgroundVisualController != null)
+            backgroundVisualController.StartCountdownFade();
+
         StartCoroutine(CountdownRoutine());
     }
 
@@ -29,21 +35,17 @@ public class CountdownUI : MonoBehaviour
     {
         countdownText.gameObject.SetActive(true);
 
-        // 3, 2, 1
         for (int i = startNumber; i >= 1; i--)
         {
             countdownText.text = i.ToString();
             yield return new WaitForSeconds(1f);
         }
 
-        // Show COOK!
-        countdownText.text = "Cook!";
+        countdownText.text = "COOK!";
 
-        // Start the song after a short delay (while COOK! is still on screen)
         yield return new WaitForSeconds(songStartDelayAfterCook);
         songController.BeginSong();
 
-        // Keep COOK! visible for the rest of the display time
         float remaining = cookDisplayTime - songStartDelayAfterCook;
         if (remaining > 0f)
             yield return new WaitForSeconds(remaining);

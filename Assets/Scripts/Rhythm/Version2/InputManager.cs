@@ -24,6 +24,7 @@ public class InputManager : MonoBehaviour
     public GameObject latePopupPrefab;
     public GameObject missPopupPrefab;
     public GameObject firePopupPrefab;
+    public GameObject oneXPopupPrefab; // NEW: plays when multiplier drops to 1x after a miss
 
     public Vector3 popupOffset = Vector3.zero;
 
@@ -101,7 +102,7 @@ public class InputManager : MonoBehaviour
         if (gameManager != null)
             multiplierIncreased = gameManager.RegisterJudgement(judgement);
 
-        // Spawn fire effect if multiplier increased on this hit
+        // Fire effect when multiplier levels up
         if (multiplierIncreased)
             SpawnPopup(firePopupPrefab, note.transform.position);
 
@@ -114,16 +115,25 @@ public class InputManager : MonoBehaviour
         SpawnPopup(missPopupPrefab, worldPosition);
         Debug.Log("MISS");
 
+        bool droppedTo1X = false;
         if (gameManager != null)
-            gameManager.RegisterJudgement("MISS");
+            droppedTo1X = gameManager.RegisterMissAndCheckMultiplierDrop();
+
+        // If multiplier was 2x or higher before the miss, show the 1x popup
+        if (droppedTo1X)
+            SpawnPopup(oneXPopupPrefab, worldPosition);
     }
 
     public void RegisterMiss()
     {
         Debug.Log("MISS");
 
+        bool droppedTo1X = false;
         if (gameManager != null)
-            gameManager.RegisterJudgement("MISS");
+            droppedTo1X = gameManager.RegisterMissAndCheckMultiplierDrop();
+
+        if (droppedTo1X)
+            SpawnPopup(oneXPopupPrefab, Vector3.zero);
     }
 
     void SpawnPopup(GameObject popupPrefab, Vector3 worldPosition)
