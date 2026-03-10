@@ -27,6 +27,11 @@ public class FoodData : ItemData
         Color.gray,
     };
 
+    public bool Equals(FoodData other)
+    {
+        return this.name.Equals(other.name);
+    }
+
     public Color GetColor()
     {
         return colors[(int) type];

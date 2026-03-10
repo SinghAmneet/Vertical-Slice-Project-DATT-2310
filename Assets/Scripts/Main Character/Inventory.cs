@@ -171,4 +171,15 @@ public class Inventory : MonoBehaviour
         invUI.RemoveItemFromSlot(i);
         items[i] = null;
     }
+
+    public List<Item> GetItems()
+    {
+        List<Item> occupiedSlots = new();
+
+        foreach (Item item in items)
+        {
+            if (item != null) occupiedSlots.Add(item);
+        }
+        return occupiedSlots;
+    }
 }

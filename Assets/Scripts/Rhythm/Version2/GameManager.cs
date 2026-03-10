@@ -90,6 +90,21 @@ public class GameManager : MonoBehaviour
         return multiplier > previousMultiplier;
     }
 
+    // NEW: returns true if a miss dropped multiplier from 2x or more back to 1x
+    public bool RegisterMissAndCheckMultiplierDrop()
+    {
+        int previousMultiplier = multiplier;
+
+        missCount++;
+        combo = 0;
+        multiplier = 1;
+
+        Debug.Log($"Score: {score} | Combo: {combo} | Multiplier: x{multiplier}");
+        UpdateGameplayUI();
+
+        return previousMultiplier >= 2;
+    }
+
     void UpdateMultiplier()
     {
         multiplier = 1 + (combo / comboPerMultiplierStep);

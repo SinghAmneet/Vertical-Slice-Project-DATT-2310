@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 321962552bf4b4b90a1d6b7c0367a400
+guid: 75613b1b2425a4444a263d4f85f86426
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Fire-frontpot1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1127
+        width: 1276
+        height: 1127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d58f59079f4cd449f822fb39b11e9828
+      internalID: 518894744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire-frontpot1_1
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 1127
+        width: 1276
+        height: 1127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2a214f8135e6408391c5efc699f6099
+      internalID: -1263896062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire-frontpot1_2
+      rect:
+        serializedVersion: 2
+        x: 2552
+        y: 1127
+        width: 1276
+        height: 1127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c0ab69ac62c9407483d59a7152d9b23
+      internalID: -153179555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire-frontpot1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1276
+        height: 1127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa35f00a0e93437d83d809c81cf167b
+      internalID: 864082364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire-frontpot1_4
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 0
+        width: 1276
+        height: 1127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1254e78d804554b589e38b694bb4af67
+      internalID: -15681903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +224,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fire-frontpot1_0: 518894744
+      Fire-frontpot1_1: -1263896062
+      Fire-frontpot1_2: -153179555
+      Fire-frontpot1_3: 864082364
+      Fire-frontpot1_4: -15681903
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
