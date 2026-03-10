@@ -6,8 +6,7 @@ public class MainUI : MonoBehaviour
     public GameObject bottomElements;
     public GameObject dishObjective;
     public GameObject timeUI;
-
-    //public GameObject
+    public GameObject recipeMenu;
 
     void Start()
     {
@@ -15,10 +14,19 @@ public class MainUI : MonoBehaviour
         toggleHTP();
     }
 
+    public void toggleRecipes()
+    {
+        bool show = !recipeMenu.activeSelf;
+        recipeMenu.SetActive(show);
+
+        dishObjective.SetActive(false);
+    }
+
     public void toggleDishObjective()
     {
         bool show = !dishObjective.activeSelf;
         dishObjective.SetActive(show);
+        recipeMenu.SetActive(false);
     }
 
     public void toggleHTP()

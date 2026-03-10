@@ -63,7 +63,14 @@ public class Mob : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movement.Move();
+        if (plr == null)
+        {
+            movement.SetDirection();
+        } else
+        {
+            movement.SetFacingDirection(plr.transform.position);
+        }
+            movement.Move();
     }
 
     // player enters mob's collider
@@ -89,6 +96,7 @@ public class Mob : MonoBehaviour
         health.OnDamage += TakeDamage; // invokes when mob takes damage
 
         movement.speed = data.speed;
+        movement.SetDirectionOffset(data.forwardDirection);
     }
 
     private void SetStates()
@@ -146,6 +154,11 @@ public class Mob : MonoBehaviour
     public void DecreaseIdleTimer()
     {
         idleTimer -= Time.deltaTime;
+    }
+
+    public void SetPlayerNull()
+    {
+        plr = null;
     }
 
     public bool IdleFinished()

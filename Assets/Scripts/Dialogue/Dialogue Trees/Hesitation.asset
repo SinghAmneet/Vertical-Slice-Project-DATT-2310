@@ -22,7 +22,7 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 1
     speech: 1
-    dialogue: Deadass? Of course I am, you overgrown golden peacock!
+    dialogue: Of course I am, you overgrown golden peacock!
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1

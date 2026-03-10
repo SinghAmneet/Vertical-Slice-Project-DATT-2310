@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3a501ddc2ce264e8290a0575422092, type: 3}
   m_Name: GameOver
   m_EditorClassIdentifier: 
-  sceneName: GameOverTemp
+  sceneName: GameOver
+  ending: 2

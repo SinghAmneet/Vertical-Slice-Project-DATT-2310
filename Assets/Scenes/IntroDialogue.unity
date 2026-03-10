@@ -1327,6 +1327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingDialogueTree: {fileID: 11400000, guid: 953ae0059134763458b7700bfa2f1b37, type: 2}
+  restartTree: {fileID: 11400000, guid: 8fa1cf89afec8ba4fbed94de7f853b61, type: 2}
   typewriteSound: {fileID: 1996474953}
   audioSource: {fileID: 990989322}
   dialogueText: {fileID: 1780615230}

@@ -17,7 +17,7 @@ public class DishCreator : MonoBehaviour
                 return dish;
             }
         }
-
+        Debug.Log("cooked up: slop");
         return slop;
     }
 }

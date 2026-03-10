@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 169586c6935531045a8b97e197155e6f, type: 3}
-  m_Name: Moonfish
+  m_Name: Sandworm
   m_EditorClassIdentifier: 
-  mobPrefab: {fileID: 6478331162814611469, guid: 7bcd4aaba24881d4891d3d037c424821, type: 3}
-  dropAmount: 3
+  mobPrefab: {fileID: 2074481233530585874, guid: d1e1997d7ba9d6e40a84abcb4b9fc187, type: 3}
+  dropAmount: 2
   foodDrops:
-  - {fileID: 11400000, guid: 0a0d56818856e4a4ca3a33bfbfbee968, type: 2}
-  maxHp: 5
-  damage: 1.5
-  attackCooldown: 0.5
-  chaseRange: 40
-  attackRange: 14
+  - {fileID: 11400000, guid: b7791acd08303984399512a70860ced3, type: 2}
+  maxHp: 4
+  damage: 2.5
+  attackCooldown: 0.25
+  chaseRange: 30
+  attackRange: 15
   speed: 12
-  forwardDirection: 1
+  forwardDirection: -1

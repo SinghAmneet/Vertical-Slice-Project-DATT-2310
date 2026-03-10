@@ -170,21 +170,21 @@ public class ResultsUI : MonoBehaviour
 
         if (dishText != null)
         {
-            dishText.text = "Final Dish:";
+            dishText.text = "Final Dish: " + DishData.createdDish.dishName;
             dishText.gameObject.SetActive(true);
             yield return new WaitForSeconds(lineRevealDelay);
         }
 
         if (ingredientsText != null)
         {
-            ingredientsText.text = "Ingredients:";
+            ingredientsText.text = "Ingredients: " + GetIngredients();
             ingredientsText.gameObject.SetActive(true);
             yield return new WaitForSeconds(lineRevealDelay);
         }
 
         if (finalStatsText != null)
         {
-            finalStatsText.text = "Stats:";
+            finalStatsText.text = "Stats: " + GetStats();
             finalStatsText.gameObject.SetActive(true);
         }
 
@@ -207,6 +207,30 @@ public class ResultsUI : MonoBehaviour
         if (dishText != null) dishText.gameObject.SetActive(state);
         if (ingredientsText != null) ingredientsText.gameObject.SetActive(state);
         if (finalStatsText != null) finalStatsText.gameObject.SetActive(state);
+    }
+
+    public string GetIngredients()
+    {
+        string str = "";
+
+        for (int i = 0; i < DishData.inventory.Count; i++) 
+        {
+            FoodData food = DishData.inventory[i];
+            str += food.name;
+            if (i + 1 != DishData.inventory.Count) str += ", ";
+        }
+        return str;
+    }
+
+    public string GetStats()
+    {
+        string str = "";
+
+        foreach (var(stat, value) in DishData.totalStats)
+        {
+            str += $"{stat.ToString()}: {value}, ";
+        }
+        return str;
     }
 
     public void GoToStartMenu()

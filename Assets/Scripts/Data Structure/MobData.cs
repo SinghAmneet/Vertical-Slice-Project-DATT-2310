@@ -21,4 +21,5 @@ public class MobData : ScriptableObject
 
     [Header("Movement")]
     public float speed;
+    public int forwardDirection = -1;
 }

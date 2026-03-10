@@ -18,6 +18,7 @@ public class Dialogue : MonoBehaviour
 {
     public DialogueTree startingDialogueTree;
     private DialogueTree currentTree;
+    public DialogueTree restartTree;
 
     public AudioSource typewriteSound;
     public AudioSource audioSource;
@@ -57,6 +58,10 @@ public class Dialogue : MonoBehaviour
     {
         ClearDisplay();
         currentTree = startingDialogueTree;
+
+        if (EndingData.currentEnding == endings.WrongDialogue) currentTree = restartTree;
+        EndingData.currentEnding = endings.None;
+
         currentRate = typewriteRate;
         NextDialogueLine();
     }
