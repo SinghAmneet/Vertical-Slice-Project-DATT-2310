@@ -51,40 +51,56 @@ public class GameplayUI : MonoBehaviour
     public void ShowUI()
     {
         gameObject.SetActive(true);
-        StartCoroutine(FadeInUI());
+        StartCoroutine(FadeCanvas(0f, 1f, fadeDuration));
     }
 
-    IEnumerator FadeInUI()
+    public void HideUI()
+    {
+        StartCoroutine(HideUIRoutine());
+    }
+
+    IEnumerator HideUIRoutine()
+    {
+        yield return StartCoroutine(FadeCanvas(1f, 0f, fadeDuration));
+        gameObject.SetActive(false);
+    }
+
+    IEnumerator FadeCanvas(float from, float to, float duration)
     {
         float timer = 0f;
 
-        while (timer < fadeDuration)
+        if (canvasGroup != null)
+            canvasGroup.alpha = from;
+
+        while (timer < duration)
         {
             timer += Time.deltaTime;
-            float t = timer / fadeDuration;
+            float t = timer / duration;
 
             if (canvasGroup != null)
-                canvasGroup.alpha = Mathf.Lerp(0f, 1f, t);
+                canvasGroup.alpha = Mathf.Lerp(from, to, t);
 
             yield return null;
         }
 
         if (canvasGroup != null)
-            canvasGroup.alpha = 1f;
+            canvasGroup.alpha = to;
     }
 
     public void UpdateGameplayUI(int score, int multiplier, string rank)
     {
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + score.ToString("D6");
+            scoreText.text = "Rhythm Score: " + score.ToString("D6");
 
             if (score != lastScore && lastScore >= 0)
             {
                 if (scorePulseRoutine != null)
                     StopCoroutine(scorePulseRoutine);
 
-                scorePulseRoutine = StartCoroutine(PulseText(scoreText.transform, scoreBaseScale, pulseScaleMultiplier, pulseDuration));
+                scorePulseRoutine = StartCoroutine(
+                    PulseText(scoreText.transform, scoreBaseScale, pulseScaleMultiplier, pulseDuration)
+                );
             }
         }
 
@@ -92,7 +108,6 @@ public class GameplayUI : MonoBehaviour
         {
             multiplierText.text = "Multiplier: x" + multiplier.ToString();
 
-            // Pulse only when multiplier increases
             if (multiplier > lastMultiplier && lastMultiplier >= 0)
             {
                 if (multiplierPulseRoutine != null)
@@ -136,10 +151,5 @@ public class GameplayUI : MonoBehaviour
         }
 
         target.localScale = baseScale;
-    }
-
-    public void HideUI()
-    {
-        gameObject.SetActive(false);
     }
 }

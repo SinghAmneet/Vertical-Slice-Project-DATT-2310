@@ -133,22 +133,11 @@ public class GameManager : MonoBehaviour
         if (resultsShown) return;
         resultsShown = true;
 
-        if (gameplayUI != null) gameplayUI.HideUI();
-
         float percent = 0f;
         if (maxRawJudgementScore > 0)
             percent = (float)rawJudgementScore / maxRawJudgementScore * 100f;
 
         string rank = GetRank(percent);
-
-        Debug.Log(">RHYTHM GAME RESULTS<");
-        Debug.Log($"Final Score: {score}");
-        Debug.Log($"Accuracy: {percent:F1}%");
-        Debug.Log($"Rank: {rank}");
-        Debug.Log($"Perfect: {perfectCount}");
-        Debug.Log($"Good: {goodCount}");
-        Debug.Log($"Late: {lateCount}");
-        Debug.Log($"Miss: {missCount}");
 
         if (resultsUI != null)
         {
