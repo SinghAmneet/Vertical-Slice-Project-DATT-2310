@@ -11,9 +11,12 @@ public class CountdownUI : MonoBehaviour
     public BackgroundVisualController backgroundVisualController;
 
     [Header("Countdown")]
+    public bool autoStartCountdown = false;
     public int startNumber = 3;
     public float cookDisplayTime = 1.5f;
     public float songStartDelayAfterCook = 1.7f;
+
+    private bool countdownStarted = false;
 
     void Start()
     {
@@ -24,7 +27,19 @@ public class CountdownUI : MonoBehaviour
             return;
         }
 
-        // Start the background transition as soon as countdown begins
+        countdownText.gameObject.SetActive(false);
+
+        if (autoStartCountdown)
+            BeginCountdown();
+    }
+
+    public void BeginCountdown()
+    {
+        if (countdownStarted) return;
+        countdownStarted = true;
+
+        Debug.Log("CountdownUI: BeginCountdown called.");
+
         if (backgroundVisualController != null)
             backgroundVisualController.StartCountdownFade();
 
@@ -38,17 +53,21 @@ public class CountdownUI : MonoBehaviour
         for (int i = startNumber; i >= 1; i--)
         {
             countdownText.text = i.ToString();
-            yield return new WaitForSeconds(1f);
+            Debug.Log("CountdownUI: " + i);
+            yield return new WaitForSecondsRealtime(1f);
         }
 
         countdownText.text = "COOK!";
+        Debug.Log("CountdownUI: COOK!");
 
-        yield return new WaitForSeconds(songStartDelayAfterCook);
+        yield return new WaitForSecondsRealtime(songStartDelayAfterCook);
+
+        Debug.Log("CountdownUI: Calling SongController.BeginSong()");
         songController.BeginSong();
 
         float remaining = cookDisplayTime - songStartDelayAfterCook;
         if (remaining > 0f)
-            yield return new WaitForSeconds(remaining);
+            yield return new WaitForSecondsRealtime(remaining);
 
         countdownText.gameObject.SetActive(false);
     }

@@ -41,6 +41,7 @@ public class NoteSpawner : MonoBehaviour
 
     private bool firstNoteSpawned = false;
     private NoteObject lastSpawnedNote;
+    private bool loggedSongStart = false;
 
     void Start()
     {
@@ -60,6 +61,12 @@ public class NoteSpawner : MonoBehaviour
     {
         double songTime = songController.GetSongTime();
         if (songTime < 0.0) return;
+
+        if (!loggedSongStart)
+        {
+            loggedSongStart = true;
+            Debug.Log("NoteSpawner: songTime is now >= 0, spawning phase started.");
+        }
 
         if (useManualChart) SpawnFromManualChart(songTime);
         else SpawnAutoBeats(songTime);
@@ -93,9 +100,7 @@ public class NoteSpawner : MonoBehaviour
                 noteObj.previewLead = previewLead;
 
                 if (pathLine != null && lastSpawnedNote != null)
-                {
                     pathLine.SetCurrentAndNext(lastSpawnedNote, noteObj);
-                }
 
                 lastSpawnedNote = noteObj;
 
@@ -136,9 +141,7 @@ public class NoteSpawner : MonoBehaviour
                 if (spawnBeatStride <= 0) spawnBeatStride = 1;
 
                 if (nextBeatIndex % spawnBeatStride == 0)
-                {
                     SpawnNoteAtRandomPosition(nextBeatTime);
-                }
 
                 nextBeatIndex++;
             }
@@ -157,9 +160,7 @@ public class NoteSpawner : MonoBehaviour
         noteObj.previewLead = previewLead;
 
         if (pathLine != null && lastSpawnedNote != null)
-        {
             pathLine.SetCurrentAndNext(lastSpawnedNote, noteObj);
-        }
 
         lastSpawnedNote = noteObj;
 

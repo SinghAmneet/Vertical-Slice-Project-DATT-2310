@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [Header("Score Values")]
     public int perfectPoints = 300;
     public int goodPoints = 150;
-    public int latePoints = 50;
+    public int earlyPoints = 50;
 
     [Header("Multiplier Settings")]
     public int comboPerMultiplierStep = 5;
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private int perfectCount = 0;
     private int goodCount = 0;
-    private int lateCount = 0;
+    private int earlyCount = 0;
     private int missCount = 0;
 
     private int totalNotes = 0;
@@ -42,11 +42,9 @@ public class GameManager : MonoBehaviour
     {
         totalNotes++;
         maxRawJudgementScore += perfectPoints;
-
         UpdateGameplayUI();
     }
 
-    // Returns true if the multiplier increased on this judgement
     public bool RegisterJudgement(string judgement)
     {
         int previousMultiplier = multiplier;
@@ -69,12 +67,12 @@ public class GameManager : MonoBehaviour
                 rawJudgementScore += goodPoints;
                 break;
 
-            case "LATE":
-                lateCount++;
+            case "EARLY":
+                earlyCount++;
                 combo++;
                 UpdateMultiplier();
-                score += latePoints * multiplier;
-                rawJudgementScore += latePoints;
+                score += earlyPoints * multiplier;
+                rawJudgementScore += earlyPoints;
                 break;
 
             case "MISS":
@@ -84,13 +82,10 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        Debug.Log($"Score: {score} | Combo: {combo} | Multiplier: x{multiplier}");
         UpdateGameplayUI();
-
         return multiplier > previousMultiplier;
     }
 
-    // NEW: returns true if a miss dropped multiplier from 2x or more back to 1x
     public bool RegisterMissAndCheckMultiplierDrop()
     {
         int previousMultiplier = multiplier;
@@ -99,7 +94,6 @@ public class GameManager : MonoBehaviour
         combo = 0;
         multiplier = 1;
 
-        Debug.Log($"Score: {score} | Combo: {combo} | Multiplier: x{multiplier}");
         UpdateGameplayUI();
 
         return previousMultiplier >= 2;
@@ -114,9 +108,7 @@ public class GameManager : MonoBehaviour
     void UpdateGameplayUI()
     {
         if (gameplayUI != null)
-        {
             gameplayUI.UpdateGameplayUI(score, multiplier, GetCurrentRank());
-        }
     }
 
     string GetCurrentRank()
@@ -147,7 +139,7 @@ public class GameManager : MonoBehaviour
                 rank,
                 perfectCount,
                 goodCount,
-                lateCount,
+                earlyCount,
                 missCount
             );
         }

@@ -13,7 +13,7 @@ public class SongController : MonoBehaviour
 
     [Header("UI")]
     public GameplayUI gameplayUI;
-    public float gameplayUIDelay = 0.3f; // small delay after COOK!
+    public float gameplayUIDelay = 0.3f;
 
     public GameManager gameManager;
 
@@ -37,7 +37,7 @@ public class SongController : MonoBehaviour
         if (songTime >= songLength)
         {
             songFinished = true;
-            Debug.Log("The song has finished playing!");
+            Debug.Log("SongController: Song finished.");
 
             if (gameManager != null)
                 gameManager.ShowFinalResults();
@@ -49,13 +49,15 @@ public class SongController : MonoBehaviour
         if (started) return;
 
         started = true;
+        Debug.Log("SongController: BeginSong called.");
 
-        // Show gameplay UI shortly after COOK!
         if (gameplayUI != null)
             StartCoroutine(ShowGameplayUIDelayed());
 
         dspSongStartTime = AudioSettings.dspTime + 0.05;
         audioSource.PlayScheduled(dspSongStartTime);
+
+        Debug.Log("SongController: Audio scheduled.");
     }
 
     IEnumerator ShowGameplayUIDelayed()
@@ -67,7 +69,6 @@ public class SongController : MonoBehaviour
     public double GetSongTime()
     {
         if (!started) return -999.0;
-
         return AudioSettings.dspTime - dspSongStartTime - songOffset;
     }
 
