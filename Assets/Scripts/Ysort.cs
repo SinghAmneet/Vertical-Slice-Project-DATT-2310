@@ -6,26 +6,15 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(SortingGroup))]
 public class YSort : MonoBehaviour
 {
-    public int sortingOrderBase = 5000;
-    public int offset = 0;
-    public bool runOnlyOnce = false;
-
-    private SortingGroup sortingGroup;
-    private float lastY;
+    private SortingGroup sg;
 
     void Awake()
     {
-        sortingGroup = GetComponent<SortingGroup>();
+        sg = GetComponent<SortingGroup>();
     }
 
     void LateUpdate()
     {
-        if (runOnlyOnce)
-        {
-            if (Mathf.Approximately(lastY, transform.position.y)) return;
-            lastY = transform.position.y;
-        }
-
-        sortingGroup.sortingOrder = (int)(sortingOrderBase - transform.position.y * 100) + offset;
+        sg.sortingOrder = -(int)(transform.position.y * 100);
     }
 }
