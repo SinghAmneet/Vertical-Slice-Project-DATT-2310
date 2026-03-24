@@ -6,6 +6,8 @@ public enum Character
     Narrator,
     Kenny,
     Flint,
+    Evelyn,
+    Guard,
 }
 
 public enum Speech
