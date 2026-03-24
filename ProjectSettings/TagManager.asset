@@ -72,3 +72,6 @@ TagManager:
   - name: Arrow(Rhythm)
     uniqueID: 2290272641
     locked: 0
+  - name: Foreground
+    uniqueID: 1151872273
+    locked: 0

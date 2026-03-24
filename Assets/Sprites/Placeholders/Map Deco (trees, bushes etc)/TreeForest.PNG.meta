@@ -1,0 +1,1293 @@
+fileFormatVersion: 2
+guid: 09dcd0b527c7b71438469285e0887b3a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TreeForest_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1808
+        width: 784
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de95eca81cb62043922cc85e60a192c
+      internalID: -1304046196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_1
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 2004
+        width: 463
+        height: 796
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab2cb1bf7a1a8ea468615eb7de2178a5
+      internalID: -2132389242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_2
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 2045
+        width: 356
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a12ed33f724a044980907af6c71560c
+      internalID: -2064204119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_3
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 1235
+        width: 601
+        height: 932
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0731c13f4f2d8947a6f84f99a8b0613
+      internalID: -1958471629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_4
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 1812
+        width: 331
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b4b275a3cedffc4e8e022470fea7e0d
+      internalID: 302546610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_5
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 1811
+        width: 177
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe089caced781147978e33dd0582ebd
+      internalID: -1477004388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_6
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 1811
+        width: 187
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eb865ea5cd5d4742aa66a36336a872a
+      internalID: 1587253133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_7
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 1625
+        width: 60
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a79e94f6509c657429da68a641d0d4a4
+      internalID: 462182545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_8
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1651
+        width: 106
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e118beeaa82e941a643335e5d26ebb
+      internalID: 345041865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_9
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 1618
+        width: 57
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee3beff6d14384249808a3c14159fe83
+      internalID: 1232592346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_10
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 1609
+        width: 449
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe0a8bacae6a184eab1b179d2f7b25b
+      internalID: -1038145755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_11
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 1618
+        width: 99
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62dc77c6792181749b80a733fee6bac4
+      internalID: -81562237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_12
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 1621
+        width: 159
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 210ac9fe0e691e242a3bc7342836fa95
+      internalID: -632896734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_13
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 1411
+        width: 357
+        height: 363
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8e2285a186005f4096a63a38a709771
+      internalID: 351123709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_14
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 1622
+        width: 179
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7adbb056d8a6104e80c03891c7e5bba
+      internalID: 18817634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_15
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 1610
+        width: 177
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87cb8a4208a8b074f81fcd872fbb5648
+      internalID: -1463080775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1410
+        width: 332
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 625892685e93766428421ca56fa89cde
+      internalID: 475256671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_17
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 1506
+        width: 21
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 196c98b83fe02374aa362fbec3065522
+      internalID: -1521411344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_18
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 818
+        width: 379
+        height: 754
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae33c1ccc9aedf4ebbc91a2bb2dd3de
+      internalID: 1102703560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_19
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1442
+        width: 189
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b51c3d4106d7fc44db131335f0cbf3d0
+      internalID: -1115024647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_20
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 1432
+        width: 186
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c8bdd7edc600b49a98d4020f586d2c
+      internalID: -48879932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_21
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1209
+        width: 263
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf7bb150eee5504f8c27aa4a36213f8
+      internalID: 182513868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_22
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 1212
+        width: 177
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ebf4d2c219dac429017e4e5c1735d5
+      internalID: 1148917750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_23
+      rect:
+        serializedVersion: 2
+        x: 1762
+        y: 1328
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266c988a39b9a7c42848835e9d74e76f
+      internalID: 712910130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_24
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 1226
+        width: 166
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf92b8db868a27448d5dc8c42921f32
+      internalID: -139694889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_25
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 1212
+        width: 179
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84f64b0e45bad464e925449c5cceff03
+      internalID: 2118289647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_26
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 1216
+        width: 177
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5325f4e0c8c9494bbaebaafcbcdc391
+      internalID: -388922527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_27
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 1010
+        width: 242
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75fccdbbf3e1a914288d01e927d54d91
+      internalID: 1197721340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_28
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 1091
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03f1cb394428cee428681aead036755c
+      internalID: -1684506397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_29
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 1018
+        width: 155
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 285d299863523e4488632c4a37aea745
+      internalID: -2138360361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_30
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 1015
+        width: 147
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cec06f07f3525345acd54388fbf0764
+      internalID: -1350575235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_31
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 1048
+        width: 45
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf25371bce2ca4744a3dcc267dfa674a
+      internalID: -1926651421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_32
+      rect:
+        serializedVersion: 2
+        x: 1616
+        y: 1012
+        width: 167
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b2df446cce054f47848a5e5cc95736b
+      internalID: -1076636821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_33
+      rect:
+        serializedVersion: 2
+        x: 1810
+        y: 1003
+        width: 175
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 109256217c49452409e0a9d72bf64df4
+      internalID: 1815574168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_34
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 1092
+        width: 34
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 831eb2b852cec404797c6cf06c21234f
+      internalID: -657364560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_35
+      rect:
+        serializedVersion: 2
+        x: 2018
+        y: 1007
+        width: 175
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c37bd80bfc35603448720a9471a03b71
+      internalID: -2135185392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_36
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 1022
+        width: 161
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85a6ad76c0128f0439cd00f6f11b19a3
+      internalID: 1377750932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_37
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 412
+        width: 179
+        height: 477
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e982b7b2675b6d48bdee6bbd230daa2
+      internalID: -908553961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_38
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 407
+        width: 183
+        height: 473
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41c8cf8562f935e4b84044d83c62c76e
+      internalID: -1278394050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_39
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 806
+        width: 296
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292bc9d8b829d124b92d0d8c1d7325a3
+      internalID: -1838108369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_40
+      rect:
+        serializedVersion: 2
+        x: 2001
+        y: 605
+        width: 197
+        height: 324
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78fc46ff67d377848a813c625b52879a
+      internalID: 1314002392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_41
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 608
+        width: 304
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cce6ccd898d847459611c9c87e39b4e
+      internalID: -1910573356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_42
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 604
+        width: 263
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc3ee6b3757cd5149a33e903dd98d6e4
+      internalID: -2074876844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_43
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 29
+        width: 198
+        height: 722
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9260dfea3a3c941b345c55356fcb29
+      internalID: -1899015989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_44
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 420
+        width: 170
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb10bd168c9eaf94ca1198d009b07162
+      internalID: 1399933544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_45
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 422
+        width: 187
+        height: 310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e511b6145f12ab346b2680b26c229f7c
+      internalID: 1277315947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_46
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 14
+        width: 329
+        height: 538
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354203af3f5f5c9459c88d570a6d2d56
+      internalID: -815925171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_47
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 27
+        width: 325
+        height: 537
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c970dd54afbe548b2ca4ea4ebd0163
+      internalID: -1284222601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_48
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 0
+        width: 350
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91fd3a6c07a37a14fbbf07bfa30e6b27
+      internalID: 919087500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_49
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 10
+        width: 191
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7f3e370a9bde64eb2da8f82c589055
+      internalID: -508025267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_50
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 15
+        width: 179
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9336274cc9f6adb438c7864d5aa8579d
+      internalID: 987512267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_51
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 5
+        width: 188
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20f5e6ea985f3884090687cc78f86c36
+      internalID: -944607684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeForest_52
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 221
+        width: 192
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5736da8f7375cb45a6134beb36b9311
+      internalID: -510522732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      TreeForest_0: -1304046196
+      TreeForest_1: -2132389242
+      TreeForest_10: -1038145755
+      TreeForest_11: -81562237
+      TreeForest_12: -632896734
+      TreeForest_13: 351123709
+      TreeForest_14: 18817634
+      TreeForest_15: -1463080775
+      TreeForest_16: 475256671
+      TreeForest_17: -1521411344
+      TreeForest_18: 1102703560
+      TreeForest_19: -1115024647
+      TreeForest_2: -2064204119
+      TreeForest_20: -48879932
+      TreeForest_21: 182513868
+      TreeForest_22: 1148917750
+      TreeForest_23: 712910130
+      TreeForest_24: -139694889
+      TreeForest_25: 2118289647
+      TreeForest_26: -388922527
+      TreeForest_27: 1197721340
+      TreeForest_28: -1684506397
+      TreeForest_29: -2138360361
+      TreeForest_3: -1958471629
+      TreeForest_30: -1350575235
+      TreeForest_31: -1926651421
+      TreeForest_32: -1076636821
+      TreeForest_33: 1815574168
+      TreeForest_34: -657364560
+      TreeForest_35: -2135185392
+      TreeForest_36: 1377750932
+      TreeForest_37: -908553961
+      TreeForest_38: -1278394050
+      TreeForest_39: -1838108369
+      TreeForest_4: 302546610
+      TreeForest_40: 1314002392
+      TreeForest_41: -1910573356
+      TreeForest_42: -2074876844
+      TreeForest_43: -1899015989
+      TreeForest_44: 1399933544
+      TreeForest_45: 1277315947
+      TreeForest_46: -815925171
+      TreeForest_47: -1284222601
+      TreeForest_48: 919087500
+      TreeForest_49: -508025267
+      TreeForest_5: -1477004388
+      TreeForest_50: 987512267
+      TreeForest_51: -944607684
+      TreeForest_52: -510522732
+      TreeForest_6: 1587253133
+      TreeForest_7: 462182545
+      TreeForest_8: 345041865
+      TreeForest_9: 1232592346
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
