@@ -13,14 +13,22 @@ MonoBehaviour:
   m_Name: Doubt
   m_EditorClassIdentifier: 
   dialogueLines:
+  - speaker: 1
+    speech: 0
+    va: {fileID: 8300000, guid: 3dd9ca737de76b440ace5d668027636e, type: 3}
+    dialogue: ' [Pause:0.3]Like I can believe you.'
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
   - speaker: 2
     speech: 0
+    va: {fileID: 8300000, guid: 52600c401c7823f4d9720bbf35e75be0, type: 3}
     dialogue: What did you just say?
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    dialogue: Nothing, sir.
+    va: {fileID: 8300000, guid: ee124c473d8a32240b9d75aff133f176, type: 3}
+    dialogue: ' [Pause:0.4]Nothing, sir.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices: []

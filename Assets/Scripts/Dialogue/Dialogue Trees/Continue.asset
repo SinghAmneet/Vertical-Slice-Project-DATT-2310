@@ -13,19 +13,30 @@ MonoBehaviour:
   m_Name: Continue
   m_EditorClassIdentifier: 
   dialogueLines:
+  - speaker: 1
+    speech: 0
+    va: {fileID: 8300000, guid: e1b4cdf568dc325439730bba0c7e1fe7, type: 3}
+    dialogue: " [Pause:0.3]Either way,[Pause:0.4] if I\u2019m going to die,[Pause:0.4]
+      I\u2019d[Pause:0.3] prefer to live a little longer.[Pause:0.4] Thank you for
+      the opportunity."
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    dialogue: "Yes! Be loyal and go out there.[Pause] \nFind the most delicious dish
-      and bring it to me!"
+    va: {fileID: 8300000, guid: a73b83aaedb98ba49b51d821b3e2fa33, type: 3}
+    dialogue: "Yes![Pause:0.7] Be loyal[Pause:0.6] and go out there.[Pause:0.2] \nFind
+      the most delicious dish and bring it to me!"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 1
+    va: {fileID: 0}
     dialogue: "If I survive, I\u2019m opening a bakery in another kingdom."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 0
     speech: 0
+    va: {fileID: 0}
     dialogue: "And so begins Kenny\u2019s questionable adventure to Elixir[Rate:0.5]...[Pause] "
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: 46dc9a2c57236d24aa25b7db445fb7ca, type: 2}

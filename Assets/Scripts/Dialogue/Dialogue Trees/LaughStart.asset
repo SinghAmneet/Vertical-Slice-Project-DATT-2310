@@ -13,8 +13,16 @@ MonoBehaviour:
   m_Name: LaughStart
   m_EditorClassIdentifier: 
   dialogueLines:
+  - speaker: 1
+    speech: 0
+    va: {fileID: 8300000, guid: 6da2e325104eb1547af11913d2d37f7c, type: 3}
+    dialogue: ' [Pause:0.7]Yes, my lord. I will[Pause:0.5] try my best to satisfy
+      your taste.'
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
   - speaker: 2
     speech: 0
+    va: {fileID: 0}
     dialogue: 'HAHAHAHA[Pause] '
     startAction: {fileID: 11400000, guid: 0a100f3e5ebfa394aa84970fcf443168, type: 2}
     endAction: {fileID: 11400000, guid: 46dc9a2c57236d24aa25b7db445fb7ca, type: 2}

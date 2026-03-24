@@ -20,6 +20,7 @@ public class Dialogue : MonoBehaviour
     private DialogueTree currentTree;
     public DialogueTree restartTree;
 
+    public AudioSource vaSound;
     public AudioSource typewriteSound;
     public AudioSource audioSource;
 
@@ -84,6 +85,9 @@ public class Dialogue : MonoBehaviour
             case DialogueState.Choosing:
                 break;
         }
+        if (Input.GetKeyDown(KeyCode.Tab)) {
+            dialogueIndex = currentTree.dialogueLines.Length - 1;
+            NextDialogueLine(); }
     }
 
     public void WaitForAudioToFinish(float audioLength)
@@ -153,6 +157,14 @@ public class Dialogue : MonoBehaviour
 
         if (data.speech == Speech.Thinking) UpdateTextBox();
         if (data.startAction != null) data.startAction.StartAction(this);
+
+        if (vaSound.isPlaying) vaSound.Stop();
+
+        if (data.va != null)
+        {
+            vaSound.clip = data.va;
+            vaSound.Play();
+        }
 
         StartTypewrite();
     }

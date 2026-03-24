@@ -15,30 +15,35 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 2
     speech: 0
+    va: {fileID: 8300000, guid: dd1e94d05921f8d49b073c73decc5ff7, type: 3}
     dialogue: My dear chef, Kenny!
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    dialogue: You called? Your Majesty.
+    va: {fileID: 8300000, guid: 728ef281e98c94c4ab124da1bc261538, type: 3}
+    dialogue: ' [Rate:0.4]... [Rate:Default]You called? Your Majesty.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    dialogue: "Yes, I have always admired your cooking skills, but it is getting
-      boring now. I\u2019ve been wondering[Rate:0.4]... [Rate:Default]how do the
-      monsters from Elixir taste?"
+    va: {fileID: 8300000, guid: ef3825bd850adc745aefbae8f73fbcfe, type: 3}
+    dialogue: "Yes, [Rate:0.05]I have always admired your cooking skills, but it
+      is getting boring now. [Pause:1]I\u2019ve been wondering[Rate:0.2]... [Rate:0.05]how
+      do the monsters from Elixir taste?"
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: 16b07c9fb1c66e54c837e9a0d907ea03, type: 2}
   - speaker: 1
     speech: 0
+    va: {fileID: 8300000, guid: 764e6937769037548a3593a2c2965f53, type: 3}
     dialogue: ' [Rate:0.25]...[Rate:Default]Your Majesty?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    dialogue: Beyond the outer border lies Elixir, they say monsters roam freely
-      there. [Rate:0.1]Go. [Rate:Default]Bring me something extraordinary!
+    va: {fileID: 8300000, guid: 67b76ae4562c4a74791136433f983c25, type: 3}
+    dialogue: Beyond the outer border lies Elixir,[Pause:0.3] they say monsters roam
+      freely there. [Pause:0.5]Go. [Pause:0.8]Bring me something[Pause:0.7] extraordinary!
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices:

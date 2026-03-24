@@ -27,6 +27,7 @@ public class DialogueData
 {
     public Character speaker;
     public Speech speech;
+    public AudioClip va;
 
     [TextArea]
     public string dialogue;

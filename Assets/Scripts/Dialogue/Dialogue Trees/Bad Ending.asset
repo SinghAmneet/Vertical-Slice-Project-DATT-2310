@@ -13,18 +13,28 @@ MonoBehaviour:
   m_Name: Bad Ending
   m_EditorClassIdentifier: 
   dialogueLines:
+  - speaker: 1
+    speech: 0
+    va: {fileID: 8300000, guid: ea526982e32441345ac7d2c5aa961485, type: 3}
+    dialogue: ' [Pause:0.3]This[Pause:0.2] is not a request.[Pause:0.45] This is
+      suicide.[Pause:0.45] Going to Elixir means a death sentence.'
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
   - speaker: 0
     speech: 0
+    va: {fileID: 0}
     dialogue: Kenny chose honesty.
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: 16b67c3a272bdad4b9d0769bb52f67d3, type: 2}
   - speaker: 2
     speech: 0
+    va: {fileID: 8300000, guid: ae41f1d94c71d1444847183c7e6c4833, type: 3}
     dialogue: Off with his head!
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 0
     speech: 0
+    va: {fileID: 0}
     dialogue: 'And thus, the kingdom lost a talented Chef.[Pause] '
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: b5e253619bcdfc244973a0f554664419, type: 2}
