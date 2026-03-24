@@ -33,20 +33,25 @@ public class TutorialSensitivitySlider : MonoBehaviour
 
         Vector2 cursorPos = cursorManager.GetWorldPosition();
 
+        // Start dragging
         if (Input.GetMouseButtonDown(0) && IsCursorOverSlider(cursorPos))
         {
             dragging = true;
+            cursorManager.SetForceHover(true);
             SetFromCursor(cursorPos.x);
         }
 
+        // Continue dragging
         if (dragging && Input.GetMouseButton(0))
         {
             SetFromCursor(cursorPos.x);
         }
 
+        // Stop dragging
         if (Input.GetMouseButtonUp(0))
         {
             dragging = false;
+            cursorManager.SetForceHover(false);
         }
     }
 

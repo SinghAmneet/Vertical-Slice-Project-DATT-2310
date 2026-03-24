@@ -16,6 +16,10 @@ public class CountdownUI : MonoBehaviour
     public float cookDisplayTime = 1.5f;
     public float songStartDelayAfterCook = 1.7f;
 
+    [Header("Countdown Sound")]
+    public AudioSource audioSource;
+    public AudioClip popSound;
+
     private bool countdownStarted = false;
 
     void Start()
@@ -54,11 +58,16 @@ public class CountdownUI : MonoBehaviour
         {
             countdownText.text = i.ToString();
             Debug.Log("CountdownUI: " + i);
+
+            PlayCountdownSound(i);
+
             yield return new WaitForSecondsRealtime(1f);
         }
 
         countdownText.text = "COOK!";
         Debug.Log("CountdownUI: COOK!");
+
+        PlayCountdownSound(0); // COOK sound
 
         yield return new WaitForSecondsRealtime(songStartDelayAfterCook);
 
@@ -70,5 +79,29 @@ public class CountdownUI : MonoBehaviour
             yield return new WaitForSecondsRealtime(remaining);
 
         countdownText.gameObject.SetActive(false);
+    }
+
+    void PlayCountdownSound(int count)
+    {
+        if (audioSource == null || popSound == null)
+            return;
+
+        switch (count)
+        {
+            case 3:
+                audioSource.pitch = 1.0f;
+                break;
+            case 2:
+                audioSource.pitch = 1.1f;
+                break;
+            case 1:
+                audioSource.pitch = 1.2f;
+                break;
+            case 0: // COOK!
+                audioSource.pitch = 1.4f;
+                break;
+        }
+
+        audioSource.PlayOneShot(popSound);
     }
 }

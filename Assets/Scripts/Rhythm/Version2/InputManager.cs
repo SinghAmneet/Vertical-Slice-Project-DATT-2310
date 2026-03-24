@@ -27,6 +27,11 @@ public class InputManager : MonoBehaviour
     public GameObject firePopupPrefab;
     public GameObject oneXPopupPrefab;
 
+    [Header("Sound Effects")]
+    public AudioSource sfxSource;
+    public AudioClip noteClickSound;
+    public AudioClip fireSound;
+
     public Vector3 popupOffset = Vector3.zero;
 
     void Update()
@@ -97,12 +102,18 @@ public class InputManager : MonoBehaviour
             SpawnPopup(earlyPopupPrefab, note.transform.position);
         }
 
+        // Play note click sound on any successful note hit
+        PlayNoteClickSound();
+
         bool multiplierIncreased = false;
         if (gameManager != null)
             multiplierIncreased = gameManager.RegisterJudgement(judgement);
 
         if (multiplierIncreased)
+        {
             SpawnPopup(firePopupPrefab, note.transform.position);
+            PlayFireSound();
+        }
 
         double signedOffset = songTime - note.hitTime;
         note.Judge(signedOffset);
@@ -134,5 +145,23 @@ public class InputManager : MonoBehaviour
     {
         if (popupPrefab == null) return;
         Instantiate(popupPrefab, worldPosition + popupOffset, Quaternion.identity);
+    }
+
+    void PlayNoteClickSound()
+    {
+        if (sfxSource == null || noteClickSound == null)
+            return;
+
+        sfxSource.pitch = Random.Range(0.97f, 1.03f);
+        sfxSource.PlayOneShot(noteClickSound);
+    }
+
+    void PlayFireSound()
+    {
+        if (sfxSource == null || fireSound == null)
+            return;
+
+        sfxSource.pitch = Random.Range(0.97f, 1.06f);
+        sfxSource.PlayOneShot(fireSound);
     }
 }

@@ -21,11 +21,21 @@ public class TutorialNoteObject : MonoBehaviour
     public SpriteRenderer hitRenderer;
     public SpriteRenderer approachRenderer;
 
+    [Header("Tutorial Popups")]
+    public GameObject perfectPopupPrefab;
+    public GameObject failPopupPrefab;
+    public Vector3 popupOffset = Vector3.zero;
+
+    [Header("Preview Look")]
+    [Range(0f, 1f)] public float previewAlpha = 0.45f;
+    public Color previewTint = new Color(0.8f, 0.8f, 0.8f, 1f);
+
     private enum VisualState { Preview, Active, Locked }
     private VisualState state = VisualState.Preview;
 
     private float activeTimer = 0f;
     private bool missed = false;
+    private bool failPopupShown = false;
 
     void Awake()
     {
@@ -53,7 +63,15 @@ public class TutorialNoteObject : MonoBehaviour
             approachCircle.localScale = Vector3.one * scale;
 
         if (activeTimer > approachDuration + missWindow)
+        {
             missed = true;
+
+            if (!failPopupShown)
+            {
+                ShowFailPopup();
+                failPopupShown = true;
+            }
+        }
     }
 
     public void BeginActive()
@@ -61,6 +79,7 @@ public class TutorialNoteObject : MonoBehaviour
         state = VisualState.Active;
         activeTimer = 0f;
         missed = false;
+        failPopupShown = false;
         ApplyActiveVisuals();
     }
 
@@ -84,7 +103,14 @@ public class TutorialNoteObject : MonoBehaviour
         if (progress >= perfectThreshold)
         {
             state = VisualState.Locked;
+            ShowPerfectPopup();
             return TutorialJudgeResult.Perfect;
+        }
+
+        if (!failPopupShown)
+        {
+            ShowFailPopup();
+            failPopupShown = true;
         }
 
         return TutorialJudgeResult.Fail;
@@ -104,8 +130,8 @@ public class TutorialNoteObject : MonoBehaviour
     {
         if (hitRenderer != null)
         {
-            Color c = hitRenderer.color;
-            c.a = 1f;
+            Color c = previewTint;
+            c.a = previewAlpha;
             hitRenderer.color = c;
         }
 
@@ -124,16 +150,26 @@ public class TutorialNoteObject : MonoBehaviour
     {
         if (hitRenderer != null)
         {
-            Color c = hitRenderer.color;
-            c.a = 1f;
-            hitRenderer.color = c;
+            hitRenderer.color = Color.white;
         }
 
         if (approachRenderer != null)
         {
-            Color c = approachRenderer.color;
+            Color c = Color.white;
             c.a = 1f;
             approachRenderer.color = c;
         }
+    }
+
+    void ShowPerfectPopup()
+    {
+        if (perfectPopupPrefab != null)
+            Instantiate(perfectPopupPrefab, transform.position + popupOffset, Quaternion.identity);
+    }
+
+    void ShowFailPopup()
+    {
+        if (failPopupPrefab != null)
+            Instantiate(failPopupPrefab, transform.position + popupOffset, Quaternion.identity);
     }
 }

@@ -261,3 +261,6 @@ MonoBehaviour:
   approachCircle: {fileID: 17219729270978973}
   hitRenderer: {fileID: 5953413602730553084}
   approachRenderer: {fileID: 9162417287615727119}
+  perfectPopupPrefab: {fileID: 4846243497955848511, guid: b305e7a540fee4d6a97097d69ed2539a, type: 3}
+  failPopupPrefab: {fileID: 5752328181378590461, guid: b75d62b4f0abe486e9ef4ab676f60000, type: 3}
+  popupOffset: {x: 0, y: 0, z: 0}

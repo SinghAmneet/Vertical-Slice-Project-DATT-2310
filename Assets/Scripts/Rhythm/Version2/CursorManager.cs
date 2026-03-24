@@ -26,6 +26,7 @@ public class CursorManager : MonoBehaviour
     private Vector2 virtualScreenPosition;
     private float clickTimer = 0f;
     private bool gameplayCursorActive = true;
+    private bool forceHover = false;
 
     void Awake()
     {
@@ -92,18 +93,28 @@ public class CursorManager : MonoBehaviour
         if (cursorRenderer == null)
             return;
 
+        // Click has highest priority
         if (clickTimer > 0f && clickingNoteCursorSprite != null)
         {
             cursorRenderer.sprite = clickingNoteCursorSprite;
             return;
         }
 
+        // Force hover while dragging slider
+        if (forceHover && hoveringNoteCursorSprite != null)
+        {
+            cursorRenderer.sprite = hoveringNoteCursorSprite;
+            return;
+        }
+
+        // Normal hover over notes
         if (IsHoveringActiveNote() && hoveringNoteCursorSprite != null)
         {
             cursorRenderer.sprite = hoveringNoteCursorSprite;
             return;
         }
 
+        // Default sprite
         if (defaultCursorSprite != null)
             cursorRenderer.sprite = defaultCursorSprite;
     }
@@ -174,5 +185,10 @@ public class CursorManager : MonoBehaviour
     {
         virtualScreenPosition = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
         UpdateWorldPositionFromVirtual();
+    }
+
+    public void SetForceHover(bool state)
+    {
+        forceHover = state;
     }
 }

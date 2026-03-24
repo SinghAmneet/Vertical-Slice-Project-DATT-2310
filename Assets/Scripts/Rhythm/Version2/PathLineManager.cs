@@ -7,9 +7,9 @@ public class PathLineManager : MonoBehaviour
     public SongController songController;
 
     [Header("Curve")]
-    [Range(8, 80)] public int curveSegments = 24;   // more segments = smoother curve
-    public float curveBend = 1.2f;                  // how “curvy” it is
-    public bool alternateCurveSide = true;          // flips curve side each note for variety
+    [Range(8, 80)] public int curveSegments = 24;
+    public float curveBend = 1.2f;
+    public bool alternateCurveSide = true;
 
     [Header("Visuals")]
     public float baseWidth = 0.05f;
@@ -27,13 +27,15 @@ public class PathLineManager : MonoBehaviour
 
     private Transform from;
     private Transform to;
-    private NoteObject nextNote;
 
-    private float growT = 0f;        // 0..1
-    private float pulseT = 0f;       // 0..1 (decays)
+    private NoteObject nextRhythmNote;
+    private TutorialNoteObject nextTutorialNote;
+
+    private float growT = 0f;
+    private float pulseT = 0f;
     private double lastBeatIndex = -999;
 
-    private int curveFlip = 1;       // +1 / -1 (used when alternateCurveSide = true)
+    private int curveFlip = 1;
 
     void Awake()
     {
@@ -60,9 +62,7 @@ public class PathLineManager : MonoBehaviour
 
         line.enabled = true;
 
-        // -----------------------------
-        // Beat pulse (based on BPM)
-        // -----------------------------
+        // Beat pulse
         double songTime = songController.GetSongTime();
         if (songTime >= 0)
         {
@@ -78,16 +78,16 @@ public class PathLineManager : MonoBehaviour
 
         pulseT = Mathf.MoveTowards(pulseT, 0f, Time.deltaTime * pulseDecaySpeed);
 
-        // -----------------------------
         // Grow animation
-        // -----------------------------
         growT = Mathf.MoveTowards(growT, 1f, Time.deltaTime * growSpeed);
 
-        // -----------------------------
         // Fade when next note becomes active
-        // -----------------------------
         float activeFade = 0f;
-        if (nextNote != null && nextNote.IsActiveState())
+
+        if (nextRhythmNote != null && nextRhythmNote.IsActiveState())
+            activeFade = fadeWhenActive;
+
+        if (nextTutorialNote != null && nextTutorialNote.IsActiveState())
             activeFade = fadeWhenActive;
 
         // Width + alpha styling
@@ -97,7 +97,6 @@ public class PathLineManager : MonoBehaviour
 
         float alpha = Mathf.Clamp01(0.6f + (pulseAlphaAdd * pulseT) - activeFade);
 
-        // Apply a simple alpha gradient (slightly fades toward the end)
         Gradient g = new Gradient();
         Color c0 = line.startColor; c0.a = alpha;
         Color c1 = line.endColor;   c1.a = alpha * 0.6f;
@@ -114,33 +113,25 @@ public class PathLineManager : MonoBehaviour
         );
         line.colorGradient = g;
 
-        // -----------------------------
-        // Draw the CURVED line
-        // -----------------------------
+        // Draw curved line
         Vector3 A = from.position;
         Vector3 C = to.position;
 
-        // Control point B: offset perpendicular to the A->C direction
         Vector3 mid = (A + C) * 0.5f;
         Vector3 dir = (C - A);
         Vector3 perp = new Vector3(-dir.y, dir.x, 0f).normalized;
 
-        // Bend depends on distance so it scales nicely at any spacing
         float dist = dir.magnitude;
         float bendAmount = curveBend * Mathf.Clamp(dist * 0.25f, 0.5f, 3.0f);
 
         Vector3 B = mid + perp * bendAmount * curveFlip;
 
-        // Ensure the renderer has enough points
         if (line.positionCount != curveSegments)
             line.positionCount = curveSegments;
 
-        // We want the curve to “grow” from 0..growT (like drawing it out)
         for (int i = 0; i < curveSegments; i++)
         {
             float t = (curveSegments == 1) ? 1f : (float)i / (curveSegments - 1);
-
-            // Clamp drawing to the current grow amount
             float drawT = Mathf.Min(t, growT);
 
             Vector3 p = QuadraticBezier(A, B, C, drawT);
@@ -148,7 +139,9 @@ public class PathLineManager : MonoBehaviour
         }
     }
 
-    // Called whenever a new note spawns: last note -> new note
+    // =========================
+    // Rhythm note version
+    // =========================
     public void SetCurrentAndNext(NoteObject current, NoteObject next)
     {
         if (current == null || next == null) return;
@@ -156,12 +149,30 @@ public class PathLineManager : MonoBehaviour
         from = current.hitCircle != null ? current.hitCircle : current.transform;
         to   = next.hitCircle != null ? next.hitCircle : next.transform;
 
-        nextNote = next;
+        nextRhythmNote = next;
+        nextTutorialNote = null;
 
-        // Reset the draw animation each time we switch targets
         growT = 0f;
 
-        // Optionally flip curve side each spawn (looks more organic)
+        if (alternateCurveSide)
+            curveFlip *= -1;
+    }
+
+    // =========================
+    // Tutorial note version
+    // =========================
+    public void SetCurrentAndNext(TutorialNoteObject current, TutorialNoteObject next)
+    {
+        if (current == null || next == null) return;
+
+        from = current.hitCircle != null ? current.hitCircle : current.transform;
+        to   = next.hitCircle != null ? next.hitCircle : next.transform;
+
+        nextTutorialNote = next;
+        nextRhythmNote = null;
+
+        growT = 0f;
+
         if (alternateCurveSide)
             curveFlip *= -1;
     }
@@ -170,14 +181,21 @@ public class PathLineManager : MonoBehaviour
     {
         from = null;
         to = null;
-        nextNote = null;
+        nextRhythmNote = null;
+        nextTutorialNote = null;
         growT = 0f;
         pulseT = 0f;
 
-        if (line != null) line.enabled = false;
+        if (line != null)
+            line.enabled = false;
     }
 
-    // Quadratic Bezier: A -> B -> C
+    // Wrapper so RhythmTutorialManager can call ClearLine()
+    public void ClearLine()
+    {
+        Clear();
+    }
+
     static Vector3 QuadraticBezier(Vector3 A, Vector3 B, Vector3 C, float t)
     {
         float u = 1f - t;
