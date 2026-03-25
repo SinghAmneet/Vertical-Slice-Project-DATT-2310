@@ -10,13 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a13b7d098f7567f4490ad5c502ee1994, type: 3}
-  m_Name: R2-Evaluation
+  m_Name: HappiEnd
   m_EditorClassIdentifier: 
   dialogueLines:
-  - speaker: 2
+  - speaker: 0
     speech: 0
     va: {fileID: 0}
-    dialogue: "Don\u2019t keep me waiting any longer. I am ready to eat."
+    dialogue: "Kenny fled the palace, leaving royal drama and dangerous \u201Cquests\u201D
+      behind, and opened a bakery in a kingdom that actually appreciated food that
+      didn\u2019t try to kill them. "
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 0
+    speech: 0
+    va: {fileID: 0}
+    dialogue: Who knows. He might one day return, rolling in flour and pastries,
+      to serve a little revenge with a side of icing.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices: []
