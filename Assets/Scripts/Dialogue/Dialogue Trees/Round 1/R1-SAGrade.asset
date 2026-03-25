@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13b7d098f7567f4490ad5c502ee1994, type: 3}
+  m_Name: R1-SAGrade
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - speaker: 2
+    speech: 0
+    va: {fileID: 0}
+    dialogue: " Exquisite. Truly Exquisite! I knew my faith in you was not misplaced
+      \u2013 you are, without question, the finest chef in my kingdom.\r\n"
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 2
+    speech: 0
+    va: {fileID: 0}
+    dialogue: "\u2026And yet"
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 2
+    speech: 0
+    va: {fileID: 0}
+    dialogue: 'I find myself still wanting
+
+'
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 2
+    speech: 0
+    va: {fileID: 0}
+    dialogue: Prepare for another course. Something greater.
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 2
+    speech: 0
+    va: {fileID: 0}
+    dialogue: "Do not keep your king waiting\r"
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 1
+    speech: 1
+    va: {fileID: 0}
+    dialogue: What a big bag
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 1
+    speech: 0
+    va: {fileID: 0}
+    dialogue: 'As your command, your Majesty. I shall prepare the next   course at
+      once
+
+'
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  endChoices: []
+  nextTree: {fileID: 0}

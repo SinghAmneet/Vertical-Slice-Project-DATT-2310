@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13b7d098f7567f4490ad5c502ee1994, type: 3}
+  m_Name: R3-BadEnding
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - speaker: 0
+    speech: 0
+    va: {fileID: 0}
+    dialogue: "Kenny\u2019s hands tremble as he sprinkles the powder into the Coconut
+      Orchard Slime Delight. His heart races\u2014revenge feels satisfying, if not
+      a little foolish.\r"
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 1
+    speech: 0
+    va: {fileID: 0}
+    dialogue: "I call this \u201CCoconut Orchard Slime Delight\u201D, it was made
+      by slime and dessert island coconut. "
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 2
+    speech: 0
+    va: {fileID: 0}
+    dialogue: "Hm\u2026 His food is always extraordinary! You are his wife, have
+      a taste first.\r\n"
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 3
+    speech: 0
+    va: {fileID: 0}
+    dialogue: There is no cause for concern. I am simply not inclined to dine.
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 2
+    speech: 0
+    va: {fileID: 0}
+    dialogue: Hm?
+    startAction: {fileID: 11400000, guid: b5e253619bcdfc244973a0f554664419, type: 2}
+    endAction: {fileID: 0}
+  - speaker: 3
+    speech: 0
+    va: {fileID: 0}
+    dialogue: "Ah, Kenny, this looks...unusual. How wobbly, how\u2026enticing"
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 1
+    speech: 0
+    va: {fileID: 0}
+    dialogue: Stop!
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 1
+    speech: 0
+    va: {fileID: 0}
+    dialogue: Though you have betrayed me, I still have no desire to see you die.
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 1
+    speech: 0
+    va: {fileID: 0}
+    dialogue: "Tell me, Your Majesty! Was I sent there to die\u2026 or just to make
+      room for you two?\r\n"
+    startAction: {fileID: 11400000, guid: b5e253619bcdfc244973a0f554664419, type: 2}
+    endAction: {fileID: 0}
+  - speaker: 2
+    speech: 0
+    va: {fileID: 0}
+    dialogue: "I did not think you would dare poison my food\u2026 how surprising."
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 1
+    speech: 1
+    va: {fileID: 0}
+    dialogue: ' Chat, are we cooked?'
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 1
+    speech: 1
+    va: {fileID: 0}
+    dialogue: Traitor! You shall not leave the palace alive. Guards!
+    startAction: {fileID: 11400000, guid: b5e253619bcdfc244973a0f554664419, type: 2}
+    endAction: {fileID: 0}
+  endChoices: []
+  nextTree: {fileID: 0}

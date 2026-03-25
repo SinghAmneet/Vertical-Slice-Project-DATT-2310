@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13b7d098f7567f4490ad5c502ee1994, type: 3}
+  m_Name: R1-FGrade
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - speaker: 2
+    speech: 0
+    va: {fileID: 0}
+    dialogue: 'Your cooking skills are terrible! Truly, this is an insult to my palate!
+
+'
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  endChoices: []
+  nextTree: {fileID: 11400000, guid: 0731bb119856fa74eae209fc444f9003, type: 2}
