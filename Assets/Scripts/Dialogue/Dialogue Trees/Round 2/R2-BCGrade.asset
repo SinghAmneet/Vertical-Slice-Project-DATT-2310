@@ -39,5 +39,11 @@ MonoBehaviour:
     dialogue: Thank you, Your Majesty. I shall strive to improve.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
+  - speaker: 1
+    speech: 0
+    va: {fileID: 0}
+    dialogue: Thank you, Your Majesty. I shall strive to improve.
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
   endChoices: []
   nextTree: {fileID: 0}
