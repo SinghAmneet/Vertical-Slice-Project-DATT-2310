@@ -41,7 +41,7 @@ MonoBehaviour:
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
-    speech: 1
+    speech: 0
     va: {fileID: 0}
     dialogue: 'Yes, your Majesty. This is Basilisk Egg Crunch Bowl. I trust it will
       please your palate.

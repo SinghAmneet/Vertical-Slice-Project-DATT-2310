@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a13b7d098f7567f4490ad5c502ee1994, type: 3}
-  m_Name: R2-Openning
+  m_Name: R2-Opening
   m_EditorClassIdentifier: 
   dialogueLines:
   - speaker: 2
@@ -58,12 +58,5 @@ MonoBehaviour:
       birth"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
-  - speaker: 2
-    speech: 0
-    va: {fileID: 0}
-    dialogue: "Sadly, Your Majesty, no. They\u2019ve been part of its flavour since
-      birth"
-    startAction: {fileID: 0}
-    endAction: {fileID: 0}
   endChoices: []
-  nextTree: {fileID: 0}
+  nextTree: {fileID: 11400000, guid: 61a064a3f3bff3047abea4afd5ab4dea, type: 2}
