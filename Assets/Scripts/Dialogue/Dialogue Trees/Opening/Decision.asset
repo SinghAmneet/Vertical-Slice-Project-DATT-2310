@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 2
     speech: 0
-    va: {fileID: 8300000, guid: 49cb5ec9b63f43340b5c6f3731df805d, type: 3}
+    va: {fileID: 8300000, guid: b87018eef892fab45b1d48c60e0ab4db, type: 3}
     dialogue: So, do you accept my request or not?
     startAction: {fileID: 0}
     endAction: {fileID: 0}

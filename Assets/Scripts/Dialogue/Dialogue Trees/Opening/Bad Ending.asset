@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 1
     speech: 0
-    va: {fileID: 8300000, guid: ea526982e32441345ac7d2c5aa961485, type: 3}
+    va: {fileID: 8300000, guid: ea2520fb0134a134cbf76ef9ee93083f, type: 3}
     dialogue: ' [Pause:0.3]This[Pause:0.2] is not a request.[Pause:0.45] This is
       suicide.[Pause:0.45] Going to Elixir means a death sentence.'
     startAction: {fileID: 0}
@@ -28,7 +28,7 @@ MonoBehaviour:
     endAction: {fileID: 11400000, guid: 16b67c3a272bdad4b9d0769bb52f67d3, type: 2}
   - speaker: 2
     speech: 0
-    va: {fileID: 8300000, guid: ae41f1d94c71d1444847183c7e6c4833, type: 3}
+    va: {fileID: 8300000, guid: 708510c59ddab3e4fb8075239580a0fd, type: 3}
     dialogue: Off with his head!
     startAction: {fileID: 0}
     endAction: {fileID: 0}

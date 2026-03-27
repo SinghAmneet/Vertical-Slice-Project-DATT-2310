@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 1
     speech: 0
-    va: {fileID: 8300000, guid: e1b4cdf568dc325439730bba0c7e1fe7, type: 3}
+    va: {fileID: 8300000, guid: ba425a1eee140894e948691c55b29822, type: 3}
     dialogue: " [Pause:0.3]Either way,[Pause:0.4] if I\u2019m going to die,[Pause:0.4]
       I\u2019d[Pause:0.3] prefer to live a little longer.[Pause:0.4] Thank you for
       the opportunity."
@@ -23,14 +23,14 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 8300000, guid: a73b83aaedb98ba49b51d821b3e2fa33, type: 3}
+    va: {fileID: 8300000, guid: 091af180fc347104180d2916559559c2, type: 3}
     dialogue: "Yes![Pause:0.7] Be loyal[Pause:0.6] and go out there.[Pause:0.2] \nFind
       the most delicious dish and bring it to me!"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 1
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 3372bfeeee8c24b45890a9ab68f3a53a, type: 3}
     dialogue: "If I survive, I\u2019m opening a bakery in another kingdom."
     startAction: {fileID: 0}
     endAction: {fileID: 0}

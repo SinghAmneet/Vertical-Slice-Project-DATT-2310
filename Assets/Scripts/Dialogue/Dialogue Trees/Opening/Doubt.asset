@@ -15,19 +15,19 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 1
     speech: 0
-    va: {fileID: 8300000, guid: 3dd9ca737de76b440ace5d668027636e, type: 3}
+    va: {fileID: 8300000, guid: c0ecc983c39e5aa4c969457f6246aa58, type: 3}
     dialogue: ' [Pause:0.3]Like I can believe you.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 8300000, guid: 52600c401c7823f4d9720bbf35e75be0, type: 3}
+    va: {fileID: 8300000, guid: c5838786775d23c4c9fc7ea5a9aaaa40, type: 3}
     dialogue: What did you just say?
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 8300000, guid: ee124c473d8a32240b9d75aff133f176, type: 3}
+    va: {fileID: 8300000, guid: f23364af1a2fc3449af6beca58184f78, type: 3}
     dialogue: ' [Pause:0.4]Nothing, sir.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}

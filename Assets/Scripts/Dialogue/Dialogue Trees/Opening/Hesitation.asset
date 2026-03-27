@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 2
     speech: 0
-    va: {fileID: 8300000, guid: 89b5a30580f96a542a8cf9063c554e4c, type: 3}
+    va: {fileID: 8300000, guid: cba7119797288874ca4481cd401c3684, type: 3}
     dialogue: 'Why do you keep silent? [Pause:1]
 
       Are you scared?'
@@ -23,65 +23,65 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 1
     speech: 1
-    va: {fileID: 8300000, guid: 02d27ea958778b34ba338adb1ce9e88a, type: 3}
+    va: {fileID: 8300000, guid: 12d3386143593a140933047a67150fc2, type: 3}
     dialogue: ' [Pause:0.3]Of course I am, you overgrown golden peacock!'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 8300000, guid: d0794570caed59a49961b9e5b9954b47, type: 3}
+    va: {fileID: 8300000, guid: c7ec6ae5031a3bc49908b34f9b5fc9f8, type: 3}
     dialogue: " [Rate:0.3]No, [Rate:Default]sir.[Pause:0.8] [Rate:0.04]I\u2019m just
       worried[Pause:0.8] you might be poisoned by the monster meat. "
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 1
-    va: {fileID: 8300000, guid: 427342b6a7a494a45a82bc9e1cfd1198, type: 3}
+    va: {fileID: 8300000, guid: 9198a1e7091141b488d700b7f4159764, type: 3}
     dialogue: ' [Rate:0.065]I do not get paid enough to do this.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 8300000, guid: 3a2c4e7b74612fd42ab65a7e5c40a72d, type: 3}
+    va: {fileID: 8300000, guid: c91307fbe3fd7634e9e2ec01b6b73c01, type: 3}
     dialogue: "I don\u2019t care,[Pause:0.7] you must know because I know that you
       know."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 8300000, guid: 12ef03e300a298e4a8db8aafd6bfeb1f, type: 3}
+    va: {fileID: 8300000, guid: ad2dd71a1a02dbe48917d43836c47dea, type: 3}
     dialogue: Six[Rate:0.3]... [Rate:Default]seven[Rate:0.3]...
     startAction: {fileID: 11400000, guid: 6596f639ab61a1743b4d88effa6393da, type: 2}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 8300000, guid: 61998e970b676f747ab9d03903966e73, type: 3}
+    va: {fileID: 8300000, guid: 1f9446d0d858ab7419f372aa436001a8, type: 3}
     dialogue: ' [Rate:0.05]What?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 8300000, guid: 73df4fc5661901a40acdedb29e14906d, type: 3}
+    va: {fileID: 8300000, guid: 7fa85284eb92cb1438ea2659c4863a41, type: 3}
     dialogue: ' [Pause:0.5] [Rate:0.09]I''m[Rate:Default] [Pause:0.4]counting my
       savings.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 8300000, guid: fbf460bc991ceb04e9b089c69f169dd0, type: 3}
+    va: {fileID: 8300000, guid: 2bea50f32c758b44881b47258832b970, type: 3}
     dialogue: What for?
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 8300000, guid: bcb3008fbec4f3f4985cdd7bb02d4e9c, type: 3}
+    va: {fileID: 8300000, guid: 904b079078823f74f8db1f42b95007d8, type: 3}
     dialogue: " [Pause:0.4]So if I [Rate:0.07]die [Rate:Default]during the expedition,
       [Pause:0.3]at least my family will have some support after I\u2019m gone."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 8300000, guid: 54ccc0837d191c749b9d389f81fe6027, type: 3}
+    va: {fileID: 8300000, guid: 9a7f98a565f0de94e8b1c5c70d0fac38, type: 3}
     dialogue: "Don\u2019t worry about that! [Pause:0.5]\nI\u2019ll take care of them."
     startAction: {fileID: 0}
     endAction: {fileID: 0}

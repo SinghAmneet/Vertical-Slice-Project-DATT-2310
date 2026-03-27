@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 1
     speech: 0
-    va: {fileID: 8300000, guid: 6da2e325104eb1547af11913d2d37f7c, type: 3}
+    va: {fileID: 8300000, guid: 4ac93a05deacb8c45904cac34e5bf4e5, type: 3}
     dialogue: ' [Pause:0.7]Yes, my lord. I will[Pause:0.5] try my best to satisfy
       your taste.'
     startAction: {fileID: 0}
