@@ -15,47 +15,42 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
-    dialogue: " Exquisite. Truly Exquisite! I knew my faith in you was not misplaced
-      \u2013 you are, without question, the finest chef in my kingdom.\r\n"
-    startAction: {fileID: 0}
-    endAction: {fileID: 0}
-  - speaker: 2
-    speech: 0
-    va: {fileID: 0}
-    dialogue: "\u2026And yet"
-    startAction: {fileID: 0}
-    endAction: {fileID: 0}
-  - speaker: 2
-    speech: 0
-    va: {fileID: 0}
-    dialogue: 'I find myself still wanting
+    va: {fileID: 8300000, guid: bb95c07c77aae2e49a4b4d4d090ea280, type: 3}
+    dialogue: ' Exquisite.[Pause:1] Truly Exquisite![Pause:0.5] I knew my faith in
+      you was not misplaced You are, without question,[Pause:0.5] the finest chef
+      in my kingdom.
 
 '
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: ddfc184fb9ff01e409e4ec7cb8f5546b, type: 3}
+    dialogue: "\u2026And yet[Pause:1\n] I find myself still wanting\n"
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 2
+    speech: 0
+    va: {fileID: 8300000, guid: 715f57964fedbd0458bd21a1c42f65ee, type: 3}
     dialogue: Prepare for another course. Something greater.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 24ba924547b431d46be4b80687fd00c1, type: 3}
     dialogue: "Do not keep your king waiting\r"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 1
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 7e72b32b179628c449e9fe34ce18a8d0, type: 3}
     dialogue: What a big bag
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
-    dialogue: 'As your command, your Majesty. I shall prepare the next   course at
+    va: {fileID: 8300000, guid: baa913f51203a354e82e34bb7dcb126c, type: 3}
+    dialogue: 'As your command, your Majesty.  I shall prepare the next course at
       once
 
 '

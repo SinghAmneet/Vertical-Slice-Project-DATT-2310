@@ -15,11 +15,17 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 4fa491b4742934a46b1acb7f6fd634f0, type: 3}
     dialogue: 'Your cooking skills are terrible! Truly, this is an insult to my palate!
 
 '
     startAction: {fileID: 0}
     endAction: {fileID: 0}
+  - speaker: 2
+    speech: 0
+    va: {fileID: 8300000, guid: ddf4382dda97a014ab28d43b2d0cdaab, type: 3}
+    dialogue: Guards!
+    startAction: {fileID: 0}
+    endAction: {fileID: 11400000, guid: b5e253619bcdfc244973a0f554664419, type: 2}
   endChoices: []
-  nextTree: {fileID: 11400000, guid: 0731bb119856fa74eae209fc444f9003, type: 2}
+  nextTree: {fileID: 0}

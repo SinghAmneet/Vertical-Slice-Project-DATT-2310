@@ -23,14 +23,8 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 3
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 410ec088741408343b6cc75398ac3000, type: 3}
     dialogue: "You sure that Kenny won\u2019t be coming back?\r\n"
-    startAction: {fileID: 0}
-    endAction: {fileID: 0}
-  - speaker: 2
-    speech: 0
-    va: {fileID: 0}
-    dialogue: How could he?
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2

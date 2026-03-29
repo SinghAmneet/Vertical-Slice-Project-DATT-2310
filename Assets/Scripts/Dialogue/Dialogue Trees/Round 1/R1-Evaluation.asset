@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 8e50621e4b87f25499b3ea1483ac2c33, type: 3}
     dialogue: 'Enough words! Bring it here at once-I would taste it now
 
 '
@@ -27,5 +27,8 @@ MonoBehaviour:
     choiceAction: {fileID: 0}
   - choiceDialogue: BC
     choiceDialogueTree: {fileID: 11400000, guid: 06b156de7e33e174aa1d74b10154692c, type: 2}
+    choiceAction: {fileID: 0}
+  - choiceDialogue: F
+    choiceDialogueTree: {fileID: 11400000, guid: ae70617e5e60f1144a1d0668680ea983, type: 2}
     choiceAction: {fileID: 0}
   nextTree: {fileID: 0}

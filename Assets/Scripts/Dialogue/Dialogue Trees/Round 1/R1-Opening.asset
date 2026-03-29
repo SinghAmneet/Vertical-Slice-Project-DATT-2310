@@ -15,34 +15,22 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
-    dialogue: "Chef Kenny, you\u2019ve returned?"
-    startAction: {fileID: 0}
-    endAction: {fileID: 0}
-  - speaker: 2
-    speech: 0
-    va: {fileID: 0}
-    dialogue: 'You look dreadful! Have you been dragged through the wilds?
-
-'
+    va: {fileID: 8300000, guid: f6457bf61499ba64a8eb3d494ed18754, type: 3}
+    dialogue: "Chef Kenny, you\u2019ve returned?[Pause:1] You look dreadful![Pause:1]
+      Have you been dragged through the wilds?"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 1
-    va: {fileID: 0}
-    dialogue: Deadful? I nearly died out there!
+    va: {fileID: 8300000, guid: f900c4a0af55cf64a995e35545a0b221, type: 3}
+    dialogue: "Deadful?[Pause:1] I nearly died out there! I\u2019m a chef, not a
+      soldier![Pause:1] You sent me to Elixir with no supplies, no escort\u2026nothing!
+      Hello?"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
-  - speaker: 2
-    speech: 1
-    va: {fileID: 0}
-    dialogue: "I\u2019m a chef, not a soldier \u2013 You sent me to Elixir with no
-      supplies, no escort\u2026nothing! Hello?"
-    startAction: {fileID: 0}
-    endAction: {fileID: 0}
-  - speaker: 2
+  - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 13ba23a17f94fbc4bb9637a7e996cd3c, type: 3}
     dialogue: 'Yes, your Majesty. This is Basilisk Egg Crunch Bowl. I trust it will
       please your palate.
 
