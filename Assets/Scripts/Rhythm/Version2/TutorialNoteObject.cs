@@ -15,6 +15,10 @@ public class TutorialNoteObject : MonoBehaviour
     public float approachDuration = 0.8f;
     public float missWindow = 0.15f;
 
+    [Header("Sound Effects")]
+    public AudioSource sfxSource;
+    public AudioClip noteClickSound;
+
     [Header("References")]
     public Transform hitCircle;
     public Transform approachCircle;
@@ -44,6 +48,11 @@ public class TutorialNoteObject : MonoBehaviour
 
         if (approachRenderer == null && approachCircle != null)
             approachRenderer = approachCircle.GetComponent<SpriteRenderer>();
+
+        // ALWAYS prefer the shared scene SFX source from InputManager
+        InputManager inputManager = FindObjectOfType<InputManager>();
+        if (inputManager != null && inputManager.sfxSource != null)
+            sfxSource = inputManager.sfxSource;
 
         ApplyPreviewVisuals();
     }
@@ -104,6 +113,7 @@ public class TutorialNoteObject : MonoBehaviour
         {
             state = VisualState.Locked;
             ShowPerfectPopup();
+            PlayNoteClickSound();
             return TutorialJudgeResult.Perfect;
         }
 
@@ -149,9 +159,7 @@ public class TutorialNoteObject : MonoBehaviour
     void ApplyActiveVisuals()
     {
         if (hitRenderer != null)
-        {
             hitRenderer.color = Color.white;
-        }
 
         if (approachRenderer != null)
         {
@@ -159,6 +167,24 @@ public class TutorialNoteObject : MonoBehaviour
             c.a = 1f;
             approachRenderer.color = c;
         }
+    }
+
+    void PlayNoteClickSound()
+    {
+        if (sfxSource == null)
+        {
+            Debug.LogWarning("TutorialNoteObject: sfxSource is missing.");
+            return;
+        }
+
+        if (noteClickSound == null)
+        {
+            Debug.LogWarning("TutorialNoteObject: noteClickSound is missing.");
+            return;
+        }
+
+        sfxSource.pitch = Random.Range(0.97f, 1.03f);
+        sfxSource.PlayOneShot(noteClickSound);
     }
 
     void ShowPerfectPopup()

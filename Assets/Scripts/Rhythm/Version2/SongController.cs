@@ -25,7 +25,12 @@ public class SongController : MonoBehaviour
 
     void Awake()
     {
-        secondsPerBeat = 60f / bpm;
+        RefreshBeatData();
+    }
+
+    void Start()
+    {
+        RefreshBeatData();
     }
 
     void Update()
@@ -44,12 +49,19 @@ public class SongController : MonoBehaviour
         }
     }
 
+    public void RefreshBeatData()
+    {
+        secondsPerBeat = 60f / bpm;
+    }
+
     public void BeginSong()
     {
         if (started) return;
 
         started = true;
         Debug.Log("SongController: BeginSong called.");
+
+        RefreshBeatData();
 
         if (gameplayUI != null)
             StartCoroutine(ShowGameplayUIDelayed());
