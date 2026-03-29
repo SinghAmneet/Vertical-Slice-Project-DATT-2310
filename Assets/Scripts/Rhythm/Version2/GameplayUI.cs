@@ -5,10 +5,14 @@ using TMPro;
 
 public class GameplayUI : MonoBehaviour
 {
+    [Header("References")]
+    public SongController songController;
+
     [Header("Gameplay Text")]
     public TMP_Text scoreText;
     public TMP_Text multiplierText;
     public TMP_Text rankText;
+    public TMP_Text timerText;
 
     [Header("Fade Settings")]
     public float fadeDuration = 0.6f;
@@ -46,6 +50,11 @@ public class GameplayUI : MonoBehaviour
             multiplierBaseScale = multiplierText.transform.localScale;
 
         gameObject.SetActive(false);
+    }
+
+    void Update()
+    {
+        UpdateTimerUI();
     }
 
     public void ShowUI()
@@ -124,6 +133,29 @@ public class GameplayUI : MonoBehaviour
 
         lastScore = score;
         lastMultiplier = multiplier;
+    }
+
+    void UpdateTimerUI()
+    {
+        if (timerText == null || songController == null)
+            return;
+
+        double songTime = songController.GetSongTime();
+        double remainingTime;
+
+        // Before the song starts, show full song length
+        if (songTime < 0)
+            remainingTime = songController.songLength;
+        else
+            remainingTime = songController.songLength - songTime;
+
+        if (remainingTime < 0)
+            remainingTime = 0;
+
+        int minutes = Mathf.FloorToInt((float)remainingTime / 60f);
+        int seconds = Mathf.FloorToInt((float)remainingTime % 60f);
+
+        timerText.text = "Time Left: " + minutes.ToString("00") + ":" + seconds.ToString("00");
     }
 
     IEnumerator PulseText(Transform target, Vector3 baseScale, float pulseMultiplier, float duration)

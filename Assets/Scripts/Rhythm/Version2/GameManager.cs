@@ -91,6 +91,15 @@ public class GameManager : MonoBehaviour
         int previousMultiplier = multiplier;
 
         missCount++;
+
+        if (ScreenShake.Instance != null)
+        {
+            if (previousMultiplier >= 4)
+                ScreenShake.Instance.Shake(0.14f, 0.07f);
+            else
+                ScreenShake.Instance.Shake();
+        }
+
         combo = 0;
         multiplier = 1;
 
