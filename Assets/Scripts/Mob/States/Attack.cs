@@ -26,6 +26,7 @@ public class Attack : State
         //Debug.Log("cd");
         playingAnim = false;
         cooldownTimer = mob.data.attackCooldown;
+        mob.combat.AttackEnd();
     }
 
     public void EndAttack() 

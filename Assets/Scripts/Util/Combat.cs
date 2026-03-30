@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Combat : MonoBehaviour
@@ -12,6 +13,7 @@ public class Combat : MonoBehaviour
 
     public float damage;
 
+    private List<GameObject> hitRegistry = new();
     public LayerMask filterLayer;
 
     public void SetDamage(float damage)
@@ -41,6 +43,7 @@ public class Combat : MonoBehaviour
     {
         lastAttacked = Time.time;
         playingAttackAnimation = false;
+        hitRegistry.Clear();
     }
 
 
@@ -54,6 +57,10 @@ public class Combat : MonoBehaviour
             // get health component and deplete health
             // note: hitboxes will usually be its own separate object under the character
             GameObject character = hit.transform.parent.gameObject;
+
+            if (hitRegistry.Contains(character)) return;
+            hitRegistry.Add(character);
+
             character.GetComponent<Health>().Deplete(damage);
             //Debug.Log($"did {damage} to {character.name} who has {character.GetComponent<Health>().GetHealth()} hp left");
         }

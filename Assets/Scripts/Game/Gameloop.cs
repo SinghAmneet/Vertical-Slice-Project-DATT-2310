@@ -24,7 +24,7 @@ public class Gameloop : MonoBehaviour
         GetNewDish();
 
         dayCycle.OnTimeOfDayChange += TimeChanged;
-        plrHealth.OnDeath += Died;
+        //plrHealth.OnDeath += Died;
     }
 
     public Dish GetCurrentDish()
@@ -44,7 +44,7 @@ public class Gameloop : MonoBehaviour
         dishObjectText.text = currentDish.dishName;
     }
 
-    private void Died()
+    public void Died()
     {
         EndingData.currentEnding = endings.Death;
         SceneManager.LoadScene("GameOver");
