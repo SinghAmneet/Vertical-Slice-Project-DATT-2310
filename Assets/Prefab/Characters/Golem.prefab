@@ -1860,7 +1860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3700197483604148321, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.97
+      value: 5.31
       objectReference: {fileID: 0}
     - target: {fileID: 5882418376906698982, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_Size.x
@@ -1872,11 +1872,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6259598038361165311, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9
+      value: -3.24
       objectReference: {fileID: 0}
     - target: {fileID: 6259598038361165311, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.65
+      value: 5.22
       objectReference: {fileID: 0}
     - target: {fileID: 7345684035802447671, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1967,9 +1967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2591d31e03b3c3945ad3baed31ce9ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  offset: 0
-  runOnlyOnce: 0
 --- !u!4 &9046543396235189842 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2366205692522313500, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}

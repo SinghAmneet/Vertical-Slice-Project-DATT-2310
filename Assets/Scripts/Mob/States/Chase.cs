@@ -16,8 +16,29 @@ public class Chase : State
         else if (mob.PlrInAttackRange())
         {
             stateMachine.ChangeState(mob.attack);
-        } else
+        }
+
+        else
+
         {
+            //if (dist < 15 * mob.transform.localScale.x)
+            //{
+            //    if (mob.IsAbovePlr())
+            //    {
+            //        mob.GoOppositeOfPlr();
+            //    }
+            //    else if (mob.IsBelowPlr())
+            //    {
+            //        mob.GoOppositeOfPlr();
+            //    }
+            //    else
+            //    {
+            //        mob.GoTowardsPlr();
+            //    }
+            //} else
+            //{
+            //    mob.GoTowardsPlr();
+            //}
             mob.GoTowardsPlr();
         }
     }

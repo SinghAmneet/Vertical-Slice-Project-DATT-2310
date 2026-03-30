@@ -1262,11 +1262,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3467325718248550271, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_Name
-      value: worm new
+      value: Sandworm
       objectReference: {fileID: 0}
     - target: {fileID: 3700197483604148321, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.54
+      value: 8.25
       objectReference: {fileID: 0}
     - target: {fileID: 5882418376906698982, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_Size.x

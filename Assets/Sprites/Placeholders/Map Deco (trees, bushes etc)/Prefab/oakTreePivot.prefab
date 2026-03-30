@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2313803642407720964}
   - component: {fileID: 5994009586426430133}
   - component: {fileID: 3685708366951938201}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: oakTreePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
