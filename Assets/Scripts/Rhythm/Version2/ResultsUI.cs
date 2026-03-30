@@ -3,6 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+[System.Serializable]
+public class IngredientSpriteEntry
+{
+    public string ingredientName;
+    public Sprite sprite;
+}
+
+[System.Serializable]
+public class DishSpriteEntry
+{
+    public string dishName;
+    public Sprite sprite;
+}
 
 public class ResultsUI : MonoBehaviour
 {
@@ -22,9 +37,25 @@ public class ResultsUI : MonoBehaviour
     public TMP_Text goodText;
     public TMP_Text earlyText;
     public TMP_Text missText;
+    public TMP_Text finalStatsText;
+
+    [Header("Optional Label Text")]
     public TMP_Text dishText;
     public TMP_Text ingredientsText;
-    public TMP_Text finalStatsText;
+
+    [Header("Final Dish Visual")]
+    public Image finalDishImage;
+
+    [Header("Ingredient Slot Visuals (max 6)")]
+    public Image[] ingredientSlotImages = new Image[6];
+
+    [Header("Sprite Lookup")]
+    public List<IngredientSpriteEntry> ingredientSpriteLookup = new List<IngredientSpriteEntry>();
+    public List<DishSpriteEntry> dishSpriteLookup = new List<DishSpriteEntry>();
+
+    [Header("Fallback")]
+    public Sprite missingIngredientSprite;
+    public Sprite missingDishSprite;
 
     [Header("Buttons")]
     public GameObject startMenuButton;
@@ -85,7 +116,6 @@ public class ResultsUI : MonoBehaviour
             yield return new WaitForSeconds(gameplayUIFadeOutWait);
         }
 
-        // Switch back to normal cursor so UI buttons work
         if (cursorManager != null)
             cursorManager.SetGameplayCursorActive(false);
 
@@ -103,7 +133,9 @@ public class ResultsUI : MonoBehaviour
         if (resultsPanel != null)
             resultsPanel.SetActive(true);
 
-        SetTextActive(false);
+        SetUIActive(false);
+        ClearIngredientSlots();
+        ClearDishImage();
 
         float timer = 0f;
         while (timer < panelFadeDuration)
@@ -125,6 +157,33 @@ public class ResultsUI : MonoBehaviour
             rankText.text = "Dish Rank: " + rank;
             rankText.gameObject.SetActive(true);
             yield return new WaitForSeconds(lineRevealDelay);
+        }
+
+        if (dishText != null)
+        {
+            // if (DishData.createdDish != null)
+            //     dishText.text = "Final Dish:";
+            dishText.text = "Final Dish:";
+
+            dishText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(lineRevealDelay);
+        }
+
+        ShowFinalDishSprite();
+
+        if (ingredientsText != null)
+        {
+            ingredientsText.text = "Ingredients:";
+            ingredientsText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(lineRevealDelay);
+        }
+
+        ShowIngredientSprites();
+
+        if (finalStatsText != null)
+        {
+            finalStatsText.text = "Stats: " + GetStats();
+            finalStatsText.gameObject.SetActive(true);
         }
 
         if (scoreText != null)
@@ -169,111 +228,157 @@ public class ResultsUI : MonoBehaviour
             yield return new WaitForSeconds(lineRevealDelay);
         }
 
-        // if (dishText != null)
-        // {
-        //     dishText.text = "Final Dish: " + DishData.createdDish.dishName;
-        //     dishText.gameObject.SetActive(true);
-        //     yield return new WaitForSeconds(lineRevealDelay);
-        // }
-        if (dishText != null)
-        {
-            if (DishData.createdDish != null)
-                dishText.text = "Final Dish: " + DishData.createdDish.dishName;
-            else
-                dishText.text = "Final Dish: None";
-
-            dishText.gameObject.SetActive(true);
-            yield return new WaitForSeconds(lineRevealDelay);
-        }
-
-        if (ingredientsText != null)
-        {
-            ingredientsText.text = "Ingredients: " + GetIngredients();
-            ingredientsText.gameObject.SetActive(true);
-            yield return new WaitForSeconds(lineRevealDelay);
-        }
-
-        if (finalStatsText != null)
-        {
-            finalStatsText.text = "Stats: " + GetStats();
-            finalStatsText.gameObject.SetActive(true);
-        }
-
         yield return new WaitForSeconds(0.25f);
 
         if (startMenuButton != null) startMenuButton.SetActive(true);
         if (mainSceneButton != null) mainSceneButton.SetActive(true);
     }
 
-    void SetTextActive(bool state)
+    void SetUIActive(bool state)
     {
         if (rankText != null) rankText.gameObject.SetActive(state);
+        if (dishText != null) dishText.gameObject.SetActive(state);
+
+        if (finalDishImage != null)
+            finalDishImage.gameObject.SetActive(state);
+
+        if (ingredientsText != null) ingredientsText.gameObject.SetActive(state);
+
+        if (ingredientSlotImages != null)
+        {
+            for (int i = 0; i < ingredientSlotImages.Length; i++)
+            {
+                if (ingredientSlotImages[i] != null)
+                    ingredientSlotImages[i].gameObject.SetActive(state);
+            }
+        }
+
+        if (finalStatsText != null) finalStatsText.gameObject.SetActive(state);
         if (scoreText != null) scoreText.gameObject.SetActive(state);
         if (accuracyText != null) accuracyText.gameObject.SetActive(state);
         if (perfectText != null) perfectText.gameObject.SetActive(state);
         if (goodText != null) goodText.gameObject.SetActive(state);
         if (earlyText != null) earlyText.gameObject.SetActive(state);
         if (missText != null) missText.gameObject.SetActive(state);
-        if (dishText != null) dishText.gameObject.SetActive(state);
-        if (ingredientsText != null) ingredientsText.gameObject.SetActive(state);
-        if (finalStatsText != null) finalStatsText.gameObject.SetActive(state);
+
     }
 
-    // public string GetIngredients()
-    // {
-    //     string str = "";
-
-    //     for (int i = 0; i < DishData.inventory.Count; i++)
-    //     {
-    //         FoodData food = DishData.inventory[i];
-    //         str += food.name;
-    //         if (i + 1 != DishData.inventory.Count) str += ", ";
-    //     }
-
-    //     return str;
-    // }
-    public string GetIngredients()
+    void ShowFinalDishSprite()
     {
-        if (DishData.inventory == null || DishData.inventory.Count == 0)
-            return "None";
+        if (finalDishImage == null)
+            return;
 
-        string str = "";
+        finalDishImage.gameObject.SetActive(true);
 
-        for (int i = 0; i < DishData.inventory.Count; i++)
+        if (DishData.createdDish == null)
         {
-            FoodData food = DishData.inventory[i];
-
-            if (food != null)
-                str += food.name;
-            else
-                str += "Missing";
-
-            if (i + 1 != DishData.inventory.Count)
-                str += ", ";
+            finalDishImage.sprite = missingDishSprite;
+            finalDishImage.enabled = finalDishImage.sprite != null;
+            return;
         }
 
-        return str;
+        string dishName = DishData.createdDish.dishName;
+        Sprite dishSprite = GetDishSpriteByName(dishName);
+
+        if (dishSprite == null)
+            dishSprite = missingDishSprite;
+
+        finalDishImage.sprite = dishSprite;
+        finalDishImage.enabled = finalDishImage.sprite != null;
     }
 
-    // public string GetStats()
-    // {
-    //     string str = "";
+    void ShowIngredientSprites()
+    {
+        ClearIngredientSlots();
 
-    //     foreach (var (stat, value) in DishData.totalStats)
-    //     {
-    //         str += $"{stat}: {value}, ";
-    //     }
+        if (DishData.inventory == null || DishData.inventory.Count == 0)
+            return;
 
-    //     return str;
-    // }
+        int maxSlots = Mathf.Min(ingredientSlotImages.Length, DishData.inventory.Count);
+
+        for (int i = 0; i < maxSlots; i++)
+        {
+            if (ingredientSlotImages[i] == null)
+                continue;
+
+            ingredientSlotImages[i].gameObject.SetActive(true);
+
+            FoodData food = DishData.inventory[i];
+            Sprite ingredientSprite = null;
+
+            if (food != null)
+                ingredientSprite = GetIngredientSpriteByName(food.name);
+
+            if (ingredientSprite == null)
+                ingredientSprite = missingIngredientSprite;
+
+            ingredientSlotImages[i].sprite = ingredientSprite;
+            ingredientSlotImages[i].enabled = ingredientSlotImages[i].sprite != null;
+        }
+    }
+
+    void ClearIngredientSlots()
+    {
+        if (ingredientSlotImages == null)
+            return;
+
+        for (int i = 0; i < ingredientSlotImages.Length; i++)
+        {
+            if (ingredientSlotImages[i] == null)
+                continue;
+
+            ingredientSlotImages[i].sprite = null;
+            ingredientSlotImages[i].enabled = false;
+            ingredientSlotImages[i].gameObject.SetActive(false);
+        }
+    }
+
+    void ClearDishImage()
+    {
+        if (finalDishImage == null)
+            return;
+
+        finalDishImage.sprite = null;
+        finalDishImage.enabled = false;
+        finalDishImage.gameObject.SetActive(false);
+    }
+
+    Sprite GetIngredientSpriteByName(string ingredientName)
+    {
+        for (int i = 0; i < ingredientSpriteLookup.Count; i++)
+        {
+            if (ingredientSpriteLookup[i] != null &&
+                ingredientSpriteLookup[i].ingredientName == ingredientName)
+            {
+                return ingredientSpriteLookup[i].sprite;
+            }
+        }
+
+        return null;
+    }
+
+    Sprite GetDishSpriteByName(string dishName)
+    {
+        for (int i = 0; i < dishSpriteLookup.Count; i++)
+        {
+            if (dishSpriteLookup[i] != null &&
+                dishSpriteLookup[i].dishName == dishName)
+            {
+                return dishSpriteLookup[i].sprite;
+            }
+        }
+
+        return null;
+    }
+
     public string GetStats()
     {
         if (DishData.totalStats == null || DishData.totalStats.Count == 0)
             return "None";
 
         string str = "";
-
         int count = 0;
+
         foreach (var pair in DishData.totalStats)
         {
             str += $"{pair.Key}: {pair.Value}";
