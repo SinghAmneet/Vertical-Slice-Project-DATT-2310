@@ -129,7 +129,10 @@ public class GameplayUI : MonoBehaviour
         }
 
         if (rankText != null)
-            rankText.text = "Dish Rank: " + rank;
+        {
+            string coloredRank = GetColoredRank(rank);
+            rankText.text = "Dish Rank: " + coloredRank;
+        }
 
         lastScore = score;
         lastMultiplier = multiplier;
@@ -143,7 +146,6 @@ public class GameplayUI : MonoBehaviour
         double songTime = songController.GetSongTime();
         double remainingTime;
 
-        // Before the song starts, show full song length
         if (songTime < 0)
             remainingTime = songController.songLength;
         else
@@ -183,5 +185,26 @@ public class GameplayUI : MonoBehaviour
         }
 
         target.localScale = baseScale;
+    }
+
+    string GetColoredRank(string rank)
+    {
+        switch (rank)
+        {
+            case "S":
+                return "<b><color=#FFD700>S</color></b>";
+            case "A":
+                return "<b><color=#7CFF7C>A</color></b>";
+            case "B":
+                return "<b><color=#66CCFF>B</color></b>";
+            case "C":
+                return "<b><color=#FFD966>C</color></b>";
+            case "D":
+                return "<b><color=#FF9E66>D</color></b>";
+            case "F":
+                return "<b><color=#FF6B6B>F</color></b>";
+            default:
+                return rank;
+        }
     }
 }

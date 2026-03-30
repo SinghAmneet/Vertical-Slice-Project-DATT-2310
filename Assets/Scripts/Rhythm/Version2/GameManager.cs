@@ -140,6 +140,9 @@ public class GameManager : MonoBehaviour
 
         string rank = GetRank(percent);
 
+        // Save the latest rhythm game rank so other scenes can use it
+        RhythmResultData.latestDishRank = rank;
+
         if (resultsUI != null)
         {
             resultsUI.ShowResults(
