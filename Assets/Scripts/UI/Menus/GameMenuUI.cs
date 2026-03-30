@@ -7,6 +7,7 @@ public class MainUI : MonoBehaviour
     public GameObject dishObjective;
     public GameObject timeUI;
     public GameObject recipeMenu;
+    public GameObject navMap;
 
     void Start()
     {
@@ -14,6 +15,11 @@ public class MainUI : MonoBehaviour
         toggleHTP();
     }
 
+    public void toggleNavMap()
+    {
+        bool show = !navMap.activeSelf;
+        navMap.SetActive(show);
+    }
     public void toggleRecipes()
     {
         bool show = !recipeMenu.activeSelf;
