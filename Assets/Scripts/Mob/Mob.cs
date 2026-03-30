@@ -15,6 +15,8 @@ public class Mob : MonoBehaviour
     private float idleTimer;
     public float maxIdleTime; // max time for standing still
 
+    public GameObject alertUI;
+
     // systems
     public MobMovement movement { get; private set; }
     public Health health { get; private set; }
@@ -34,6 +36,7 @@ public class Mob : MonoBehaviour
     public GoingHome goingHome;
     public Dead dead;
     public Attack attack;
+    public Alerted alerted;
 
     private void Awake()
     {
@@ -78,9 +81,10 @@ public class Mob : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (stateMachine.currentState is Chase || stateMachine.currentState is Attack) return;
+            if (stateMachine.currentState is Chase || stateMachine.currentState is Attack || stateMachine.currentState is Alerted) return;
             plr = collision.gameObject;
-            stateMachine.ChangeState(chase);
+            combat.SetTarget(plr);
+            stateMachine.ChangeState(alerted);
         }
     }
 
@@ -108,6 +112,7 @@ public class Mob : MonoBehaviour
         goingHome = new GoingHome(stateMachine, mob);
         dead = new Dead(stateMachine, mob);
         attack = new Attack(stateMachine, mob);
+        alerted = new Alerted(stateMachine, mob, alertUI);
     }
 
     public void SetHomePoint(Vector3 pos)
@@ -129,7 +134,7 @@ public class Mob : MonoBehaviour
      * Distance methods
      */
     public float GetDistFromPos(Vector3 pos)
-    {  return Vector2.Distance(transform.position, pos); }
+    {  return Vector2.Distance(rootPoint.transform.position, pos); }
 
     public float GetDistFromTarget() 
     { return GetDistFromPos(targetPos); }
@@ -138,7 +143,11 @@ public class Mob : MonoBehaviour
     { return GetDistFromPos(homePoint); }
 
     public float GetDistFromPlr() 
-    { return GetDistFromPos(plr.transform.position); }
+    {
+        //float modifier = 3.5f;
+        //if (IsBelowPlr()) { modifier = 3.5f; } else if (IsAbovePlr()) { modifier = 3.5f; }
+        return GetDistFromPos(plr.transform.position + Vector3.up * 3.5f); 
+    }
 
     public bool PlrInChaseRange() 
     { return GetDistFromPlr() < data.chaseRange; }
@@ -149,6 +158,38 @@ public class Mob : MonoBehaviour
     public void GoTowardsPlr()
     {
         movement.SetMotionVector(plr.transform.position + Vector3.up * 3.5f);
+    }
+
+    public void GoOppositeOfPlr()
+    {
+        movement.SetMotionVector(-plr.transform.position + Vector3.up * 3.5f);
+    }
+
+    public Vector3 GetPlrDirection()
+    {
+        return (plr.transform.position + Vector3.up * 3.5f - rootPoint.transform.position).normalized;
+    }
+
+    private float GetYDiff()
+    {
+        return transform.position.y - plr.transform.position.y;
+    }
+
+    private float GetXDist()
+    {
+        return Mathf.Abs(transform.position.x - plr.transform.position.x);
+    }
+
+    public bool IsAbovePlr()
+    {
+        float yDiff = GetYDiff();
+        return yDiff > 0 && Mathf.Abs(yDiff) > 0;
+    }
+
+    public bool IsBelowPlr()
+    {
+        float yDiff = GetYDiff();
+        return yDiff < 0 && Mathf.Abs(yDiff) > 0;
     }
 
     public void DecreaseIdleTimer()
@@ -184,6 +225,11 @@ public class Mob : MonoBehaviour
     public void RegisterAttack()
     {
         combat.RegisterHits(data.damage);
+    }
+
+    public void StartDash()
+    {
+        attack.StartDash();
     }
 
     // subscribed to OnDamage event
@@ -243,13 +289,17 @@ public class Mob : MonoBehaviour
         Gizmos.color = Color.yellow;
         if (stateMachine.currentState is Chase)
         {
-            Gizmos.DrawLine(transform.position, plr.transform.position);
+            Gizmos.DrawLine(rootPoint.transform.position, plr.transform.position);
         } else if (stateMachine.currentState is GoingHome)
         {
-            Gizmos.DrawLine(transform.position, homePoint);
+            Gizmos.DrawLine(rootPoint.transform.position, homePoint);
         } else if (stateMachine.currentState is Roam)
         {
-            Gizmos.DrawLine(transform.position, targetPos);
+            Gizmos.DrawLine(rootPoint.transform.position, targetPos);
+        } else if (stateMachine.currentState is Attack)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(combat.GetHitboxPos(), combat.hitboxRadius);
         }
 
     }

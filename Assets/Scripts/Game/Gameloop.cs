@@ -46,6 +46,11 @@ public class Gameloop : MonoBehaviour
 
     public void Died()
     {
+        Invoke("StartDeathEnding", 0.6f);
+    }
+
+    private void StartDeathEnding()
+    {
         EndingData.currentEnding = endings.Death;
         SceneManager.LoadScene("GameOver");
     }

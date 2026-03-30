@@ -22,4 +22,9 @@ public class MobData : ScriptableObject
     [Header("Movement")]
     public float speed;
     public int forwardDirection = -1;
+
+    [Header("Dashing")]
+    public bool hasDashAttack;
+    public float dashSpeed;
+    public float dashDuration;
 }

@@ -5,6 +5,7 @@ public class Dead : State
 
     public override void Enter()
     {
+        mob.movement.EndDash();
         mob.movement.SetMotionless();
         mob.PlayDieAnimation();
     }

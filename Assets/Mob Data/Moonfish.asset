@@ -23,3 +23,6 @@ MonoBehaviour:
   attackRange: 14
   speed: 12
   forwardDirection: 1
+  hasDashAttack: 1
+  dashSpeed: 30
+  dashDuration: 0.1
