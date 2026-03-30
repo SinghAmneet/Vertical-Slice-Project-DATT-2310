@@ -15,45 +15,45 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: a836bfa917b07f840964630575297d82, type: 3}
     dialogue: "Aha! Come, tell me\u2014what masterpiece graces our table this evening?"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 39af45c7643e0234f8fa65513eba270b, type: 3}
     dialogue: "It carries my sweat\u2026 and blood. Literally. I trust it will satisfy,
       Your Majesty."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 57331ab6cb8ac7a4b94ffc33eec297d3, type: 3}
     dialogue: During my expedition, I encountered a pant moonfish
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 376f87bc01d861b4b8678619cae79d67, type: 3}
     dialogue: "\u2026A what?"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 0cae66432a6e20847b6ab33788b5792a, type: 3}
     dialogue: "A fish wearing trousers, sire. I pan-fried it with a touch of morning
       oil and\u2026body salt.\r\n"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: dd4b48b90ffbec942be42f0e8b656dd3, type: 3}
     dialogue: "Are its pants \u2026 optional?"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 0f2b82c8ee29b4f4e9bec5fcf65e40f9, type: 3}
     dialogue: "Sadly, Your Majesty, no. They\u2019ve been part of its flavour since
       birth"
     startAction: {fileID: 0}

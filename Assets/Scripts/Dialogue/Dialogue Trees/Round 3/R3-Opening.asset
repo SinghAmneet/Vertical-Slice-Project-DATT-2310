@@ -29,7 +29,7 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 089293753b796b04f86079c0b2331833, type: 3}
     dialogue: The place I sent him was the most dangerous in the realm.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 3
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 5a332adb9d10823408288fc660f6718d, type: 3}
     dialogue: "Wait,... did he hear us? My lord\u2026Did he hear us?"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
@@ -68,32 +68,32 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 44ee5d3f3e8b62947a76067ff3500c2e, type: 3}
     dialogue: "Ah, Chef Kenny\u2026you\u2026returned. Alive"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: f3a00d7c343ac12448ba0d193ddfea7f, type: 3}
     dialogue: "I trust your journey was\u2026uneventful?"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 7b7460026c91612409bd493bdd8cf877, type: 3}
     dialogue: "Yes, your Majesty. I have returned safely, kinda, I guess\u2026and
       brought the next course to your table. \r\n"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: b2e677d6c085ade468861cdb2ec3b399, type: 3}
     dialogue: I also see my dear wife here. I wonder what brings her to the palace.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: bfb42ebdf9dad054ab11e9698d222252, type: 3}
     dialogue: " She is my guest today. We knew you would return, so\u2026 why not
       celebrate the occasion, hmm? "
     startAction: {fileID: 0}

@@ -15,28 +15,22 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: bee610ffd6a16b64994543c986ed260e, type: 3}
     dialogue: "Hmm\u2026 Chef Kenny. I expected more. This\u2026 this is mediocre
       at best."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 90d141411f592a246b81d33fd874fcc8, type: 3}
     dialogue: "Your Majesty\u2026 I did my best under the circumstances."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 2525d0dd5612935409319595ffe2502d, type: 3}
     dialogue: "Hmph. Edible, I suppose\u2026 for now. Consider yourself fortunate,
       Chef."
-    startAction: {fileID: 0}
-    endAction: {fileID: 0}
-  - speaker: 1
-    speech: 0
-    va: {fileID: 0}
-    dialogue: Thank you, Your Majesty. I shall strive to improve.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1

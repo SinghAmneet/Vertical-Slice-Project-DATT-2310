@@ -15,13 +15,13 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 3bec6fa320b844f4db0236add09e1cd0, type: 3}
     dialogue: "Chef Kenny\u2026 you have outdone yourself once again!"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 3
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 623522e3af0ac0c49ba8e81001e51861, type: 3}
     dialogue: "It\u2019s delightful, truly remarkable"
     startAction: {fileID: 0}
     endAction: {fileID: 0}

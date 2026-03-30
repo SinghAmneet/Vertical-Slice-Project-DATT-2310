@@ -15,8 +15,14 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: baa6261c13b521a489e422d5241fafa2, type: 3}
     dialogue: "Don\u2019t keep me waiting any longer. I am ready to eat."
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 2
+    speech: 0
+    va: {fileID: 8300000, guid: b6e6d919a8024574e9a89015af190465, type: 3}
+    dialogue: Nhom nhom nhom
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices: []

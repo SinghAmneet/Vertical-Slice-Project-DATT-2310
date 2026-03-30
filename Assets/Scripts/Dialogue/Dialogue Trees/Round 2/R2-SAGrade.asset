@@ -15,25 +15,25 @@ MonoBehaviour:
   dialogueLines:
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 1544168b0c89b7e499b0c3c804af4f71, type: 3}
     dialogue: This is truly an artwork.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 166181da2059b45478d44ee0adb0712b, type: 3}
     dialogue: And yet, I am still craving for the dessert
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 1
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 7a309aa823c894f4f82306606548ddc3, type: 3}
     dialogue: "He\u2019s not done yet? Well, whatever."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: e0d43718c5a21a345b2a8645c24d0a40, type: 3}
     dialogue: Your Majesty, I shall prepare another. However, I kindly request that
       this be the last one.
     startAction: {fileID: 0}
@@ -45,16 +45,9 @@ MonoBehaviour:
       dignity.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
-  - speaker: 1
-    speech: 0
-    va: {fileID: 0}
-    dialogue: After the third course, I wish to retire to recover both my body and
-      dignity.
-    startAction: {fileID: 0}
-    endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: d26b8b7c918d98e47b0b648dc5d41297, type: 3}
     dialogue: 'Rest assured, Chef. I give my word: this shall be the final one.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}

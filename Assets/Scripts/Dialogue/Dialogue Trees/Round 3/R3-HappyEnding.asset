@@ -21,7 +21,7 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 71dc406ec27d71847b58ad49205c1a08, type: 3}
     dialogue: "Now, Your Majesty\u2014will you honour your word? This shall be the
       final dish I ever prepare for you."
     startAction: {fileID: 0}
@@ -35,7 +35,7 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: e21ab8a7bf9e99a4794026992096f5fc, type: 3}
     dialogue: I shall take my leave
     startAction: {fileID: 11400000, guid: 3a06e8921c6902b49a713b583d2aa3c7, type: 2}
     endAction: {fileID: 0}

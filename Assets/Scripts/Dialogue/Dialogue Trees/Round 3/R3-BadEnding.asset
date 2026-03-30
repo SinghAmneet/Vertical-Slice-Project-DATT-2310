@@ -23,45 +23,45 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 7325f7942743b1e4589a9fdf3701fa4c, type: 3}
     dialogue: "I call this \u201CCoconut Orchard Slime Delight\u201D, it was made
       by slime and dessert island coconut. "
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 9922a413f5d44504eabf2b6edfc2b79e, type: 3}
     dialogue: "Hm\u2026 His food is always extraordinary! You are his wife, have
       a taste first.\r\n"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 3
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 464e33b31c186af46a2b169915eab9d3, type: 3}
     dialogue: There is no cause for concern. I am simply not inclined to dine.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: bedc61c046afb5146a3c67e9a92d0d70, type: 3}
     dialogue: Hm?
     startAction: {fileID: 11400000, guid: b5e253619bcdfc244973a0f554664419, type: 2}
     endAction: {fileID: 0}
   - speaker: 3
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 46c7414f770662d4aaf5472306b495a3, type: 3}
     dialogue: "Ah, Kenny, this looks...unusual. How wobbly, how\u2026enticing"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 0c7fab78c189b8f408fd932ad4062cba, type: 3}
     dialogue: Stop!
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: a6e35cc025c5d164987746515bb17644, type: 3}
     dialogue: Though you have betrayed me, I still have no desire to see you die.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
@@ -74,19 +74,19 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: e15f4697ffaa84f449e1a6ea3161803e, type: 3}
     dialogue: "I did not think you would dare poison my food\u2026 how surprising."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 1
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 768b7851c0821ae438e4a104d76f676b, type: 3}
     dialogue: ' Chat, are we cooked?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
-  - speaker: 1
-    speech: 1
-    va: {fileID: 0}
+  - speaker: 2
+    speech: 0
+    va: {fileID: 8300000, guid: 5eab46273c2fdcb46a5fa3d7134d3fd3, type: 3}
     dialogue: Traitor! You shall not leave the palace alive. Guards!
     startAction: {fileID: 11400000, guid: b5e253619bcdfc244973a0f554664419, type: 2}
     endAction: {fileID: 0}
