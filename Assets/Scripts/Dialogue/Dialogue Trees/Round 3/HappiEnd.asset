@@ -31,7 +31,7 @@ MonoBehaviour:
   - speaker: 0
     speech: 0
     va: {fileID: 0}
-    dialogue: 'Slay And Saute: Part 2'
+    dialogue: "Slay And Saute: Part 2 \nKarma"
     startAction: {fileID: 11400000, guid: d086bf295fa03424bb6fab5babf3b436, type: 2}
     endAction: {fileID: 0}
   endChoices: []
