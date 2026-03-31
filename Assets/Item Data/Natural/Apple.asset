@@ -22,3 +22,4 @@ MonoBehaviour:
     value: 3
   - stat: 3
     value: 2
+  healAmount: 1
