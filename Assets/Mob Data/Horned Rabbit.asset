@@ -20,9 +20,9 @@ MonoBehaviour:
   damage: 2
   attackCooldown: 0.4
   chaseRange: 35
-  attackRange: 15
+  attackRange: 8
   speed: 12
   forwardDirection: -1
   hasDashAttack: 1
   dashSpeed: 30
-  dashDuration: 0.1
+  dashDuration: 0.2

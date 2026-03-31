@@ -575,7 +575,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2976860398964954929, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: hitboxRadius
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -2575826130621828451, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_Radius
@@ -589,6 +589,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 905c725ca8cedd844bc1c0b35069c801, type: 2}
+    - target: {fileID: 2366205692522313500, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366205692522313500, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366205692522313500, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2366205692522313500, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -629,6 +641,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2366205692522313500, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3467325718248550271, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_Name
       value: Slime
@@ -663,19 +679,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7345684035802447671, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.7
+      value: 2.57
       objectReference: {fileID: 0}
     - target: {fileID: 7345684035802447671, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.7
+      value: 2.57
       objectReference: {fileID: 0}
     - target: {fileID: 7345684035802447671, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.7
+      value: 2.57
       objectReference: {fileID: 0}
     - target: {fileID: 7345684035802447671, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 24.99
+      value: 27.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
