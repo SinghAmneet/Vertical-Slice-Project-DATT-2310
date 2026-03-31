@@ -18,7 +18,7 @@ MonoBehaviour:
     va: {fileID: 0}
     dialogue: "Kenny fled the palace, leaving royal drama and dangerous \u201Cquests\u201D
       behind, and opened a bakery in a kingdom that actually appreciated food that
-      didn\u2019t try to kill them. "
+      didn\u2019t try to kill him. "
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 0
@@ -27,6 +27,12 @@ MonoBehaviour:
     dialogue: Who knows. He might one day return, rolling in flour and pastries,
       to serve a little revenge with a side of icing.
     startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 0
+    speech: 0
+    va: {fileID: 0}
+    dialogue: 'Slay And Saute: Part 2'
+    startAction: {fileID: 11400000, guid: d086bf295fa03424bb6fab5babf3b436, type: 2}
     endAction: {fileID: 0}
   endChoices: []
   nextTree: {fileID: 0}

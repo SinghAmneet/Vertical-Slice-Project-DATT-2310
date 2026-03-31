@@ -35,8 +35,9 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
-    dialogue: Thank you, Your Majesty. I shall strive to improve.
+    va: {fileID: 8300000, guid: e0d43718c5a21a345b2a8645c24d0a40, type: 3}
+    dialogue: 'Thank you, Your Majesty. I shall prepare another. However, I kindly
+      request this shall be the last one. '
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices: []

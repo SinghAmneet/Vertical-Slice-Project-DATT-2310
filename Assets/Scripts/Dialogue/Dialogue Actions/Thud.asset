@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3a501ddc2ce264e8290a0575422092, type: 3}
-  m_Name: LoadHappyEnding
+  m_Script: {fileID: 11500000, guid: fbde2df3d7463a040be9c6ece104fa62, type: 3}
+  m_Name: Thud
   m_EditorClassIdentifier: 
-  sceneName: HappyEnding
-  ending: 0
+  audio: {fileID: 8300000, guid: e92fa89ec8784d443a1354288ca904ba, type: 3}
+  waitUntilAudioFinishes: 0

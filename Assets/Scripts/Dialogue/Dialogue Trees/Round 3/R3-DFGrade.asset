@@ -22,7 +22,7 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 0}
-    dialogue: Executed!
+    dialogue: Guard!
     startAction: {fileID: 11400000, guid: b5e253619bcdfc244973a0f554664419, type: 2}
     endAction: {fileID: 0}
   endChoices: []
