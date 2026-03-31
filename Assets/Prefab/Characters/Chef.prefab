@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 596658128548239031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6491427197886888587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2228164567760404591}
+  m_Layer: 0
+  m_Name: RootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2228164567760404591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491427197886888587}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.3, y: 6.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 596658128548239031}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8572071627295484692
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +158,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.41, y: 7.13}
-  m_Size: {x: 3.63, y: 12.16}
+  m_Size: {x: 4.5, y: 13.88}
   m_Direction: 0
 --- !u!1001 &2263084526762880873
 PrefabInstance:
@@ -213,6 +244,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -7552582706839291426, guid: 31d146707aa66e24d93e4c3575176841, type: 3}
       insertIndex: -1
       addedObject: {fileID: 922450221587465887}
+    - targetCorrespondingSourceObject: {fileID: -7552582706839291426, guid: 31d146707aa66e24d93e4c3575176841, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2228164567760404591}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 31d146707aa66e24d93e4c3575176841, type: 3}
       insertIndex: -1
@@ -412,6 +446,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   graphics: {fileID: 596658128548239031}
+  gameloop: {fileID: 0}
+  knifeSwoosh: {fileID: 0}
 --- !u!114 &5958935432426882599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,3 +526,5 @@ MonoBehaviour:
   filterLayer:
     serializedVersion: 2
     m_Bits: 1024
+  target: {fileID: 0}
+  rootPoint: {fileID: 0}

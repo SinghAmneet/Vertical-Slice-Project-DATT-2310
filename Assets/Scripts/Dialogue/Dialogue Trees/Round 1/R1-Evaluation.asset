@@ -22,7 +22,7 @@ MonoBehaviour:
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices:
-  - choiceDialogue: SA
+  - choiceDialogue: SA (temp)
     choiceDialogueTree: {fileID: 11400000, guid: c2f06d5b50c8dde438d25d3d968d8152, type: 2}
     choiceAction: {fileID: 0}
   - choiceDialogue: BC

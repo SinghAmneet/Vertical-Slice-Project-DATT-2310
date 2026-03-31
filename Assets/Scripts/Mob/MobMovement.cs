@@ -8,6 +8,10 @@ public class MobMovement : MonoBehaviour
     private Animator animator;
     private int dirOffset;
 
+    public Transform rootPoint;
+
+    private bool dashing;
+
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -22,7 +26,7 @@ public class MobMovement : MonoBehaviour
     // set vector towards the provided position from the mob's position
     public void SetMotionVector(Vector3 pos)
     {
-        motionVector = (pos - transform.position).normalized;
+        motionVector = (pos - rootPoint.position).normalized;
         animator.SetBool("isRunning", true);
     }
 
@@ -56,9 +60,22 @@ public class MobMovement : MonoBehaviour
         }
     }
 
+    public void SetDash(Vector3 vel)
+    {
+        if (dashing) return;
+        dashing = true;
+        rigidBody.velocity = vel;
+    }
+
+    public void EndDash()
+    {
+        dashing = false;
+    }
+
     // set velocity
     public void Move()
     {
+        if (dashing) return;
         //SetDirection();
         rigidBody.velocity = motionVector * speed;
     }

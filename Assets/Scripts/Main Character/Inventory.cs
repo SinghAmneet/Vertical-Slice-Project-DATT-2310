@@ -35,9 +35,9 @@ public class Inventory : MonoBehaviour
             Drop(selectedIndex);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            //Use();
+            Use();
         }
 
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
@@ -69,7 +69,12 @@ public class Inventory : MonoBehaviour
     {
         if (selectedIndex >= 0)
         {
-            GetSelectedItem()?.Use(gameObject);
+            Item item = GetSelectedItem();
+            if (item != null)
+            {
+                item.Use(gameObject);
+                Remove(item);
+            }
         }
     }
 

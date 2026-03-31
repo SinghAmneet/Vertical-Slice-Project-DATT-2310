@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3646751290177996473}
   - component: {fileID: 8532171643879587407}
   - component: {fileID: 7208742723198663621}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PineTree2Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

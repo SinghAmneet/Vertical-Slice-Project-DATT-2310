@@ -13,6 +13,6 @@ public class GoingHome : State
 
     public override void Update()
     {
-        if (mob.GetDistFromHome() < 3) stateMachine.ChangeState(mob.idle);
+        if (mob.GetDistFromHome() < 4) stateMachine.ChangeState(mob.idle);
     }
 }

@@ -19,7 +19,10 @@ MonoBehaviour:
   maxHp: 5
   damage: 1.5
   attackCooldown: 0.5
-  chaseRange: 40
+  chaseRange: 35
   attackRange: 14
   speed: 12
   forwardDirection: 1
+  hasDashAttack: 1
+  dashSpeed: 30
+  dashDuration: 0.1

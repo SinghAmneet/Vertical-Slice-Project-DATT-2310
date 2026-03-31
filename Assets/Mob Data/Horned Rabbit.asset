@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169586c6935531045a8b97e197155e6f, type: 3}
+  m_Name: Horned Rabbit
+  m_EditorClassIdentifier: 
+  mobPrefab: {fileID: 2040694626576565879, guid: 844960683b07eb843af1ab8ff6eae9df, type: 3}
+  dropAmount: 1
+  foodDrops:
+  - {fileID: 11400000, guid: f46ce1170813c76469670488eceaf4b0, type: 2}
+  maxHp: 5
+  damage: 2
+  attackCooldown: 0.4
+  chaseRange: 35
+  attackRange: 8
+  speed: 12
+  forwardDirection: -1
+  hasDashAttack: 1
+  dashSpeed: 30
+  dashDuration: 0.2
