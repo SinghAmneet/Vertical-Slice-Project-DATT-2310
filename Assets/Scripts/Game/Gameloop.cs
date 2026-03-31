@@ -18,11 +18,33 @@ public class Gameloop : MonoBehaviour
 
     void Start()
     {
-        IncreaseDay();
+        if (!GameData.loadedDialogue)
+        {
+            GameData.loadedDialogue = true;
+            LoadDialogueScene();
+            return;
+        }
+        
         GetNewDish();
+        IncreaseDay();
 
         dayCycle.OnTimeOfDayChange += TimeChanged;
-        //plrHealth.OnDeath += Died;
+    }
+
+    private void LoadDialogueScene()
+    {
+        switch (GameData.currentDay)
+        {
+            case 1:
+                SceneManager.LoadScene("DialogueR1");
+                break;
+            case 2:
+                SceneManager.LoadScene("DialogueR2");
+                break;
+            case 3:
+                SceneManager.LoadScene("DialogueR3");
+                break;
+        }
     }
 
     public Dish GetCurrentDish()
@@ -32,19 +54,23 @@ public class Gameloop : MonoBehaviour
 
     private void IncreaseDay()
     {
-        GameData.currentDay++;
+        if (EndingData.currentEnding != endings.BadDish) { GameData.currentDay++; } else
+        {
+            GameData.currentDay = Mathf.Max(GameData.currentDay - 1, 0);
+        }
+
         dayCount.text = "Day " + GameData.currentDay;
     }
 
     private void GetNewDish()
     {
-        currentDish = dishes[Random.Range(0, dishes.Length)];
+        currentDish = dishes[GameData.currentDay];
         dishObjectText.text = currentDish.dishName;
     }
 
     public void Died()
     {
-        Invoke("StartDeathEnding", 0.6f);
+        Invoke("StartDeathEnding", 0.5f);
     }
 
     private void StartDeathEnding()

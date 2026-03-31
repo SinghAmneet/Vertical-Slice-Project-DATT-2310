@@ -22,8 +22,8 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: b6e6d919a8024574e9a89015af190465, type: 3}
-    dialogue: Nhom nhom nhom
+    dialogue: 'Nhom nhom nhom[Pause] '
     startAction: {fileID: 0}
-    endAction: {fileID: 0}
+    endAction: {fileID: 11400000, guid: 43b6e1b89960ce54290dbd2e35bc4600, type: 2}
   endChoices: []
   nextTree: {fileID: 0}

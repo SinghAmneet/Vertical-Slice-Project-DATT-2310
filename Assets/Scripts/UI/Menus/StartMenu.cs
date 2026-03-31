@@ -8,7 +8,13 @@ public class StartMenu : MonoBehaviour
 
     public void goToIntro()
     {
-        SceneManager.LoadScene("IntroDialogue");
+        if (GameData.currentDay == 0)
+        {
+            SceneManager.LoadScene("IntroDialogue");
+        } else
+        {
+            SceneManager.LoadScene("MainScene");
+        }
     }
 
     public void toggleCredits()

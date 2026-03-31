@@ -3,7 +3,8 @@ public enum endings
 {
     None,
     Death,
-    WrongDialogue
+    WrongDialogue,
+    BadDish
 }
 
 public static class EndingData 

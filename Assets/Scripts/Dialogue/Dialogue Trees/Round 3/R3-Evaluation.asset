@@ -36,8 +36,8 @@ MonoBehaviour:
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: d64ce337474f6c54892afeecf2cba139, type: 3}
-    dialogue: ' Your Majesty, the dish is ready for your table.'
+    dialogue: ' Your Majesty, the dish is ready for your table.[Pause] '
     startAction: {fileID: 0}
-    endAction: {fileID: 0}
+    endAction: {fileID: 11400000, guid: b5082822c8b536f46a33a2550adb0d02, type: 2}
   endChoices: []
   nextTree: {fileID: 0}

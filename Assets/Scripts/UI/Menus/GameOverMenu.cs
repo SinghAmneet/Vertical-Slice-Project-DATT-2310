@@ -5,6 +5,7 @@ public class GameOverMenu : MonoBehaviour
 {
     public GameObject dialogueEndMenu;
     public GameObject deathEndMenu;
+    public GameObject executionEndMenu;
 
     void Start()
     {
@@ -12,10 +13,17 @@ public class GameOverMenu : MonoBehaviour
         {
             deathEndMenu.SetActive(true);
             dialogueEndMenu.SetActive(false);
-        } else
+            executionEndMenu.SetActive(false);
+        } else if (EndingData.currentEnding == endings.WrongDialogue)
         {
             deathEndMenu.SetActive(false);
             dialogueEndMenu.SetActive(true);
+            executionEndMenu.SetActive(false);
+        } else
+        {
+            executionEndMenu.SetActive(true);
+            deathEndMenu.SetActive(false);
+            dialogueEndMenu.SetActive(false);
         }
         
     }

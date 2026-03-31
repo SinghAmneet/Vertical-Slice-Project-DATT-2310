@@ -20,5 +20,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOverScenes/GameOver.unity
     guid: e2470e868600c364ca1c0ef62bacd5a3
+  - enabled: 1
+    path: Assets/Scenes/Return/DialogueR1.unity
+    guid: d1af9cbfc2bb1a84f974cadbc3ace270
+  - enabled: 1
+    path: Assets/Scenes/Return/DialogueR2.unity
+    guid: 051fbd685018a9240aa817706fffafb6
+  - enabled: 1
+    path: Assets/Scenes/Return/DialogueR3.unity
+    guid: 8144718e37273fb42974155913df6117
+  - enabled: 1
+    path: Assets/Scenes/Return/HappyEnding.unity
+    guid: 24c21146ed777df4e80ca48e37bac25d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: f4d43c50010c4471aa724dbccb7c3cc9, type: 3}

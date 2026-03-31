@@ -23,7 +23,7 @@ MonoBehaviour:
   - speaker: 2
     speech: 1
     va: {fileID: 8300000, guid: f900c4a0af55cf64a995e35545a0b221, type: 3}
-    dialogue: "Deadful?[Pause:1] I nearly died out there! I\u2019m a chef, not a
+    dialogue: "Dreadful?[Pause:1] I nearly died out there! I\u2019m a chef, not a
       soldier![Pause:1] You sent me to Elixir with no supplies, no escort\u2026nothing!
       Hello?"
     startAction: {fileID: 0}

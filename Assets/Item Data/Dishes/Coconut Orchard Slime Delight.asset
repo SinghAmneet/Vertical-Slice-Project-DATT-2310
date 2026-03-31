@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38aac0639fef7b848a573eca6b85e07d, type: 3}
+  m_Name: Coconut Orchard Slime Delight
+  m_EditorClassIdentifier: 
+  dishName: Coconut Orchard Slime Delight
+  recipeDescription: 
+  ingredients:
+  - {fileID: 11400000, guid: 90976477bf220674e9db230fe389c2bb, type: 2}
+  - {fileID: 11400000, guid: 90976477bf220674e9db230fe389c2bb, type: 2}
+  - {fileID: 11400000, guid: f8713150d167cf24fba0c6fea76920ae, type: 2}
+  - {fileID: 11400000, guid: 031f6748251db3f4585b181b6ab7f04e, type: 2}
+  - {fileID: 11400000, guid: f4b17322c8f483f49b97918a8493484d, type: 2}
+  - {fileID: 11400000, guid: 029b7f566bbe97c48b21292d2428d458, type: 2}

@@ -59,6 +59,7 @@ public class Pot : Interactable
             DishData.createdDish = createdDish;
             DishData.inventory = foodItems;
 
+            GameData.loadedDialogue = false;
             SceneManager.LoadScene("RhythmV2");
         //}
     }

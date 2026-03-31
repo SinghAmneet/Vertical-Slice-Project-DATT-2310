@@ -7,6 +7,7 @@ public abstract class Dish : ScriptableObject
     public string dishName;
     [TextArea]
     public string recipeDescription;
+    public List<FoodData> ingredients;
     protected int inventorySlots = 6;
 
     public bool TypeEquals(FoodData food, string type)
@@ -22,6 +23,17 @@ public abstract class Dish : ScriptableObject
     public bool IsEntireInventory(int amount)
     {
         return amount == inventorySlots;
+    }
+
+    public bool InvHasIngredients(List<FoodData> foods)
+    {
+        int count = 0;
+
+        foreach (FoodData ingredient in ingredients)
+        {
+            if (foods.Contains(ingredient)) count++;
+        }
+        return count == ingredients.Count;
     }
 
     public int GetNameCount(List<FoodData> foods, string foodName)

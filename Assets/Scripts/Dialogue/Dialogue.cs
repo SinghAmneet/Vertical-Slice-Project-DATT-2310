@@ -49,6 +49,8 @@ public class Dialogue : MonoBehaviour
     private Coroutine audioPlaying;
     private float pauseTimer;
 
+    private bool overrideDialogue;
+
     private void Awake()
     {
         modifiers[0] = new PauseModifier(this);
@@ -57,6 +59,7 @@ public class Dialogue : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         ClearDisplay();
         currentTree = startingDialogueTree;
 
@@ -72,14 +75,14 @@ public class Dialogue : MonoBehaviour
         switch(state)
         {
             case DialogueState.Typewriting:
-                if (Input.GetKeyDown(KeyCode.Space)) SkipTypewrite();
+                if (Input.GetButtonDown("Attack")) SkipTypewrite();
                     Typewrite();
                 break;
             case DialogueState.Waiting:
-                if (Input.GetKeyDown(KeyCode.Space)) NextDialogueLine();
+                if (Input.GetButtonDown("Attack")) NextDialogueLine();
                 break;
             case DialogueState.Paused:
-                if (Input.GetKeyDown(KeyCode.Space)) Resume();
+                if (Input.GetButtonDown("Attack")) Resume();
                 decreasePauseTimer();
                 break;
             case DialogueState.Choosing:
@@ -258,7 +261,13 @@ public class Dialogue : MonoBehaviour
                 StartChoosing();
             } else
             {
-                NextTree(currentTree.nextTree);
+                if (overrideDialogue)
+                {
+                    overrideDialogue = false;
+                } else {
+                    NextTree(currentTree.nextTree);
+                }
+                
             }
                 
         } else
@@ -330,6 +339,11 @@ public class Dialogue : MonoBehaviour
 
         dialogueIndex = 0;
         NextDialogueLine();
+    }
+
+    public void EnableDialogueOverride()
+    {
+        overrideDialogue = true;
     }
 
     public void NextTree(DialogueTree tree)

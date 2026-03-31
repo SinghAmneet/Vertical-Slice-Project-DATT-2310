@@ -11,8 +11,11 @@ public class MainUI : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 0;
-        toggleHTP();
+        if (GameData.currentDay == 0)
+        {
+            Time.timeScale = 0;
+            toggleHTP();
+        }
     }
 
     public void toggleNavMap()

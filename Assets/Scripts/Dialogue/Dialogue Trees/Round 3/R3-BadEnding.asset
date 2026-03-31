@@ -45,7 +45,7 @@ MonoBehaviour:
     speech: 0
     va: {fileID: 8300000, guid: bedc61c046afb5146a3c67e9a92d0d70, type: 3}
     dialogue: Hm?
-    startAction: {fileID: 11400000, guid: b5e253619bcdfc244973a0f554664419, type: 2}
+    startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 3
     speech: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
     va: {fileID: 0}
     dialogue: "Tell me, Your Majesty! Was I sent there to die\u2026 or just to make
       room for you two?\r\n"
-    startAction: {fileID: 11400000, guid: b5e253619bcdfc244973a0f554664419, type: 2}
+    startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
@@ -87,8 +87,8 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 5eab46273c2fdcb46a5fa3d7134d3fd3, type: 3}
-    dialogue: Traitor! You shall not leave the palace alive. Guards!
-    startAction: {fileID: 11400000, guid: b5e253619bcdfc244973a0f554664419, type: 2}
-    endAction: {fileID: 0}
+    dialogue: 'Traitor! You shall not leave the palace alive. Guards![Pause:1] '
+    startAction: {fileID: 0}
+    endAction: {fileID: 11400000, guid: fa0b313778b06a847bd631c280c8377b, type: 2}
   endChoices: []
   nextTree: {fileID: 0}

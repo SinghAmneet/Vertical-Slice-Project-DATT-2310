@@ -39,8 +39,9 @@ MonoBehaviour:
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: 519d5d1887ab37744909eb71ed41f0ea, type: 3}
-    dialogue: "As you wish, Your Majesty. I shall return\u2026 better prepared.\r\n"
+    dialogue: "As you wish, Your Majesty. I shall return\u2026 better prepared.[Pause]
+      \r\n"
     startAction: {fileID: 0}
-    endAction: {fileID: 0}
+    endAction: {fileID: 11400000, guid: 46dc9a2c57236d24aa25b7db445fb7ca, type: 2}
   endChoices: []
   nextTree: {fileID: 0}
