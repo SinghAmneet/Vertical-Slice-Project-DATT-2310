@@ -23,6 +23,12 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 3
     speech: 0
+    va: {fileID: 8300000, guid: 9a12c39fe5d7e4f418058debf4138b3c, type: 3}
+    dialogue: Ehehe
+    startAction: {fileID: 0}
+    endAction: {fileID: 0}
+  - speaker: 3
+    speech: 0
     va: {fileID: 8300000, guid: 410ec088741408343b6cc75398ac3000, type: 3}
     dialogue: "You sure that Kenny won\u2019t be coming back?\r\n"
     startAction: {fileID: 0}
@@ -30,13 +36,8 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 089293753b796b04f86079c0b2331833, type: 3}
-    dialogue: The place I sent him was the most dangerous in the realm.
-    startAction: {fileID: 0}
-    endAction: {fileID: 0}
-  - speaker: 2
-    speech: 0
-    va: {fileID: 0}
-    dialogue: "Even if he somehow discovered it\u2026 "
+    dialogue: "The place I sent him was the most dangerous in the realm. Even if
+      he somehow discovered it\u2026 "
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 4
@@ -54,7 +55,7 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: fd04447364f78b045be1f163646c4b68, type: 3}
     dialogue: "Calm yourself, I don\u2019t believe so."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
