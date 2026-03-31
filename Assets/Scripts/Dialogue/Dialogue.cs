@@ -175,7 +175,12 @@ public class Dialogue : MonoBehaviour
     // write a letter to the text box per rate
     private void Typewrite()
     {
-        accum += Time.deltaTime;
+        //if (dialogueIndex >= currentTree.dialogueLines.Length)
+        //{
+        //    EndTypewrite();
+        //    return;
+        //}
+            accum += Time.deltaTime;
         if (accum > currentRate)
         {
             accum = 0;
@@ -251,7 +256,6 @@ public class Dialogue : MonoBehaviour
     {
         DialogueData data = currentTree.dialogueLines[dialogueIndex - 1];
         if (data.endAction != null) data.endAction.StartAction(this);
-
         // if reached end of dialogue lines of the current dialogue tree
         if (dialogueIndex >= currentTree.dialogueLines.Length)
         {
@@ -348,6 +352,7 @@ public class Dialogue : MonoBehaviour
 
     public void NextTree(DialogueTree tree)
     {
+        overrideDialogue = false;
         currentTree = tree;
         dialogueIndex = 0;
         state = DialogueState.Waiting;

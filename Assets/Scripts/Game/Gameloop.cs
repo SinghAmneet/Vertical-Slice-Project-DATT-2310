@@ -16,15 +16,29 @@ public class Gameloop : MonoBehaviour
     public List<Dish> finishedDishes;
     private Dish currentDish;
 
+    public GameObject transitionPanel;
+
+    private void Awake()
+    {
+        transitionPanel.SetActive(true);
+    }
+
     void Start()
     {
+
+        if (!GameData.hasDoneTutorial && GameData.currentDay == 0)
+        {
+            SceneManager.LoadScene("TutorialScene");
+            return;
+        }
+
         if (!GameData.loadedDialogue)
         {
             GameData.loadedDialogue = true;
             LoadDialogueScene();
             return;
         }
-        
+        transitionPanel.SetActive(false);
         GetNewDish();
         IncreaseDay();
 
@@ -64,7 +78,9 @@ public class Gameloop : MonoBehaviour
 
     private void GetNewDish()
     {
-        currentDish = dishes[GameData.currentDay];
+        int day = GameData.currentDay;
+        if (day >= 3) day = 2;
+        currentDish = dishes[day];
         dishObjectText.text = currentDish.dishName;
     }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: 
   mobPrefab: {fileID: 7545948675120971160, guid: 69dd78d1a0e65af4d8ce137912a4c1d5, type: 3}
-  dropAmount: 2
+  dropAmount: 1
   foodDrops:
   - {fileID: 11400000, guid: 90976477bf220674e9db230fe389c2bb, type: 2}
   maxHp: 3

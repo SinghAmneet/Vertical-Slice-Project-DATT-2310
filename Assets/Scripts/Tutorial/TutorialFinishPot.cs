@@ -44,6 +44,7 @@ public class TutorialFinishPot : MonoBehaviour
     public void ConfirmFinishTutorial()
     {
         Time.timeScale = 1f;
+        GameData.hasDoneTutorial = true; // letting the game know that player has finished the tutorial
         SceneManager.LoadScene(nextSceneName);
     }
 

@@ -13,7 +13,7 @@ public class MainUI : MonoBehaviour
     {
         if (GameData.currentDay == 0)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             toggleHTP();
         }
     }
