@@ -19,5 +19,11 @@ MonoBehaviour:
     dialogue: "Enough words! Bring it here at once-I would taste it now[Pause] \n"
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: 6868f9e4dfd67044cbe8851a318565f9, type: 2}
+  - speaker: 2
+    speech: 0
+    va: {fileID: 8300000, guid: b6e6d919a8024574e9a89015af190465, type: 3}
+    dialogue: Nhom nhom nhom
+    startAction: {fileID: 0}
+    endAction: {fileID: 11400000, guid: 6868f9e4dfd67044cbe8851a318565f9, type: 2}
   endChoices: []
   nextTree: {fileID: 0}

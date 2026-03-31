@@ -40,7 +40,7 @@ MonoBehaviour:
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
-    va: {fileID: 0}
+    va: {fileID: 8300000, guid: 5b9fe62fd67fabb4d9dd6c00a8f332f0, type: 3}
     dialogue: After the third course, I wish to retire to recover both my body and
       dignity.
     startAction: {fileID: 0}

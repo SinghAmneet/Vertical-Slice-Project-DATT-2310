@@ -23,6 +23,9 @@ public class MainUI : MonoBehaviour
         bool show = !navMap.activeSelf;
         navMap.SetActive(show);
         recipeMenu.SetActive(false);
+        dishObjective.SetActive(false);
+        htpMenu.SetActive(false);
+
     }
     public void toggleRecipes()
     {
