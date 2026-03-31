@@ -5,7 +5,11 @@ public class Attack : State
     private bool playingAnim;
     private float startTimer;
     private float? cooldownTimer;
-    public Attack(StateMachine stateMachine, Mob mob) : base(stateMachine, mob) { }
+    private float? dashTimer;
+
+    private Vector3 dir;
+
+    public Attack(StateMachine stateMachine, Mob mob) : base(stateMachine, mob) {  }
 
     public override void Enter()
     {
@@ -19,6 +23,19 @@ public class Attack : State
         //Debug.Log("Start");
         playingAnim = true;
         mob.PlayAttackAnimation();
+
+        if (mob.data.hasDashAttack)
+        {
+            //mob.movement.SetDash(mob.GetPlrDirection() * mob.data.dashSpeed);
+            dir = mob.GetPlrDirection() * mob.data.dashSpeed;
+        }
+    }
+
+    public void StartDash()
+    {
+        if (!mob.data.hasDashAttack) return;
+        mob.movement.SetDash(dir);
+        dashTimer = mob.data.dashDuration;
     }
 
     public void StartCooldown()
@@ -51,11 +68,25 @@ public class Attack : State
     {
         playingAnim = false;
         cooldownTimer = null;
+        dashTimer = null;
     }
 
     public override void Update()
     {
-        if (playingAnim) return;
+        if (playingAnim)
+        {
+            if (dashTimer != null)
+            {
+                dashTimer -= Time.deltaTime;
+                if (dashTimer < 0)
+                {
+                    mob.movement.EndDash();
+                }
+            }
+            
+            return;
+        }
+
         // not on cooldown
         if (cooldownTimer == null)
         {

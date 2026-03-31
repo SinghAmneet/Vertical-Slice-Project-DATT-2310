@@ -17,6 +17,8 @@ public class FoodData : ItemData
     public Types type;
     public List<Stat> stats = new();
 
+    public float healAmount;
+
     private List<Color> colors = new()
     {
         Color.green,
@@ -40,7 +42,15 @@ public class FoodData : ItemData
     // when the player consumes the food
     public override void Use(GameObject plr)
     {
-        
+        Health health = plr.GetComponent<Health>();
+        if (this.healAmount > 0)
+        {
+            health.Heal(this.healAmount);
+        } else
+        {
+            health.Deplete(this.healAmount);
+        }
+
     }
 }
 

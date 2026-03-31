@@ -16,8 +16,6 @@ public class Gameloop : MonoBehaviour
     public List<Dish> finishedDishes;
     private Dish currentDish;
 
-    private int days;
-
     void Start()
     {
         IncreaseDay();
@@ -34,8 +32,8 @@ public class Gameloop : MonoBehaviour
 
     private void IncreaseDay()
     {
-        days++;
-        dayCount.text = "Day " + days;
+        GameData.currentDay++;
+        dayCount.text = "Day " + GameData.currentDay;
     }
 
     private void GetNewDish()
@@ -46,6 +44,12 @@ public class Gameloop : MonoBehaviour
 
     public void Died()
     {
+        Invoke("StartDeathEnding", 0.6f);
+    }
+
+    private void StartDeathEnding()
+    {
+        GameData.currentDay = 0;
         EndingData.currentEnding = endings.Death;
         SceneManager.LoadScene("GameOver");
     }

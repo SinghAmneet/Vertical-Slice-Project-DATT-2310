@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 3934374655745413853}
   - component: {fileID: 4991892629599617870}
   - component: {fileID: 8826722698090886494}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CherryBlossom3Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

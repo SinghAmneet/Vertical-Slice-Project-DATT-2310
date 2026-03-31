@@ -127,7 +127,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.41, y: 7.13}
-  m_Size: {x: 3.63, y: 12.16}
+  m_Size: {x: 4.5, y: 13.88}
   m_Direction: 0
 --- !u!1001 &2263084526762880873
 PrefabInstance:
@@ -412,6 +412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   graphics: {fileID: 596658128548239031}
+  gameloop: {fileID: 0}
+  knifeSwoosh: {fileID: 0}
 --- !u!114 &5958935432426882599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,3 +492,5 @@ MonoBehaviour:
   filterLayer:
     serializedVersion: 2
     m_Bits: 1024
+  target: {fileID: 0}
+  rootPoint: {fileID: 0}

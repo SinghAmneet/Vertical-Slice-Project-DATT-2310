@@ -1103,7 +1103,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2976860398964954929, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: hitboxRadius
-      value: 4.62
+      value: 3.66
       objectReference: {fileID: 0}
     - target: {fileID: -2575826130621828451, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_Radius
@@ -1166,8 +1166,12 @@ PrefabInstance:
       value: Moonfish
       objectReference: {fileID: 0}
     - target: {fileID: 3700197483604148321, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700197483604148321, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.9
+      value: 10.11
       objectReference: {fileID: 0}
     - target: {fileID: 5882418376906698982, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_Size.x
@@ -1183,7 +1187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6259598038361165311, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.9
+      value: 8.51
       objectReference: {fileID: 0}
     - target: {fileID: 6259598038361165311, guid: 78be5188efdbc15448d838e0d7ee2084, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1268,6 +1272,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2591d31e03b3c3945ad3baed31ce9ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingOrderBase: 5000
-  offset: 0
-  runOnlyOnce: 0

@@ -16,14 +16,27 @@ public class Combat : MonoBehaviour
     private List<GameObject> hitRegistry = new();
     public LayerMask filterLayer;
 
+    public GameObject target;
+    public Transform rootPoint;
+
     public void SetDamage(float damage)
     {
         this.damage = damage;   
     }
 
+    public void SetTarget(GameObject target)
+    {
+        this.target = target;
+    }
+
     public float GetDistFromPoint()
     {
-        return Vector2.Distance(transform.position, attackPoint.position);
+        return Vector2.Distance(rootPoint.position, attackPoint.position);
+    }
+
+    public Vector2 GetDirFromTarget()
+    {
+        return ( (Vector2) target.transform.position + (Vector2.up * 3.5f) - (Vector2) rootPoint.position).normalized;
     }
 
     // if animation not playing, and if attacking for the first time, or time after attacking is more than the cooldown
@@ -46,11 +59,21 @@ public class Combat : MonoBehaviour
         hitRegistry.Clear();
     }
 
+    public Vector2 GetHitboxPos()
+    {
+        if (target != null)
+        {
+            return (Vector2)rootPoint.position + GetDirFromTarget() * GetDistFromPoint() ;
+        } else
+        {
+            return (Vector2) attackPoint.position;
+        }
+    }
 
     public void RegisterHits(float damage)
     {
         // get objects in the filtered layer within range
-        Collider2D[] hitList = Physics2D.OverlapCircleAll(attackPoint.position, hitboxRadius, filterLayer);
+        Collider2D[] hitList = Physics2D.OverlapCircleAll(GetHitboxPos(), hitboxRadius, filterLayer);
 
         foreach (Collider2D hit in hitList)
         {
