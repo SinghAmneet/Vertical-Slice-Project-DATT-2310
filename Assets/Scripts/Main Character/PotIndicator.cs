@@ -47,7 +47,7 @@ public class PotIndicator : MonoBehaviour
             float angle = GetAngle(dir);
 
             transform.position = pos;
-            transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+            transform.rotation = Quaternion.Euler(0, 0, angle - 180);
         }
     }
 }

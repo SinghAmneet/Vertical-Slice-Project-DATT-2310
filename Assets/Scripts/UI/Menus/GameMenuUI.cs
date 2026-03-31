@@ -22,13 +22,15 @@ public class MainUI : MonoBehaviour
     {
         bool show = !navMap.activeSelf;
         navMap.SetActive(show);
+        recipeMenu.SetActive(false);
     }
     public void toggleRecipes()
     {
         bool show = !recipeMenu.activeSelf;
         recipeMenu.SetActive(show);
 
-        dishObjective.SetActive(false);
+        dishObjective.SetActive(!show);
+        //if (show) dishObjective.SetActive(true);
     }
 
     public void toggleDishObjective()
