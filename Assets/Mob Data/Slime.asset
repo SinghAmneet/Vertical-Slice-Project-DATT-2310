@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169586c6935531045a8b97e197155e6f, type: 3}
+  m_Name: Slime
+  m_EditorClassIdentifier: 
+  mobPrefab: {fileID: 7545948675120971160, guid: 69dd78d1a0e65af4d8ce137912a4c1d5, type: 3}
+  dropAmount: 2
+  foodDrops:
+  - {fileID: 11400000, guid: 90976477bf220674e9db230fe389c2bb, type: 2}
+  maxHp: 3
+  damage: 1.5
+  attackCooldown: 0.85
+  chaseRange: 35
+  attackRange: 15
+  speed: 10
+  forwardDirection: 1
+  hasDashAttack: 1
+  dashSpeed: 10
+  dashDuration: 0.1
