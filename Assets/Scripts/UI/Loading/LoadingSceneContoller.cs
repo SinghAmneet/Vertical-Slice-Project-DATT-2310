@@ -71,7 +71,7 @@ public class LoadingSceneController : MonoBehaviour
             {
                 if (loadingText != null)
                 {
-                    loadingText.text = "The kitchen is ready...";
+                    loadingText.text = "Starting...";
                 }
 
                 yield return new WaitForSecondsRealtime(0.5f);
