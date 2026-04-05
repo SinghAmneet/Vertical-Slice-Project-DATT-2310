@@ -361,7 +361,7 @@ public class Dialogue : MonoBehaviour
 
     public void goToGame()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneLoader.LoadScene("MainScene");
     }
 
 }

@@ -28,7 +28,7 @@ public class Gameloop : MonoBehaviour
 
         if (!GameData.hasDoneTutorial && GameData.currentDay == 0)
         {
-            SceneManager.LoadScene("TutorialScene");
+            SceneLoader.LoadScene("TutorialScene");
             return;
         }
 
@@ -50,13 +50,13 @@ public class Gameloop : MonoBehaviour
         switch (GameData.currentDay)
         {
             case 1:
-                SceneManager.LoadScene("DialogueR1");
+                SceneLoader.LoadScene("DialogueR1");
                 break;
             case 2:
-                SceneManager.LoadScene("DialogueR2");
+                SceneLoader.LoadScene("DialogueR2");
                 break;
             case 3:
-                SceneManager.LoadScene("DialogueR3");
+                SceneLoader.LoadScene("DialogueR3");
                 break;
         }
     }
@@ -93,7 +93,7 @@ public class Gameloop : MonoBehaviour
     {
         GameData.currentDay = 0;
         EndingData.currentEnding = endings.Death;
-        SceneManager.LoadScene("GameOver");
+        SceneLoader.LoadScene("GameOver");
     }
 
     private void TimeChanged(DayName dayName)

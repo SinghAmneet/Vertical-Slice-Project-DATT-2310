@@ -10,6 +10,6 @@ public class LoadSceneDialogueAction : DialogueAction
     public override void StartAction(Dialogue dialogue)
     {
         if (ending != endings.None) EndingData.currentEnding = ending;
-        SceneManager.LoadScene(sceneName);
+        SceneLoader.LoadScene(sceneName);
     }
 }

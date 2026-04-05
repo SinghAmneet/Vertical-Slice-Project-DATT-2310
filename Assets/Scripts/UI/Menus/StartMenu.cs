@@ -10,10 +10,10 @@ public class StartMenu : MonoBehaviour
     {
         if (GameData.currentDay == 0)
         {
-            SceneManager.LoadScene("IntroDialogue");
+            SceneLoader.LoadScene("IntroDialogue");
         } else
         {
-            SceneManager.LoadScene("MainScene");
+            SceneLoader.LoadScene("MainScene");
         }
     }
 

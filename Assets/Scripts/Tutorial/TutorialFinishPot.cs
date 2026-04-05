@@ -45,7 +45,7 @@ public class TutorialFinishPot : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameData.hasDoneTutorial = true; // letting the game know that player has finished the tutorial
-        SceneManager.LoadScene(nextSceneName);
+        SceneLoader.LoadScene(nextSceneName);
     }
 
     public void CancelFinishTutorial()

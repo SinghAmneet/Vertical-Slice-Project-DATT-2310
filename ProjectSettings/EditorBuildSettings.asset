@@ -35,5 +35,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Return/HappyEnding.unity
     guid: 24c21146ed777df4e80ca48e37bac25d
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 3dd2969a5c23240d4a6d17e121f5c3f9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: f4d43c50010c4471aa724dbccb7c3cc9, type: 3}

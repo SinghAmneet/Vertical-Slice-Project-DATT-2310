@@ -394,12 +394,12 @@ public class ResultsUI : MonoBehaviour
     public void GoToStartMenu()
     {
         RhythmProgressData.rhythmRoundIndex = 0;
-        SceneManager.LoadScene("StartMenu");
+        SceneLoader.LoadScene("StartMenu");
     }
 
     public void RestartMain()
     {
         RhythmProgressData.rhythmRoundIndex++;
-        SceneManager.LoadScene("MainScene");
+        SceneLoader.LoadScene("MainScene");
     }
 }
