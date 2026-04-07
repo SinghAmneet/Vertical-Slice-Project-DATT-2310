@@ -24,7 +24,8 @@ public class CharacterController2D : MonoBehaviour
     public Gameloop gameloop;
     public AudioSource knifeSwoosh;
     public AudioSource footstepSound;
-    [SerializeField] float footstepInterval = 0.4f;
+    public AudioSource deathSound;
+    [SerializeField] float footstepInterval = 0.5f;
     private float footstepTimer = 0f;
 
     private bool attacking;
@@ -170,7 +171,9 @@ public class CharacterController2D : MonoBehaviour
     private void Died()
     {
         dying = true;
-        StandStill();
+        StandStill(); 
+        footstepSound.Stop();
+        deathSound?.PlayOneShot(deathSound.clip);
         animator.SetTrigger("Die");
     }
 
