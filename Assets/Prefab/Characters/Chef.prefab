@@ -274,7 +274,7 @@ PrefabInstance:
       addedObject: {fileID: 2601291759779629873}
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 31d146707aa66e24d93e4c3575176841, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 537902309072035429}
+      addedObject: {fileID: 7132841002943980833}
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 31d146707aa66e24d93e4c3575176841, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2022933583411564773}
@@ -451,6 +451,9 @@ MonoBehaviour:
   graphics: {fileID: 596658128548239031}
   gameloop: {fileID: 0}
   knifeSwoosh: {fileID: 0}
+  footstepSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  footstepInterval: 0.5
 --- !u!114 &5958935432426882599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,7 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947cc6f6f553a4c40abad623ff768c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &537902309072035429
+--- !u!114 &7132841002943980833
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -488,7 +491,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1769871483917356756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f86e9527287257d428cff88d65205194, type: 3}
+  m_Script: {fileID: 11500000, guid: 47b3f46856da6df4e8a4899b857e42a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5

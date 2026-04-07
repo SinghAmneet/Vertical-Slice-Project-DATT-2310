@@ -37,7 +37,7 @@ public class CharacterController2D : MonoBehaviour
         animator = GetComponent<Animator>();
         pickup = GetComponent<Pickup>();
         combat = GetComponent<Combat>();
-        GetComponent<Health>().OnDeath += Died; // connect to health's death event
+        GetComponent<PlayerHealth>().OnDeath += Died; // connect to health's death event
     }
 
     /*

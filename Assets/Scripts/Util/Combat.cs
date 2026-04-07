@@ -70,6 +70,7 @@ public class Combat : MonoBehaviour
         }
     }
 
+
     public void RegisterHits(float damage)
     {
         // get objects in the filtered layer within range
@@ -80,14 +81,18 @@ public class Combat : MonoBehaviour
             // get health component and deplete health
             // note: hitboxes will usually be its own separate object under the character
             GameObject character = hit.transform.parent.gameObject;
-
             if (hitRegistry.Contains(character)) return;
             hitRegistry.Add(character);
 
-            character.GetComponent<Health>().Deplete(damage);
+            PlayerHealth playerHealth = character.GetComponent<PlayerHealth>();
+            if (playerHealth != null) { playerHealth.Deplete(damage); continue; }
+
+            Health health = character.GetComponent<Health>();
+            if (health != null) { health.Deplete(damage); }
             //Debug.Log($"did {damage} to {character.name} who has {character.GetComponent<Health>().GetHealth()} hp left");
         }
     }
+
 
     public void RegisterEvent()
     {

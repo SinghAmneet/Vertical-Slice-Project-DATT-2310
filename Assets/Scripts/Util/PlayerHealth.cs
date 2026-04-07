@@ -1,56 +1,69 @@
 using System;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth;
     private float health;
     public HealthUI healthUI;
-    public event Action OnDeath; // death event when health reaches 0
-    public event Action OnDamage; // when character takes damage
+    public AudioSource hurtSound;
+
+    public event Action OnDeath;
+    public event Action OnDamage;
     private bool invulnerable = false;
+
     private void Awake()
     {
         if (maxHealth != 0) Setup();
     }
+
     private void Setup()
     {
         health = maxHealth;
         healthUI?.Setup(Mathf.CeilToInt(maxHealth));
     }
+
     public void SetMaxHealth(float maxHealth)
     {
         this.maxHealth = maxHealth;
         Setup();
     }
+
     public void SetInvulnerable(bool invulnerable)
     {
         this.invulnerable = invulnerable;
     }
+
     public float GetHealth()
     {
         return health;
     }
+
     private void UpdateHealth(float newHp)
     {
         if (invulnerable) return;
         health = Mathf.Clamp(newHp, 0, maxHealth);
-        healthUI?.UpdateHearts(health); // update UI
+        healthUI?.UpdateHearts(health);
     }
-    // add to hp
+
     public void Heal(float hp)
     {
         UpdateHealth(health + hp);
     }
-    // subtract from hp
+
     public void Deplete(float hp)
     {
         UpdateHealth(health - hp);
-        if (health == 0) { Die(); } else { OnDamage?.Invoke(); }
+        if (health == 0) { Die(); }
+        else
+        {
+            if (hurtSound != null) hurtSound.PlayOneShot(hurtSound.clip);
+            OnDamage?.Invoke();
+        }
     }
+
     public void Die()
     {
-        OnDeath?.Invoke(); // call death event
-        //Debug.Log(gameObject.name + " has died!!!!!");
+        OnDeath?.Invoke();
     }
 }
