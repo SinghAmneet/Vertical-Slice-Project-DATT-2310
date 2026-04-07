@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dishName: Moon Fish
   recipeDescription: Half moonfish meat in inventory
+  ingredients:
+  - {fileID: 11400000, guid: 0a0d56818856e4a4ca3a33bfbfbee968, type: 2}
+  - {fileID: 11400000, guid: 0a0d56818856e4a4ca3a33bfbfbee968, type: 2}
+  - {fileID: 11400000, guid: 0a0d56818856e4a4ca3a33bfbfbee968, type: 2}

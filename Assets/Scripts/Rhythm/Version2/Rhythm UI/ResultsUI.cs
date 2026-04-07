@@ -45,9 +45,11 @@ public class ResultsUI : MonoBehaviour
 
     [Header("Final Dish Visual")]
     public Image finalDishImage;
+    public TMP_Text finalDishNameText;
 
     [Header("Ingredient Slot Visuals (max 6)")]
     public Image[] ingredientSlotImages = new Image[6];
+    public TMP_Text[] ingredientSlotNameTexts = new TMP_Text[6];
 
     [Header("Sprite Lookup")]
     public List<IngredientSpriteEntry> ingredientSpriteLookup = new List<IngredientSpriteEntry>();
@@ -161,15 +163,12 @@ public class ResultsUI : MonoBehaviour
 
         if (dishText != null)
         {
-            // if (DishData.createdDish != null)
-            //     dishText.text = "Final Dish:";
             dishText.text = "Final Dish:";
-
             dishText.gameObject.SetActive(true);
             yield return new WaitForSeconds(lineRevealDelay);
         }
 
-        ShowFinalDishSprite();
+        ShowFinalDishSpriteAndName();
 
         if (ingredientsText != null)
         {
@@ -178,7 +177,7 @@ public class ResultsUI : MonoBehaviour
             yield return new WaitForSeconds(lineRevealDelay);
         }
 
-        ShowIngredientSprites();
+        ShowIngredientSpritesAndNames();
 
         if (finalStatsText != null)
         {
@@ -242,6 +241,9 @@ public class ResultsUI : MonoBehaviour
         if (finalDishImage != null)
             finalDishImage.gameObject.SetActive(state);
 
+        if (finalDishNameText != null)
+            finalDishNameText.gameObject.SetActive(state);
+
         if (ingredientsText != null) ingredientsText.gameObject.SetActive(state);
 
         if (ingredientSlotImages != null)
@@ -253,6 +255,15 @@ public class ResultsUI : MonoBehaviour
             }
         }
 
+        if (ingredientSlotNameTexts != null)
+        {
+            for (int i = 0; i < ingredientSlotNameTexts.Length; i++)
+            {
+                if (ingredientSlotNameTexts[i] != null)
+                    ingredientSlotNameTexts[i].gameObject.SetActive(state);
+            }
+        }
+
         if (finalStatsText != null) finalStatsText.gameObject.SetActive(state);
         if (scoreText != null) scoreText.gameObject.SetActive(state);
         if (accuracyText != null) accuracyText.gameObject.SetActive(state);
@@ -260,20 +271,27 @@ public class ResultsUI : MonoBehaviour
         if (goodText != null) goodText.gameObject.SetActive(state);
         if (earlyText != null) earlyText.gameObject.SetActive(state);
         if (missText != null) missText.gameObject.SetActive(state);
-
     }
 
-    void ShowFinalDishSprite()
+    void ShowFinalDishSpriteAndName()
     {
-        if (finalDishImage == null)
-            return;
-
-        finalDishImage.gameObject.SetActive(true);
+        if (finalDishImage != null)
+            finalDishImage.gameObject.SetActive(true);
 
         if (DishData.createdDish == null)
         {
-            finalDishImage.sprite = missingDishSprite;
-            finalDishImage.enabled = finalDishImage.sprite != null;
+            if (finalDishImage != null)
+            {
+                finalDishImage.sprite = missingDishSprite;
+                finalDishImage.enabled = finalDishImage.sprite != null;
+            }
+
+            if (finalDishNameText != null)
+            {
+                finalDishNameText.text = "None";
+                finalDishNameText.gameObject.SetActive(true);
+            }
+
             return;
         }
 
@@ -283,11 +301,20 @@ public class ResultsUI : MonoBehaviour
         if (dishSprite == null)
             dishSprite = missingDishSprite;
 
-        finalDishImage.sprite = dishSprite;
-        finalDishImage.enabled = finalDishImage.sprite != null;
+        if (finalDishImage != null)
+        {
+            finalDishImage.sprite = dishSprite;
+            finalDishImage.enabled = finalDishImage.sprite != null;
+        }
+
+        if (finalDishNameText != null)
+        {
+            finalDishNameText.text = dishName;
+            finalDishNameText.gameObject.SetActive(true);
+        }
     }
 
-    void ShowIngredientSprites()
+    void ShowIngredientSpritesAndNames()
     {
         ClearIngredientSlots();
 
@@ -298,49 +325,76 @@ public class ResultsUI : MonoBehaviour
 
         for (int i = 0; i < maxSlots; i++)
         {
-            if (ingredientSlotImages[i] == null)
-                continue;
-
-            ingredientSlotImages[i].gameObject.SetActive(true);
-
             FoodData food = DishData.inventory[i];
             Sprite ingredientSprite = null;
+            string ingredientName = "Missing";
 
             if (food != null)
+            {
+                ingredientName = food.name;
                 ingredientSprite = GetIngredientSpriteByName(food.name);
+            }
 
             if (ingredientSprite == null)
                 ingredientSprite = missingIngredientSprite;
 
-            ingredientSlotImages[i].sprite = ingredientSprite;
-            ingredientSlotImages[i].enabled = ingredientSlotImages[i].sprite != null;
+            if (ingredientSlotImages[i] != null)
+            {
+                ingredientSlotImages[i].gameObject.SetActive(true);
+                ingredientSlotImages[i].sprite = ingredientSprite;
+                ingredientSlotImages[i].enabled = ingredientSlotImages[i].sprite != null;
+            }
+
+            if (i < ingredientSlotNameTexts.Length && ingredientSlotNameTexts[i] != null)
+            {
+                ingredientSlotNameTexts[i].gameObject.SetActive(true);
+                ingredientSlotNameTexts[i].text = ingredientName;
+            }
         }
     }
 
     void ClearIngredientSlots()
     {
-        if (ingredientSlotImages == null)
-            return;
-
-        for (int i = 0; i < ingredientSlotImages.Length; i++)
+        if (ingredientSlotImages != null)
         {
-            if (ingredientSlotImages[i] == null)
-                continue;
+            for (int i = 0; i < ingredientSlotImages.Length; i++)
+            {
+                if (ingredientSlotImages[i] == null)
+                    continue;
 
-            ingredientSlotImages[i].sprite = null;
-            ingredientSlotImages[i].enabled = false;
-            ingredientSlotImages[i].gameObject.SetActive(false);
+                ingredientSlotImages[i].sprite = null;
+                ingredientSlotImages[i].enabled = false;
+                ingredientSlotImages[i].gameObject.SetActive(false);
+            }
+        }
+
+        if (ingredientSlotNameTexts != null)
+        {
+            for (int i = 0; i < ingredientSlotNameTexts.Length; i++)
+            {
+                if (ingredientSlotNameTexts[i] == null)
+                    continue;
+
+                ingredientSlotNameTexts[i].text = "";
+                ingredientSlotNameTexts[i].gameObject.SetActive(false);
+            }
         }
     }
 
     void ClearDishImage()
     {
-        if (finalDishImage == null)
-            return;
+        if (finalDishImage != null)
+        {
+            finalDishImage.sprite = null;
+            finalDishImage.enabled = false;
+            finalDishImage.gameObject.SetActive(false);
+        }
 
-        finalDishImage.sprite = null;
-        finalDishImage.enabled = false;
-        finalDishImage.gameObject.SetActive(false);
+        if (finalDishNameText != null)
+        {
+            finalDishNameText.text = "";
+            finalDishNameText.gameObject.SetActive(false);
+        }
     }
 
     Sprite GetIngredientSpriteByName(string ingredientName)
@@ -393,14 +447,14 @@ public class ResultsUI : MonoBehaviour
 
     public void GoToStartMenu()
     {
-        RhythmProgressData.ResetGameProgress(); // Reseting difficulty back to zero.
-        SceneLoader.LoadScene("StartMenu");
+        EndingData.currentEnding = endings.None;
+        RhythmProgressData.ResetGameProgress();
+        SceneManager.LoadScene("StartMenu");
     }
 
     public void RestartMain()
     {
-        //RhythmProgressData.rhythmRoundIndex++;
-        RhythmProgressData.AdvanceRhythmRound();    // Samething as the line above but put it into a method.
+        RhythmProgressData.AdvanceRhythmRound();
         SceneLoader.LoadScene("MainScene");
     }
 }

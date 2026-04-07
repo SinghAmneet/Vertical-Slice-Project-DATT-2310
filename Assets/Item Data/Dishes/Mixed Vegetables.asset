@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dishName: Mixed Vegetables
   recipeDescription: Mix of different vegetables
+  ingredients:
+  - {fileID: 11400000, guid: b8295804215dfce4a83235f212d96777, type: 2}
+  - {fileID: 11400000, guid: 13957a98c54bf5745a32b19d9e2c051b, type: 2}

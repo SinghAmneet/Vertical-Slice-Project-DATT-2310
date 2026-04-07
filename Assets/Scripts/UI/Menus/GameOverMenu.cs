@@ -39,7 +39,7 @@ public class GameOverMenu : MonoBehaviour
     public void Restart()
     {
 
-        RhythmProgressData.rhythmRoundIndex -= 1;   // TO go back a difficulty in rhythm game
+        if(RhythmProgressData.rhythmRoundIndex != 0) RhythmProgressData.rhythmRoundIndex -= 1; // TO go back a difficulty in rhythm game
         EndingData.currentEnding = endings.BadDish;
         SceneManager.LoadScene("MainScene");
 

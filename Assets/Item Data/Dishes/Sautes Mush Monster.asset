@@ -14,3 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dishName: Sautes Mush Monster
   recipeDescription: All mushrooms in inventory
+  ingredients:
+  - {fileID: 11400000, guid: 7684676b736b2484ba1e19002ef1b14e, type: 2}
+  - {fileID: 11400000, guid: 7684676b736b2484ba1e19002ef1b14e, type: 2}
+  - {fileID: 11400000, guid: 7684676b736b2484ba1e19002ef1b14e, type: 2}
+  - {fileID: 11400000, guid: 7684676b736b2484ba1e19002ef1b14e, type: 2}
+  - {fileID: 11400000, guid: 7684676b736b2484ba1e19002ef1b14e, type: 2}
+  - {fileID: 11400000, guid: 7684676b736b2484ba1e19002ef1b14e, type: 2}

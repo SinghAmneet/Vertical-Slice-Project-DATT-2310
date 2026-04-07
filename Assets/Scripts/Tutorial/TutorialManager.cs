@@ -122,7 +122,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 4:
-                tutorialText.text = "Go to the cooking pot and press F to interact.";
+                tutorialText.text = "Go to the cooking pot and right click to interact.";
                 break;
 
             default:
