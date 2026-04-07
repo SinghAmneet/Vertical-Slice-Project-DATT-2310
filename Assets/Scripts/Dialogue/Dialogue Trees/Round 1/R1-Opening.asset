@@ -16,23 +16,23 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: f6457bf61499ba64a8eb3d494ed18754, type: 3}
-    dialogue: "Chef Kenny, you\u2019ve returned?[Pause:1] You look dreadful![Pause:1]
-      Have you been dragged through the wilds?"
-    startAction: {fileID: 0}
+    dialogue: "Chef Kenny,[Pause:0.05] you\u2019ve[Pause:0.1] returned?[Pause:0.9]
+      You look dreadful![Pause:0.4] Have you been dragged through the wilds?"
+    startAction: {fileID: 11400000, guid: 07113bb664a6a834ca85c2eb972f2b22, type: 2}
     endAction: {fileID: 0}
-  - speaker: 2
+  - speaker: 1
     speech: 1
     va: {fileID: 8300000, guid: f900c4a0af55cf64a995e35545a0b221, type: 3}
-    dialogue: "Dreadful?[Pause:1] I nearly died out there! I\u2019m a chef, not a
-      soldier![Pause:1] You sent me to Elixir with no supplies, no escort\u2026nothing!
-      Hello?"
+    dialogue: "Dreadful?[Pause:0.9] I nearly died out there![Pause:0.4] I\u2019m
+      a chef, not a soldier![Pause:0.8][Rate:0.04] You sent me to Elixir with no
+      supplies, no escort[Rate:0.08]\u2026[Rate:0.04]nothing![Pause:0.3] Hello?"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: 13ba23a17f94fbc4bb9637a7e996cd3c, type: 3}
-    dialogue: 'Yes, your Majesty. This is Basilisk Egg Crunch Bowl. I trust it will
-      please your palate.
+    dialogue: '[Pause:0.3]Yes, your Majesty. This is a Basilisk Egg Crunch Bowl.[Pause:0.2]
+      I trust it will please your palate.
 
 '
     startAction: {fileID: 0}

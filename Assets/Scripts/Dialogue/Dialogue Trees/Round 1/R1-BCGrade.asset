@@ -16,7 +16,7 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 6a26e6a591ac754498d5187a67a19c02, type: 3}
-    dialogue: 'Hm. Adequate, I suppose.
+    dialogue: '[Pause:0.8]Hm.[Pause:1] Adequate,[Pause:0.1] I suppose.
 
 '
     startAction: {fileID: 0}
@@ -24,14 +24,15 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 2a35928406259ff47b457c5bc2cfeca1, type: 3}
-    dialogue: It neither delights nor offends
+    dialogue: '[Pause:0.5]It neither[Pause:0.2] delights[Pause:0.2] nor[Pause:0.2]
+      offends'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 24282d67ac1ddd54e8f3f1a4a3e4d4e5, type: 3}
-    dialogue: 'Take this payment and go. I expect far greater things from your next
-      creation.
+    dialogue: 'Take this payment and go.[Pause:0.3] I expect far[Pause:0.2] greater[Pause:0.1]
+      things from your next creation.
 
 '
     startAction: {fileID: 0}
@@ -39,8 +40,10 @@ MonoBehaviour:
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: 519d5d1887ab37744909eb71ed41f0ea, type: 3}
-    dialogue: "As you wish, Your Majesty. I shall return\u2026 better prepared.[Pause]
-      \r\n"
+    dialogue: '[Pause:0.4]As you wish, Your Majesty.[Pause:0.25] I shall return[Rate:0.2]...[Rate:Default]
+      better prepared.
+
+'
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: 46dc9a2c57236d24aa25b7db445fb7ca, type: 2}
   endChoices: []

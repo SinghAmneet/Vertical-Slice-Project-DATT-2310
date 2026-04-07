@@ -16,8 +16,9 @@ MonoBehaviour:
   - speaker: 1
     speech: 1
     va: {fileID: 8300000, guid: 338e66f8f865e10458c9f5048dbe38e6, type: 3}
-    dialogue: "Oh.. So all my risk, all my effort\u2026and for her? Never enough,
-      huh?\r\n"
+    dialogue: 'Oh.. So all my risk, all my effort... and for her? Never enough, huh?
+
+'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1

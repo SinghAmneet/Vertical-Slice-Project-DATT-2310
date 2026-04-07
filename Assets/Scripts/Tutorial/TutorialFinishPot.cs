@@ -28,7 +28,8 @@ public class TutorialFinishPot : MonoBehaviour
         if (tutorialManager == null) return;
         if (tutorialManager.GetCurrentStep() != 4) return;
 
-        if (Input.GetKeyDown(KeyCode.F))
+        //if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetButtonDown("Pickup"))
         {
             Debug.Log("F pressed at pot");
             tutorialManager.HideTutorialText();

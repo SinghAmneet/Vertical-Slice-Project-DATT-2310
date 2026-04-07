@@ -16,7 +16,10 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 8e50621e4b87f25499b3ea1483ac2c33, type: 3}
-    dialogue: "Enough words! Bring it here at once-I would taste it now[Pause] \n"
+    dialogue: '[Pause:1]Enough words![Pause:0.3] Bring it here at once-[Pause:0.5]I
+      would taste it now
+
+'
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: 6868f9e4dfd67044cbe8851a318565f9, type: 2}
   - speaker: 2

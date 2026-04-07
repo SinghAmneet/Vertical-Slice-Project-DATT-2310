@@ -16,19 +16,19 @@ MonoBehaviour:
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: c0ecc983c39e5aa4c969457f6246aa58, type: 3}
-    dialogue: ' [Pause:0.3]Like I can believe you.'
+    dialogue: '[Pause:0.25]Like I can believe you.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: c5838786775d23c4c9fc7ea5a9aaaa40, type: 3}
-    dialogue: What did you just say?
+    dialogue: '[Pause:0.4]What[Pause:0.1][Rate:0.07] did you just say?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: f23364af1a2fc3449af6beca58184f78, type: 3}
-    dialogue: ' [Pause:0.4]Nothing, sir.'
+    dialogue: '[Pause:0.4]Nothing, sir.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices: []

@@ -31,8 +31,10 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 9922a413f5d44504eabf2b6edfc2b79e, type: 3}
-    dialogue: "Hm\u2026 His food is always extraordinary! You are his wife, have
-      a taste first.\r\n"
+    dialogue: 'Hm... His food is always extraordinary! You are his wife, have a taste
+      first.
+
+'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 3
@@ -50,7 +52,7 @@ MonoBehaviour:
   - speaker: 3
     speech: 0
     va: {fileID: 8300000, guid: 46c7414f770662d4aaf5472306b495a3, type: 3}
-    dialogue: "Ah, Kenny, this looks...unusual. How wobbly, how\u2026enticing"
+    dialogue: Ah, Kenny, this looks... unusual. How wobbly, how... enticing
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
@@ -68,14 +70,16 @@ MonoBehaviour:
   - speaker: 1
     speech: 0
     va: {fileID: 0}
-    dialogue: "Tell me, Your Majesty! Was I sent there to die\u2026 or just to make
-      room for you two?\r\n"
+    dialogue: 'Tell me, Your Majesty! Was I sent there to die... or just to make
+      room for you two?
+
+'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: e15f4697ffaa84f449e1a6ea3161803e, type: 3}
-    dialogue: "I did not think you would dare poison my food\u2026 how surprising."
+    dialogue: I did not think you would dare poison my food... how surprising.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
@@ -87,7 +91,7 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 5eab46273c2fdcb46a5fa3d7134d3fd3, type: 3}
-    dialogue: 'Traitor! You shall not leave the palace alive. Guards![Pause:1] '
+    dialogue: Traitor! You shall not leave the palace alive. Guards!
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: fa0b313778b06a847bd631c280c8377b, type: 2}
   endChoices: []

@@ -48,7 +48,7 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: d26b8b7c918d98e47b0b648dc5d41297, type: 3}
-    dialogue: 'Rest assured, Chef. I give my word: this shall be the final one.[Pause] '
+    dialogue: 'Rest assured, Chef. I give my word: this shall be the final one.'
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: 46dc9a2c57236d24aa25b7db445fb7ca, type: 2}
   endChoices: []

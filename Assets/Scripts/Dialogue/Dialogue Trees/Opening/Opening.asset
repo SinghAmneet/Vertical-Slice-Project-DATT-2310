@@ -22,28 +22,30 @@ MonoBehaviour:
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: 195e8d8f61c974a40b22645598b82871, type: 3}
-    dialogue: ' [Rate:0.4]... [Rate:Default]You called? Your Majesty.'
+    dialogue: '[Rate:0.02]You called?[Pause:0.2][Rate:Default] Your Majesty.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: ac711be0bdfa0c940b2f448979fad37c, type: 3}
-    dialogue: "Yes, [Rate:0.05]I have always admired your cooking skills, but it
-      is getting boring now. [Pause:1]I\u2019ve been wondering[Rate:0.2]... [Rate:0.05]how
-      do the monsters from Elixir taste?"
+    dialogue: "[Pause:0.4][Rate:0.05]Yes,[Pause:0.2][Rate:Default] I have always
+      admired your cooking skills,[Pause:0.2] but it is getting [Rate:0.02]a bit
+      boring[Rate:Default] now.[Pause:0.5] I\u2019ve been wondering[Rate:0.1]...
+      [Rate:0.05]how do the monsters from Elixir taste?"
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: 16b07c9fb1c66e54c837e9a0d907ea03, type: 2}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: c2edef26d92fca7458973dfcc58a1a08, type: 3}
-    dialogue: ' [Rate:0.25]...[Rate:Default]Your Majesty?'
+    dialogue: '[Rate:0.25]...[Rate:Default]Your Majesty?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: f76bb70bc81235c4d89a657b0e276581, type: 3}
-    dialogue: Beyond the outer border lies Elixir,[Pause:0.3] they say monsters roam
-      freely there. [Pause:0.5]Go. [Pause:0.8]Bring me something[Pause:0.7] extraordinary!
+    dialogue: '[Pause:0.6]Beyond the outer border lies Elixir,[Pause:0.4][Rate:0.05]
+      they say monsters roam freely there. [Pause:0.3][Rate:Default]Go. [Pause:0.3]Bring
+      me something[Pause:0.4] extraordinary!'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices:

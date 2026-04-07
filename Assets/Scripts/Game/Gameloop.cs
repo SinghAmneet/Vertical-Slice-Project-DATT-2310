@@ -66,11 +66,26 @@ public class Gameloop : MonoBehaviour
         return currentDish;
     }
 
+    private int getCurrentDay()
+    {
+        if (EndingData.currentEnding == endings.BadDish)
+        {
+            return GameData.currentDay - 1;
+        } else
+        {
+            return GameData.currentDay;
+        }
+    }
+
     private void IncreaseDay()
     {
-        if (EndingData.currentEnding != endings.BadDish) { GameData.currentDay++; } else
+        if (EndingData.currentEnding == endings.BadDish)
         {
-            GameData.currentDay = Mathf.Max(GameData.currentDay - 1, 0);
+            EndingData.currentEnding = endings.None;
+            GameData.currentDay = getCurrentDay();
+        } else
+        {
+            GameData.currentDay++;
         }
 
         dayCount.text = "Day " + GameData.currentDay;
@@ -78,9 +93,7 @@ public class Gameloop : MonoBehaviour
 
     private void GetNewDish()
     {
-        int day = GameData.currentDay;
-        if (day >= 3) day = 2;
-        currentDish = dishes[day];
+        currentDish = dishes[getCurrentDay()];
         dishObjectText.text = currentDish.dishName;
     }
 
@@ -91,9 +104,9 @@ public class Gameloop : MonoBehaviour
 
     private void StartDeathEnding()
     {
-        GameData.currentDay = 0;
+        //GameData.currentDay = 0;
         EndingData.currentEnding = endings.Death;
-        SceneLoader.LoadScene("GameOver");
+        SceneManager.LoadScene("GameOver");
     }
 
     private void TimeChanged(DayName dayName)
