@@ -3,6 +3,7 @@ using TMPro;
 using System.Text;
 using System.Collections;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public enum DialogueState
 {
@@ -413,7 +414,7 @@ public class Dialogue : MonoBehaviour
 
     public void goToGame()
     {
-        SceneLoader.LoadScene("MainScene");
+        SceneManager.LoadScene("MainScene");
     }
 
 }

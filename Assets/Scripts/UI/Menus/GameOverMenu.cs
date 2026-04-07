@@ -31,17 +31,18 @@ public class GameOverMenu : MonoBehaviour
     public void MainMenu()
     {
         EndingData.currentEnding = endings.None;
-        SceneLoader.LoadScene("StartMenu");
+        SceneManager.LoadScene("StartMenu");
     }
 
     public void Restart()
     {
-        SceneLoader.LoadScene("MainScene");
+        EndingData.currentEnding = endings.BadDish;
+        SceneManager.LoadScene("MainScene");
     }
 
     public void RestartChoice()
     {
-        SceneLoader.LoadScene("IntroDialogue");
+        SceneManager.LoadScene("IntroDialogue");
     }
 
     public void Quit()

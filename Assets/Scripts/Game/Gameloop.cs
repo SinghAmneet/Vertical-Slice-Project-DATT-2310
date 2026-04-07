@@ -20,7 +20,7 @@ public class Gameloop : MonoBehaviour
 
     private void Awake()
     {
-        //transitionPanel.SetActive(true);
+        transitionPanel.SetActive(true);
     }
 
     void Start()
@@ -104,9 +104,9 @@ public class Gameloop : MonoBehaviour
 
     private void StartDeathEnding()
     {
-        GameData.currentDay = 0;
+        //GameData.currentDay = 0;
         EndingData.currentEnding = endings.Death;
-        SceneLoader.LoadScene("GameOver");
+        SceneManager.LoadScene("GameOver");
     }
 
     private void TimeChanged(DayName dayName)
