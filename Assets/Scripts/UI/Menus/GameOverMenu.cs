@@ -31,11 +31,13 @@ public class GameOverMenu : MonoBehaviour
     public void MainMenu()
     {
         EndingData.currentEnding = endings.None;
+        RhythmProgressData.ResetGameProgress();     // Reseting rhythm game difficulty back to easy
         SceneLoader.LoadScene("StartMenu");
     }
 
     public void Restart()
     {
+        RhythmProgressData.rhythmRoundIndex -= 1;   // TO go back a difficulty in rhythm game
         SceneLoader.LoadScene("MainScene");
     }
 

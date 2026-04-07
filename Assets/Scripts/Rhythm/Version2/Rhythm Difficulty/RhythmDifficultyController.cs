@@ -32,7 +32,7 @@ public class RhythmDifficultyController : MonoBehaviour
             return;
         }
 
-        RhythmDifficulty currentDifficulty = GetCurrentDifficulty();
+        RhythmDifficulty currentDifficulty = RhythmProgressData.GetCurrentDifficulty();
 
         switch (currentDifficulty)
         {
@@ -79,18 +79,5 @@ public class RhythmDifficultyController : MonoBehaviour
         songController.RefreshBeatData();
 
         Debug.Log("Rhythm difficulty set to: " + currentDifficulty);
-    }
-
-    RhythmDifficulty GetCurrentDifficulty()
-    {
-        switch (RhythmProgressData.rhythmRoundIndex)
-        {
-            case 0:
-                return RhythmDifficulty.Easy;
-            case 1:
-                return RhythmDifficulty.Medium;
-            default:
-                return RhythmDifficulty.Hard;
-        }
     }
 }
