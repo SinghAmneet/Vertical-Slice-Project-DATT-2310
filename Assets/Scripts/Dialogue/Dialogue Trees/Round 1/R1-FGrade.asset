@@ -16,7 +16,8 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 4fa491b4742934a46b1acb7f6fd634f0, type: 3}
-    dialogue: 'Your cooking skills are terrible! Truly, this is an insult to my palate!
+    dialogue: '[Pause:0.4]Your cooking skills are[Pause:0.35] terrible![Pause:0.8]
+      Truly,[Pause:0.1] this is an insult to my palate!
 
 '
     startAction: {fileID: 0}
@@ -24,7 +25,7 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: ddf4382dda97a014ab28d43b2d0cdaab, type: 3}
-    dialogue: 'Guards![Pause] '
+    dialogue: '[Rate:0.3]...[Rate:Default]Guards!'
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: fa0b313778b06a847bd631c280c8377b, type: 2}
   endChoices: []

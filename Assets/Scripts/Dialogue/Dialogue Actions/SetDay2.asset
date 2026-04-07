@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3a501ddc2ce264e8290a0575422092, type: 3}
-  m_Name: LoadGame
+  m_Script: {fileID: 11500000, guid: d086233aba4f71b48a6f3029b1f13cef, type: 3}
+  m_Name: SetDay2
   m_EditorClassIdentifier: 
-  sceneName: MainScene
-  ending: 0
-  useLoadingScreen: 1
+  day: 2

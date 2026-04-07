@@ -38,20 +38,22 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 24ba924547b431d46be4b80687fd00c1, type: 3}
-    dialogue: "Do not keep your king waiting\r"
+    dialogue: "[Pause:0.5]Do not keep your king waiting\r"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 1
     va: {fileID: 8300000, guid: 7e72b32b179628c449e9fe34ce18a8d0, type: 3}
-    dialogue: What a big bag
+    dialogue: '[Pause:0.5]What a big bag'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: baa913f51203a354e82e34bb7dcb126c, type: 3}
-    dialogue: "As your command, your Majesty.  I shall prepare the next course at
-      once[Pause] \n"
+    dialogue: '[Pause:0.3]As your command, your Majesty. I shall prepare the next
+      course at once.
+
+'
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: 46dc9a2c57236d24aa25b7db445fb7ca, type: 2}
   endChoices: []

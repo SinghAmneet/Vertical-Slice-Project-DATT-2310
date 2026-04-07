@@ -16,12 +16,13 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: b87018eef892fab45b1d48c60e0ab4db, type: 3}
-    dialogue: So, do you accept my request or not?
+    dialogue: '[Pause:0.4]So,[Pause:0.5] do you accept my request[Pause:0.15] or
+      not?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices:
   - choiceDialogue: This is not a request. This is suicide. Going to Elixir means
-      death sentence.
+      a death sentence.
     choiceDialogueTree: {fileID: 11400000, guid: 0731bb119856fa74eae209fc444f9003, type: 2}
     choiceAction: {fileID: 0}
   - choiceDialogue: "Either way, if I\u2019m going to die, I\u2019d prefer to live

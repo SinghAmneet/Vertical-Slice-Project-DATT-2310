@@ -16,26 +16,26 @@ MonoBehaviour:
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: ea2520fb0134a134cbf76ef9ee93083f, type: 3}
-    dialogue: ' [Pause:0.3]This[Pause:0.2] is not a request.[Pause:0.45] This is
-      suicide.[Pause:0.45] Going to Elixir means a death sentence.'
+    dialogue: '[Pause:0.3]This[Pause:0.2] is not[Pause:0.25] a request.[Pause:0.45]
+      This is suicide.[Pause:0.35] Going to Elixir means a death sentence.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 0
     speech: 0
     va: {fileID: 0}
-    dialogue: Kenny chose honesty.
+    dialogue: Kenny chose honestly.
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: 16b67c3a272bdad4b9d0769bb52f67d3, type: 2}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 708510c59ddab3e4fb8075239580a0fd, type: 3}
-    dialogue: Off with his head!
+    dialogue: Off[Pause:0.1] with his head!
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 0
     speech: 0
     va: {fileID: 0}
-    dialogue: 'And thus, the kingdom lost a talented Chef.[Pause] '
+    dialogue: And thus, the kingdom lost a talented Chef.
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: b5e253619bcdfc244973a0f554664419, type: 2}
   endChoices: []

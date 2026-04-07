@@ -8,13 +8,15 @@ public class MainUI : MonoBehaviour
     public GameObject timeUI;
     public GameObject recipeMenu;
     public GameObject navMap;
+    private GameObject controls;
 
     void Start()
     {
+        controls = htpMenu.transform.GetChild(2).gameObject;
         if (GameData.currentDay == 0)
         {
-            //Time.timeScale = 0;
             toggleHTP();
+            controls.SetActive(false);
         }
     }
 
@@ -49,6 +51,8 @@ public class MainUI : MonoBehaviour
         htpMenu.SetActive(show);
         dishObjective.SetActive(!show);
         timeUI.SetActive(!show);
+
+        controls.SetActive(true);
 
         foreach (Transform menu in bottomElements.transform)
         {

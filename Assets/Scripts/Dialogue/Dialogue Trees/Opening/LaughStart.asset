@@ -16,14 +16,14 @@ MonoBehaviour:
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: 4ac93a05deacb8c45904cac34e5bf4e5, type: 3}
-    dialogue: ' [Pause:0.7]Yes, my lord. I will[Pause:0.5] try my best to satisfy
+    dialogue: '[Pause:0.6]Yes, my lord. I will[Pause:0.2] try my best to satisfy
       your taste.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 0}
-    dialogue: 'HAHAHAHA[Pause] '
+    dialogue: HAHAHAHA
     startAction: {fileID: 11400000, guid: 0a100f3e5ebfa394aa84970fcf443168, type: 2}
     endAction: {fileID: 11400000, guid: 46dc9a2c57236d24aa25b7db445fb7ca, type: 2}
   endChoices: []

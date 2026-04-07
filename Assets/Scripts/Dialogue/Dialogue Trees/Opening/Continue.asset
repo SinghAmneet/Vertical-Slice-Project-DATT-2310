@@ -16,28 +16,29 @@ MonoBehaviour:
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: ba425a1eee140894e948691c55b29822, type: 3}
-    dialogue: " [Pause:0.3]Either way,[Pause:0.4] if I\u2019m going to die,[Pause:0.4]
-      I\u2019d[Pause:0.3] prefer to live a little longer.[Pause:0.4] Thank you for
-      the opportunity."
+    dialogue: "[Pause:0.5]Either way,[Pause:0.4][Rate:0.045] if I\u2019m going to
+      die, I\u2019d prefer to live a little longer.\n[Rate:Default][Pause:0.4] Thank
+      you[Pause:0.1] for the opportunity."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 091af180fc347104180d2916559559c2, type: 3}
-    dialogue: "Yes![Pause:0.7] Be loyal[Pause:0.6] and go out there.[Pause:0.2] \nFind
-      the most delicious dish and bring it to me!"
+    dialogue: "[Pause:0.7]Yes![Pause:0.3] Be loyal[Pause:0.3] and go out there.[Pause:0.1]
+      \nFind the most delicious dish and bring it to me!"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 1
     va: {fileID: 8300000, guid: 3372bfeeee8c24b45890a9ab68f3a53a, type: 3}
-    dialogue: "If I survive, I\u2019m opening a bakery in another kingdom."
+    dialogue: "[Pause:1][Rate:0.05]If I survive, I\u2019m opening a bakery in another
+      kingdom."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 0
     speech: 0
     va: {fileID: 0}
-    dialogue: "And so begins Kenny\u2019s questionable adventure to Elixir[Rate:0.5]...[Pause] "
+    dialogue: "And so begins Kenny\u2019s questionable adventure to Elixir[Rate:0.2]..."
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: 46dc9a2c57236d24aa25b7db445fb7ca, type: 2}
   endChoices: []

@@ -16,13 +16,15 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: f8096baf8ceecd042a09c0c82eac6cf1, type: 3}
-    dialogue: "Hm\u2026 it jiggles nicely, and the flavours are\u2026 adequate"
+    dialogue: Hm... it jiggles nicely, and the flavours are... adequate
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 1
     va: {fileID: 8300000, guid: 3a3dd9ae5c7d94947bcee48769f1b82e, type: 3}
-    dialogue: "I did my best. Let them judge. I will not retaliate\u2026 not today.\r\n"
+    dialogue: 'I did my best. Let them judge. I will not retaliate... not today.
+
+'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices: []

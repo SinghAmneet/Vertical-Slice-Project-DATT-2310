@@ -6,10 +6,17 @@ public class LoadSceneDialogueAction : DialogueAction
 {
     public string sceneName;
     public endings ending;
+    public bool useLoadingScreen;
 
     public override void StartAction(Dialogue dialogue)
     {
         if (ending != endings.None) EndingData.currentEnding = ending;
-        SceneLoader.LoadScene(sceneName);
+        if (useLoadingScreen)
+        {
+            SceneLoader.LoadScene(sceneName);
+        } else
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

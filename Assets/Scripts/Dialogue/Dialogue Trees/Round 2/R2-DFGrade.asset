@@ -24,7 +24,7 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: ddf4382dda97a014ab28d43b2d0cdaab, type: 3}
-    dialogue: 'Guards! Restrain him immediately![Pause] '
+    dialogue: Guards! Restrain him immediately!
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: fa0b313778b06a847bd631c280c8377b, type: 2}
   endChoices: []

@@ -6,6 +6,13 @@ public class StartMenu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject credits;
 
+    private void Awake()
+    {
+        GameData.currentDay = 0;
+        GameData.hasDoneTutorial = false;
+        EndingData.currentEnding = endings.None;
+    }
+
     public void goToIntro()
     {
         if (GameData.currentDay == 0)

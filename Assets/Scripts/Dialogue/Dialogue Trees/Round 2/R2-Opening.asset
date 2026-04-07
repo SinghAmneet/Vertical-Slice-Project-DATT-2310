@@ -17,13 +17,13 @@ MonoBehaviour:
     speech: 0
     va: {fileID: 8300000, guid: a836bfa917b07f840964630575297d82, type: 3}
     dialogue: "Aha! Come, tell me\u2014what masterpiece graces our table this evening?"
-    startAction: {fileID: 0}
+    startAction: {fileID: 11400000, guid: 367dccbc140e33d43a4117d80e9f4aab, type: 2}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: 39af45c7643e0234f8fa65513eba270b, type: 3}
-    dialogue: "It carries my sweat\u2026 and blood. Literally. I trust it will satisfy,
-      Your Majesty."
+    dialogue: It carries my sweat... and blood.[Pause:0.4] Literally.[Pause:0.4]
+      I trust it will satisfy, Your Majesty.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
@@ -35,27 +35,29 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 376f87bc01d861b4b8678619cae79d67, type: 3}
-    dialogue: "\u2026A what?"
+    dialogue: ...A what?
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: 0cae66432a6e20847b6ab33788b5792a, type: 3}
-    dialogue: "A fish wearing trousers, sire. I pan-fried it with a touch of morning
-      oil and\u2026body salt.\r\n"
+    dialogue: 'A fish wearing trousers, sire. I pan-fried it with a touch of morning
+      oil and... body salt.
+
+'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: dd4b48b90ffbec942be42f0e8b656dd3, type: 3}
-    dialogue: "Are its pants \u2026 optional?"
+    dialogue: Are its pants[Rate:0.3]...[Rate:Default] optional?
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 0f2b82c8ee29b4f4e9bec5fcf65e40f9, type: 3}
     dialogue: "Sadly, Your Majesty, no. They\u2019ve been part of its flavour since
-      birth"
+      birth."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices: []

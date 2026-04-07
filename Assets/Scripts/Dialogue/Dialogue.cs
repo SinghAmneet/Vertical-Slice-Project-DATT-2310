@@ -1,8 +1,8 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 using System.Text;
 using System.Collections;
+using UnityEngine.Rendering.Universal;
 
 public enum DialogueState
 {
@@ -12,6 +12,7 @@ public enum DialogueState
     Skipping,
     Paused,
     Choosing,
+    ChangingScene,
 }
 
 public class Dialogue : MonoBehaviour
@@ -21,7 +22,6 @@ public class Dialogue : MonoBehaviour
     public DialogueTree restartTree;
 
     public AudioSource vaSound;
-    public AudioSource typewriteSound;
     public AudioSource audioSource;
 
     public TextMeshProUGUI dialogueText;
@@ -87,10 +87,27 @@ public class Dialogue : MonoBehaviour
                 break;
             case DialogueState.Choosing:
                 break;
+            case DialogueState.ChangingScene:
+                if (Input.GetButtonDown("Attack")) ChangeScene();
+                break;
         }
+
         if (Input.GetKeyDown(KeyCode.Tab)) {
             dialogueIndex = currentTree.dialogueLines.Length - 1;
             NextDialogueLine(); }
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            RhythmResultData.latestDishRank = "S";
+            Debug.Log("Set Rank to: S");
+        } else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            RhythmResultData.latestDishRank = "B";
+            Debug.Log("Set Rank to: B");
+        } else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            RhythmResultData.latestDishRank = "F";
+            Debug.Log("Set Rank to: F");
+        }
     }
 
     public void WaitForAudioToFinish(float audioLength)
@@ -175,45 +192,52 @@ public class Dialogue : MonoBehaviour
     // write a letter to the text box per rate
     private void Typewrite()
     {
-        //if (dialogueIndex >= currentTree.dialogueLines.Length)
-        //{
-        //    EndTypewrite();
-        //    return;
-        //}
-            accum += Time.deltaTime;
+        accum += Time.deltaTime;
         if (accum > currentRate)
         {
-            accum = 0;
-            displayedText.Append(currentLine[letterIndex]);
-            DisplayText(displayedText.ToString());
-            letterIndex++;
-
             if (letterIndex >= currentLine.Length)
             {
                 EndTypewrite();
+                return;
+            }
+
+            if (currentLine[letterIndex].Equals(modifierStart))
+            {
+                // apply modifiers until the letter isn't the start of a modifier
+                while (letterIndex < currentLine.Length &&
+                    currentLine[letterIndex].Equals(modifierStart)
+                    )
+                {
+                    ApplyModifier();
+                }
             } else
             {
-                ApplyModifier(currentLine[letterIndex]);
+                accum = 0;
+                displayedText.Append(currentLine[letterIndex]);
+                DisplayText(displayedText.ToString());
+                letterIndex++;
+
+                if (letterIndex >= currentLine.Length)
+                {
+                    EndTypewrite();
+                }
             }
         }
     }
 
     // apply dialogue modifier
-    private void ApplyModifier(char letter)
+    private void ApplyModifier()
     {
-        // if next letter is not the start of a modifier tag
-        if (!letter.Equals(modifierStart)) return;
-
         // get the end of the modifier tag
         int endIndex = currentLine.IndexOf(modifierEnd, letterIndex);
-
         // get modifier name
         string tagName = currentLine.Substring(letterIndex + 1, endIndex - (letterIndex + 1));
         int valueIndex = tagName.IndexOf(valueChar); // get modifier value
         string value;
         
         letterIndex = endIndex + 1;
-        
+        if (currentRate == 0) return;
+
         // if value was not found
         if (valueIndex < 0)
         {
@@ -254,11 +278,14 @@ public class Dialogue : MonoBehaviour
     // stop type writing
     public void EndTypewrite()
     {
+        //Debug.Log($"{dialogueIndex} {currentTree.dialogueLines.Length}");
         DialogueData data = currentTree.dialogueLines[dialogueIndex - 1];
-        if (data.endAction != null) data.endAction.StartAction(this);
+        if (data.endAction != null) StartEndAction(data);
         // if reached end of dialogue lines of the current dialogue tree
         if (dialogueIndex >= currentTree.dialogueLines.Length)
         {
+            if (state == DialogueState.ChangingScene) return;
+
             // if there are end choices
             if (currentTree.endChoices.Length > 0)
             {
@@ -284,12 +311,14 @@ public class Dialogue : MonoBehaviour
 
     public void Pause()
     {
+        if (currentRate == 0) return;
         continueText.SetActive(true);
-        state = DialogueState.Paused;
+        Pause(-1f);
     }
 
     public void Pause(float timer)
     {
+        if (currentRate == 0) return;
         pauseTimer = timer;
         state = DialogueState.Paused;
     }
@@ -305,6 +334,8 @@ public class Dialogue : MonoBehaviour
     {
         continueText.SetActive(false);
         state = DialogueState.Typewriting;
+
+        if (pauseTimer > 0) SkipTypewrite();
     }
 
     // create option objects
@@ -352,11 +383,32 @@ public class Dialogue : MonoBehaviour
 
     public void NextTree(DialogueTree tree)
     {
+        continueText.SetActive(true);
         overrideDialogue = false;
         currentTree = tree;
         dialogueIndex = 0;
         state = DialogueState.Waiting;
-        //NextDialogueLine();
+    }
+
+    private void StartEndAction(DialogueData data)
+    {
+        if (data.endAction is LoadSceneDialogueAction)
+        {
+            continueText.SetActive(true);
+            state = DialogueState.ChangingScene;
+        } else
+        {
+            data.endAction.StartAction(this);
+        }
+    }
+
+    private void ChangeScene()
+    {
+        if (dialogueIndex >= currentTree.dialogueLines.Length)
+        {
+            DialogueData data = currentTree.dialogueLines[dialogueIndex - 1];
+            if (data.endAction != null) data.endAction.StartAction(this);
+        }
     }
 
     public void goToGame()
