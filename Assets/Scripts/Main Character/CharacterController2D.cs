@@ -23,6 +23,9 @@ public class CharacterController2D : MonoBehaviour
 
     public Gameloop gameloop;
     public AudioSource knifeSwoosh;
+    public AudioSource footstepSound;
+    [SerializeField] float footstepInterval = 0.4f;
+    private float footstepTimer = 0f;
 
     private bool attacking;
     private bool dying;
@@ -95,10 +98,12 @@ public class CharacterController2D : MonoBehaviour
         }
 
         SetMotionVector();
+        HandleFootsteps();
 
         if (attacking) return;
 
         FlipCharacter();
+
 
         // When player is standing, pressing 'E' triggers pickup animation.
         if (Input.GetButtonDown("Pickup"))
@@ -142,6 +147,24 @@ public class CharacterController2D : MonoBehaviour
     {
         attacking = false;
         combat.AttackEnd();
+    }
+
+    // foot steps audio
+    private void HandleFootsteps()
+    {
+        if (!IsStandingStill() && !dying)
+        {
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0f)
+            {
+                footstepSound.PlayOneShot(footstepSound.clip);
+                footstepTimer = footstepInterval;
+            }
+        }
+        else
+        {
+            footstepTimer = 0f;
+        }
     }
 
     private void Died()
