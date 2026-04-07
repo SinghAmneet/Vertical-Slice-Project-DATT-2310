@@ -28,7 +28,7 @@ public class Gameloop : MonoBehaviour
 
         if (!GameData.hasDoneTutorial && GameData.currentDay == 0)
         {
-            SceneLoader.LoadScene("TutorialScene");
+            SceneManager.LoadScene("TutorialScene");
             return;
         }
 
@@ -50,13 +50,13 @@ public class Gameloop : MonoBehaviour
         switch (GameData.currentDay)
         {
             case 1:
-                SceneLoader.LoadScene("DialogueR1");
+                SceneManager.LoadScene("DialogueR1");
                 break;
             case 2:
-                SceneLoader.LoadScene("DialogueR2");
+                SceneManager.LoadScene("DialogueR2");
                 break;
             case 3:
-                SceneLoader.LoadScene("DialogueR3");
+                SceneManager.LoadScene("DialogueR3");
                 break;
         }
     }
@@ -95,6 +95,7 @@ public class Gameloop : MonoBehaviour
     {
         currentDish = dishes[getCurrentDay()];
         dishObjectText.text = currentDish.dishName;
+        GameData.currentDish = currentDish;
     }
 
     public void Died()
@@ -113,7 +114,7 @@ public class Gameloop : MonoBehaviour
     {
         if (dayName == DayName.Night)
         {
-            Debug.Log("Timer is up");
+            StartDeathEnding();
         }
     }
 }
