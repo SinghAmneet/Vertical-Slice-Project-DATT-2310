@@ -40,20 +40,20 @@ public class Inventory : MonoBehaviour
             Use();
         }
 
-        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
-        if (scrollInput < 0)
-        {
-            int index = selectedIndex;
-            if (index + 1 >= slotCount) index = -1;
-            index++;
-            Select(index);
-        } else if (scrollInput > 0)
-        {
-            int index = selectedIndex;
-            if (index - 1 < 0) index = slotCount;
-            index--;
-            Select(index);
-        }
+        //float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+        //if (scrollInput < 0)
+        //{
+        //    int index = selectedIndex;
+        //    if (index + 1 >= slotCount) index = -1;
+        //    index++;
+        //    Select(index);
+        //} else if (scrollInput > 0)
+        //{
+        //    int index = selectedIndex;
+        //    if (index - 1 < 0) index = slotCount;
+        //    index--;
+        //    Select(index);
+        //}
 
         // get number inputs from 1 to number of slots
         for (int i = 0; i < slotCount; i++)

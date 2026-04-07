@@ -9,21 +9,19 @@ public class GameOverMenu : MonoBehaviour
 
     void Start()
     {
+        deathEndMenu.SetActive(false);
+        dialogueEndMenu.SetActive(false);
+        executionEndMenu.SetActive(false);
+
         if (EndingData.currentEnding == endings.Death)
         {
             deathEndMenu.SetActive(true);
-            dialogueEndMenu.SetActive(false);
-            executionEndMenu.SetActive(false);
         } else if (EndingData.currentEnding == endings.WrongDialogue)
         {
-            deathEndMenu.SetActive(false);
             dialogueEndMenu.SetActive(true);
-            executionEndMenu.SetActive(false);
         } else
         {
             executionEndMenu.SetActive(true);
-            deathEndMenu.SetActive(false);
-            dialogueEndMenu.SetActive(false);
         }
         
     }

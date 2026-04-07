@@ -2,49 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Dish : ScriptableObject
+[CreateAssetMenu(menuName ="Items/Dish")]
+public class Dish : ScriptableObject
 {
     public string dishName;
-    [TextArea]
-    public string recipeDescription;
     public List<FoodData> ingredients;
     protected int inventorySlots = 6;
 
-    public bool TypeEquals(FoodData food, string type)
+    public List<FoodData> CloneList()
     {
-        return food.type.ToString().Equals(type);
+        List<FoodData> clonedList = new();
+        foreach (FoodData foodData in ingredients) clonedList.Add(foodData);
+        return clonedList;
     }
 
-    public bool IsHalfOfInventory(int amount)
+    public List<FoodData> GetMissingIngredients(List<FoodData> foods)
     {
-        return amount == inventorySlots / 2;
-    }
+        List<FoodData> requiredIngredients = CloneList();
 
-    public bool IsEntireInventory(int amount)
-    {
-        return amount == inventorySlots;
-    }
-
-    public bool InvHasIngredients(List<FoodData> foods)
-    {
-        int count = 0;
-
-        foreach (FoodData ingredient in ingredients)
-        {
-            if (foods.Contains(ingredient)) count++;
-        }
-        return count == ingredients.Count;
-    }
-
-    public int GetNameCount(List<FoodData> foods, string foodName)
-    {
-        int count = 0;
         foreach (FoodData food in foods)
         {
-            if (food.name.Equals(foodName)) count++;
+            if (requiredIngredients.Contains(food)) requiredIngredients.Remove(food);
         }
-        return count;
+        return requiredIngredients;
     }
-
-    public abstract bool Evaluate(List<FoodData> foods);
 }

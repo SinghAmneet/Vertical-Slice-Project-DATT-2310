@@ -1,13 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using TMPro;
 
 public class Pot : Interactable
 {
-    public DishCreator dishCreator;
-    public Gameloop gameManager;
     public GameObject potUI;
+    public TextMeshProUGUI missingIngredientText;
     public Inventory inv;
+
+    private bool canCook;
 
     public void togglePotUI(bool show)
     {
@@ -17,6 +19,7 @@ public class Pot : Interactable
     public override void Use(GameObject plr)
     {
         togglePotUI(true);
+        CheckIngredients();
     }
 
     private void addStats(List<FoodData> foodItems)
@@ -45,28 +48,40 @@ public class Pot : Interactable
         DishData.totalStats = addedStats;
     }
 
-    public void CreateDish()
+    public void CheckIngredients()
     {
-        if (inv.GetItems().Count < 2) return;
         // convert to food class
         List<FoodData> foodItems = inv.GetItems().ConvertAll(item => (FoodData) item.data);
 
-        Dish createdDish = dishCreator.GetDish(foodItems);
+        List<FoodData> missingIngredients = GameData.currentDish.GetMissingIngredients(foodItems);
+        canCook = missingIngredients.Count == 0;
 
-        //if (createdDish.name.Equals(gameManager.GetCurrentDish().name))
-        //{
-            addStats(foodItems);
-            DishData.createdDish = createdDish;
-            DishData.inventory = foodItems;
-
-            GameData.loadedDialogue = false;
-            SceneLoader.LoadScene("RhythmV2");
-        //}
+        if (canCook)
+        {
+            missingIngredientText.text = "you have all the ingredients!";
+        } else
+        {
+            missingIngredientText.text = "missing ingredients: ";
+            for (int i = 0; i < missingIngredients.Count; i++)
+            {
+                missingIngredientText.text += missingIngredients[i].name;
+                if (i < missingIngredients.Count - 1) missingIngredientText.text += ", ";
+            }
+        }
     }
 
     public void GoToRhythm()
     {
-        CreateDish();
+        if (!canCook) return;
+        // convert to food class
+        List<FoodData> foodItems = inv.GetItems().ConvertAll(item => (FoodData)item.data);
+        addStats(foodItems);
+        DishData.createdDish = GameData.currentDish;
+        DishData.inventory = foodItems;
+
+        GameData.loadedDialogue = false;
+        SceneLoader.LoadScene("RhythmV2");
+        //SceneManager.LoadScene("RhythmV2");
     }
 
 }
