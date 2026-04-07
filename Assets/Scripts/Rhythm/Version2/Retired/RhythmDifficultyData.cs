@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
 
-public static class RhythmDifficultyData
-{
-    public static RhythmDifficulty selectedDifficulty = RhythmDifficulty.Easy;
-}
+// public static class RhythmDifficultyData
+// {
+//     public static RhythmDifficulty selectedDifficulty = RhythmDifficulty.Easy;
+// }
 
 // public class RhythmDifficultyData : MonoBehaviour
 // {

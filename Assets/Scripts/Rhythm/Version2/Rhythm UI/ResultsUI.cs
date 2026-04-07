@@ -393,13 +393,14 @@ public class ResultsUI : MonoBehaviour
 
     public void GoToStartMenu()
     {
-        RhythmProgressData.rhythmRoundIndex = 0;
+        RhythmProgressData.ResetGameProgress(); // Reseting difficulty back to zero.
         SceneLoader.LoadScene("StartMenu");
     }
 
     public void RestartMain()
     {
-        RhythmProgressData.rhythmRoundIndex++;
+        //RhythmProgressData.rhythmRoundIndex++;
+        RhythmProgressData.AdvanceRhythmRound();    // Samething as the line above but put it into a method.
         SceneLoader.LoadScene("MainScene");
     }
 }
