@@ -19,6 +19,8 @@ public class TutorialCharacterController2D : MonoBehaviour
 
     [Header("Optional")]
     [SerializeField] private AudioSource knifeSwoosh;
+    [SerializeField] private AudioSource footstepSound;
+
 
     private Rigidbody2D rb;
     private Animator animator;
