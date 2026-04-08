@@ -8,12 +8,12 @@ public class BackgroundVisualController : MonoBehaviour
     public SpriteRenderer backgroundRenderer;
 
     [Header("Timing")]
-    public float initialFullColorTime = 2f;   // how long the background stays normal
-    public float fadeDuration = 1f;           // how long the transition takes
+    public float initialFullColorTime;   // how long the background stays normal
+    public float fadeDuration;           // how long the transition takes
 
     [Header("Background Look")]
-    [Range(0f, 1f)] public float targetSaturation = 0.35f; // lower = more gray
-    [Range(0f, 1f)] public float targetBrightness = 0.75f; // lower = darker
+    [Range(0f, 1f)] public float targetSaturation; // lower = more gray
+    [Range(0f, 1f)] public float targetBrightness; // lower = darker
 
     private Color originalColor;
     private Color fadedColor;
@@ -37,7 +37,7 @@ public class BackgroundVisualController : MonoBehaviour
 
     IEnumerator FadeBackgroundRoutine()
     {
-        // Show the background normally for a few seconds first
+        //Show the background normally for a few seconds first
         yield return new WaitForSeconds(initialFullColorTime);
 
         float timer = 0f;
@@ -59,7 +59,6 @@ public class BackgroundVisualController : MonoBehaviour
 
     Color GetFadedColor(Color source)
     {
-        // Convert to grayscale-ish manually by blending toward luminance
         float gray = source.r * 0.299f + source.g * 0.587f + source.b * 0.114f;
 
         Color grayColor = new Color(gray, gray, gray, source.a);

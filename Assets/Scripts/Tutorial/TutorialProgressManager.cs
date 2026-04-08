@@ -65,7 +65,7 @@ public class TutorialProgressManager : MonoBehaviour
 
         int currentCount = playerInventory.GetItems().Count;
 
-        // Picked up enough items
+        //Picked up enough items
         if (!pickedUpItems && currentCount >= requiredPickupCount)
         {
             pickedUpItems = true;

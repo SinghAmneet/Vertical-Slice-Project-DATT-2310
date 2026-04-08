@@ -15,15 +15,15 @@ public class GameplayUI : MonoBehaviour
     public TMP_Text timerText;
 
     [Header("Fade Settings")]
-    public float fadeDuration = 0.6f;
+    public float fadeDuration;
 
     [Header("Score Pulse Settings")]
-    public float pulseScaleMultiplier = 1.15f;
-    public float pulseDuration = 0.12f;
+    public float pulseScaleMultiplier;
+    public float pulseDuration;
 
     [Header("Multiplier Pulse Settings")]
-    public float multiplierPulseScaleMultiplier = 1.25f;
-    public float multiplierPulseDuration = 0.16f;
+    public float multiplierPulseScaleMultiplier;
+    public float multiplierPulseDuration;
 
     private CanvasGroup canvasGroup;
 
@@ -56,7 +56,6 @@ public class GameplayUI : MonoBehaviour
     {
         UpdateTimerUI();
     }
-
     public void ShowUI()
     {
         gameObject.SetActive(true);

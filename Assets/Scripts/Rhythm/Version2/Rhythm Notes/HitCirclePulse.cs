@@ -8,13 +8,13 @@ public class HitCirclePulse : MonoBehaviour
     public SongController songController;
 
     [Header("Pulse Settings")]
-    public float scaleAdd = 0.08f;     // how much bigger it gets on each beat
-    public float decaySpeed = 10f;     // how fast it returns to normal
+    public float scaleAdd;     // how much bigger it gets on each beat
+    public float decaySpeed;     // how fast it returns to normal
 
     [Header("Optional Alpha Pulse")]
     public SpriteRenderer spriteRenderer;
-    public float alphaAdd = 0.15f;     // extra alpha on beat
-    public float baseAlpha = 1.0f;
+    public float alphaAdd;     // extra alpha on beat
+    public float baseAlpha;
 
     private Vector3 baseScale;
     private float pulseT = 0f;
@@ -41,7 +41,7 @@ public class HitCirclePulse : MonoBehaviour
         double spb = songController.GetSecondsPerBeat();
         double beatIndex = System.Math.Floor(songTime / spb);
 
-        // Trigger pulse once per beat
+        //Triggr pulse once per beat
         if (beatIndex != lastBeatIndex)
         {
             lastBeatIndex = beatIndex;
@@ -55,7 +55,6 @@ public class HitCirclePulse : MonoBehaviour
         float s = 1f + (scaleAdd * pulseT);
         transform.localScale = baseScale * s;
 
-        // Optional alpha pulse
         if (spriteRenderer != null)
         {
             Color c = spriteRenderer.color;

@@ -5,14 +5,14 @@ using UnityEngine;
 public class FirePopup : MonoBehaviour
 {
     [Header("Timing")]
-    public float lifetime = 0.7f;
+    public float lifetime;
 
     [Header("Scale")]
-    public float startScaleMultiplier = 0.8f;
-    public float endScaleMultiplier = 1.35f;
+    public float startScaleMultiplier;
+    public float endScaleMultiplier;
 
     [Header("Movement")]
-    public float moveDistance = 0.8f;   // how far the fire drifts away
+    public float moveDistance;   // how far the fire drifts away
     public bool randomDirection = true;
 
     [Header("Fade")]

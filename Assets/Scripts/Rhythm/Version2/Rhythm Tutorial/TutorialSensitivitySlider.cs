@@ -11,13 +11,13 @@ public class TutorialSensitivitySlider : MonoBehaviour
     public TMP_Text valueText;
 
     [Header("Slider Settings")]
-    public float minValue = 0.1f;
-    public float maxValue = 3.0f;
+    public float minValue;
+    public float maxValue;
 
     [Tooltip("Half the width of the slider bar. If the bar goes from -4.8 to 4.8, use 4.8.")]
-    public float sliderHalfWidth = 4.8f;
+    public float sliderHalfWidth;
 
-    public float clickHeightTolerance = 0.6f;
+    public float clickHeightTolerance;
 
     private bool dragging = false;
 
@@ -59,9 +59,7 @@ public class TutorialSensitivitySlider : MonoBehaviour
     {
         Vector3 p = transform.position;
 
-        bool insideX =
-            cursorPos.x >= p.x - sliderHalfWidth - 0.3f &&
-            cursorPos.x <= p.x + sliderHalfWidth + 0.3f;
+        bool insideX = cursorPos.x >= p.x - sliderHalfWidth - 0.3f && cursorPos.x <= p.x + sliderHalfWidth + 0.3f;
 
         bool insideY = Mathf.Abs(cursorPos.y - p.y) <= clickHeightTolerance;
 

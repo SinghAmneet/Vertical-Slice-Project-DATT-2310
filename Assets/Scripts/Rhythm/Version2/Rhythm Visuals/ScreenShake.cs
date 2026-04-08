@@ -7,8 +7,8 @@ public class ScreenShake : MonoBehaviour
     public static ScreenShake Instance;
 
     [Header("Shake Settings")]
-    public float defaultDuration = 0.10f;
-    public float defaultMagnitude = 0.05f;
+    public float defaultDuration;
+    public float defaultMagnitude;
 
     private Vector3 originalPosition;
     private Coroutine shakeRoutine;

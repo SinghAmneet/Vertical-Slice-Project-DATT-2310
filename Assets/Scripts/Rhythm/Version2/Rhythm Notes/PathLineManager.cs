@@ -7,23 +7,23 @@ public class PathLineManager : MonoBehaviour
     public SongController songController;
 
     [Header("Curve")]
-    [Range(8, 80)] public int curveSegments = 24;
-    public float curveBend = 1.2f;
+    [Range(8, 80)] public int curveSegments;
+    public float curveBend;
     public bool alternateCurveSide = true;
 
     [Header("Visuals")]
-    public float baseWidth = 0.05f;
-    public float pulseWidthAdd = 0.03f;
-    public float pulseAlphaAdd = 0.25f;
-    public float pulseDecaySpeed = 8f;
+    public float baseWidth;
+    public float pulseWidthAdd;
+    public float pulseAlphaAdd;
+    public float pulseDecaySpeed;
 
     [Header("Animation")]
-    [Tooltip("How fast the curve grows toward the next note (0..1). Higher = faster.")]
-    public float growSpeed = 4f;
+    [Tooltip("How fastt the curve grows toward the next note (0..1). Higher = faster")]
+    public float growSpeed;
 
     [Header("Fade Rules")]
-    [Tooltip("How much to fade once the next note becomes active (0 = none, 1 = full).")]
-    [Range(0f, 1f)] public float fadeWhenActive = 0.85f;
+    [Tooltip("How much to fade once the next note becomes active (0 = none, 1 = full)")]
+    [Range(0f, 1f)] public float fadeWhenActive;
 
     private Transform from;
     private Transform to;
@@ -78,7 +78,7 @@ public class PathLineManager : MonoBehaviour
 
         pulseT = Mathf.MoveTowards(pulseT, 0f, Time.deltaTime * pulseDecaySpeed);
 
-        // Grow animation
+        //Grow animation
         growT = Mathf.MoveTowards(growT, 1f, Time.deltaTime * growSpeed);
 
         // Fade when next note becomes active
@@ -113,7 +113,7 @@ public class PathLineManager : MonoBehaviour
         );
         line.colorGradient = g;
 
-        // Draw curved line
+        //Draw curved line
         Vector3 A = from.position;
         Vector3 C = to.position;
 
@@ -139,9 +139,8 @@ public class PathLineManager : MonoBehaviour
         }
     }
 
-    // =========================
+
     // Rhythm note version
-    // =========================
     public void SetCurrentAndNext(NoteObject current, NoteObject next)
     {
         if (current == null || next == null) return;
@@ -158,9 +157,8 @@ public class PathLineManager : MonoBehaviour
             curveFlip *= -1;
     }
 
-    // =========================
+
     // Tutorial note version
-    // =========================
     public void SetCurrentAndNext(TutorialNoteObject current, TutorialNoteObject next)
     {
         if (current == null || next == null) return;
@@ -190,7 +188,7 @@ public class PathLineManager : MonoBehaviour
             line.enabled = false;
     }
 
-    // Wrapper so RhythmTutorialManager can call ClearLine()
+    //Wraper so RhythmTutorialManager can call ClearLine()
     public void ClearLine()
     {
         Clear();

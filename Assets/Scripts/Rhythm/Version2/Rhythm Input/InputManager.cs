@@ -7,17 +7,17 @@ public class InputManager : MonoBehaviour
     public SongController songController;
     public GameManager gameManager;
     public CursorManager cursorManager;
-    public float hitRadius = 0.5f;
+    public float hitRadius;
 
     [Header("Judgement by Approach Progress (0 to 1)")]
-    [Range(0f, 1f)] public float perfectThreshold = 0.90f;
-    [Range(0f, 1f)] public float goodThreshold = 0.70f;
+    [Range(0f, 1f)] public float perfectThreshold;
+    [Range(0f, 1f)] public float goodThreshold;
 
     [Header("Strict Hit Lock")]
-    [Range(0f, 1f)] public float minClickableProgress = 0.25f;
+    [Range(0f, 1f)] public float minClickableProgress;
 
     [Header("Safety")]
-    public double missWindow = 0.15;
+    public double missWindow;
 
     [Header("Popup Prefabs")]
     public GameObject perfectPopupPrefab;

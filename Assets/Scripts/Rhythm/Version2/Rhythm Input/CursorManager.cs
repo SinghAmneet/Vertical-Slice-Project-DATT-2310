@@ -15,13 +15,13 @@ public class CursorManager : MonoBehaviour
 
     [Header("Cursor Movement")]
     [Tooltip("Base cursor speed. Increase if it feels too slow.")]
-    public float baseSpeed = 25f;
+    public float baseSpeed;
 
     [Tooltip("Adjusted by the tutorial slider.")]
-    public float sensitivity = 1.0f;
+    public float sensitivity;
 
-    public float hoverRadius = 0.7f;
-    public float clickSpriteDuration = 0.08f;
+    public float hoverRadius;
+    public float clickSpriteDuration;
 
     private Vector2 virtualScreenPosition;
     private float clickTimer = 0f;
@@ -45,7 +45,7 @@ public class CursorManager : MonoBehaviour
         if (!gameplayCursorActive || mainCamera == null)
             return;
 
-        // --- TRUE virtual cursor movement ---
+        //virtual cursor movement
         Vector2 delta = new Vector2(
             Input.GetAxisRaw("Mouse X"),
             Input.GetAxisRaw("Mouse Y")
@@ -56,18 +56,16 @@ public class CursorManager : MonoBehaviour
 
         virtualScreenPosition += new Vector2(moveX, moveY);
 
-        // Clamp inside screen
+        //Clamp inside screen
         virtualScreenPosition.x = Mathf.Clamp(virtualScreenPosition.x, 0f, Screen.width);
         virtualScreenPosition.y = Mathf.Clamp(virtualScreenPosition.y, 0f, Screen.height);
 
         UpdateWorldPositionFromVirtual();
 
         // Click animation
-        if (Input.GetMouseButtonDown(0))
-            clickTimer = clickSpriteDuration;
+        if (Input.GetMouseButtonDown(0)) clickTimer = clickSpriteDuration;
 
-        if (clickTimer > 0f)
-            clickTimer -= Time.unscaledDeltaTime;
+        if (clickTimer > 0f) clickTimer -= Time.unscaledDeltaTime;
 
         UpdateCursorSprite();
     }
@@ -123,7 +121,7 @@ public class CursorManager : MonoBehaviour
     {
         Vector2 cursorPos = GetWorldPosition();
 
-        // Rhythm notes
+        // Rhythmn notes
         NoteObject[] rhythmNotes = FindObjectsOfType<NoteObject>();
         foreach (var note in rhythmNotes)
         {

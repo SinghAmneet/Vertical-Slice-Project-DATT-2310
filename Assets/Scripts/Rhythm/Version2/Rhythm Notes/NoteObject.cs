@@ -6,11 +6,11 @@ public class NoteObject : MonoBehaviour
 {
     [Header("Timing")]
     public double hitTime;
-    public float approachDuration = 1.0f;
-    public float previewLead = 0.6f;
+    public float approachDuration;
+    public float previewLead;
 
     [Header("Preview Rules")]
-    public float noPreviewForFirstSeconds = 1.0f;
+    public float noPreviewForFirstSeconds;
     public bool forceStartActive = false;
 
     [Header("References")]
@@ -20,7 +20,7 @@ public class NoteObject : MonoBehaviour
     public SpriteRenderer approachRenderer;
 
     [Header("Preview Look")]
-    [Range(0f, 1f)] public float previewAlpha = 0.45f;
+    [Range(0f, 1f)] public float previewAlpha;
     public Color previewTint = new Color(0.8f, 0.8f, 0.8f, 1f);
 
     private SongController songController;

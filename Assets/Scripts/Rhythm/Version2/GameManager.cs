@@ -5,13 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Score Values")]
-    public int perfectPoints = 300;
-    public int goodPoints = 150;
-    public int earlyPoints = 50;
+    public int perfectPoints;
+    public int goodPoints;
+    public int earlyPoints;
 
     [Header("Multiplier Settings")]
-    public int comboPerMultiplierStep = 5;
-    public int maxMultiplier = 8;
+    public int comboPerMultiplierStep;
+    public int maxMultiplier;
 
     [Header("UI")]
     public ResultsUI resultsUI;
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     public bool RegisterJudgement(string judgement)
     {
-        int previousMultiplier = multiplier;
+        int previousMultiplier =multiplier;
 
         switch (judgement)
         {
@@ -83,13 +83,13 @@ public class GameManager : MonoBehaviour
         }
 
         UpdateGameplayUI();
+        
         return multiplier > previousMultiplier;
     }
 
     public bool RegisterMissAndCheckMultiplierDrop()
     {
         int previousMultiplier = multiplier;
-
         missCount++;
 
         if (ScreenShake.Instance != null)
@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
         UpdateGameplayUI();
 
         return previousMultiplier >= 2;
+
     }
 
     void UpdateMultiplier()

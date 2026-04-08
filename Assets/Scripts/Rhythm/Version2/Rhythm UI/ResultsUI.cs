@@ -64,10 +64,10 @@ public class ResultsUI : MonoBehaviour
     public GameObject mainSceneButton;
 
     [Header("Timing")]
-    public float gameplayUIFadeOutWait = 0.65f;
-    public float finishedDisplayTime = 1.2f;
-    public float panelFadeDuration = 0.6f;
-    public float lineRevealDelay = 0.3f;
+    public float gameplayUIFadeOutWait;
+    public float finishedDisplayTime;
+    public float panelFadeDuration;
+    public float lineRevealDelay;
 
     private CanvasGroup panelCanvasGroup;
 

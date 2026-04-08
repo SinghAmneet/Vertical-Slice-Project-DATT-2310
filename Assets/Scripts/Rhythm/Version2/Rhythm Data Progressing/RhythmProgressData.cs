@@ -25,11 +25,10 @@ public static class RhythmProgressData
         rhythmRoundIndex++;
     }
 
+    // Reset static game data
     public static void ResetGameProgress()
     {
         rhythmRoundIndex = 0;
-
-        // Reset any other static game data here too
         RhythmResultData.latestDishRank = "F";
     }
 }

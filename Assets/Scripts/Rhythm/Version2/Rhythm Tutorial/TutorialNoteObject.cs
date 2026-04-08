@@ -12,8 +12,8 @@ public enum TutorialJudgeResult
 public class TutorialNoteObject : MonoBehaviour
 {
     [Header("Timing")]
-    public float approachDuration = 0.8f;
-    public float missWindow = 0.15f;
+    public float approachDuration;
+    public float missWindow;
 
     [Header("Sound Effects")]
     public AudioSource sfxSource;
@@ -31,7 +31,7 @@ public class TutorialNoteObject : MonoBehaviour
     public Vector3 popupOffset = Vector3.zero;
 
     [Header("Preview Look")]
-    [Range(0f, 1f)] public float previewAlpha = 0.45f;
+    [Range(0f, 1f)] public float previewAlpha;
     public Color previewTint = new Color(0.8f, 0.8f, 0.8f, 1f);
 
     private enum VisualState { Preview, Active, Locked }
@@ -49,7 +49,7 @@ public class TutorialNoteObject : MonoBehaviour
         if (approachRenderer == null && approachCircle != null)
             approachRenderer = approachCircle.GetComponent<SpriteRenderer>();
 
-        // ALWAYS prefer the shared scene SFX source from InputManager
+        // honestly prefer the shared scene SFX source from InputManager
         InputManager inputManager = FindObjectOfType<InputManager>();
         if (inputManager != null && inputManager.sfxSource != null)
             sfxSource = inputManager.sfxSource;
@@ -173,13 +173,13 @@ public class TutorialNoteObject : MonoBehaviour
     {
         if (sfxSource == null)
         {
-            Debug.LogWarning("TutorialNoteObject: sfxSource is missing.");
+            //Debug.LogWarning("TutorialNoteObject: sfxSource is missing.");
             return;
         }
 
         if (noteClickSound == null)
         {
-            Debug.LogWarning("TutorialNoteObject: noteClickSound is missing.");
+            //Debug.LogWarning("TutorialNoteObject: noteClickSound is missing.");
             return;
         }
 

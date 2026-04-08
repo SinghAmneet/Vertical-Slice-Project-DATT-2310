@@ -3,12 +3,12 @@ using UnityEngine;
 public class JudgementPopup : MonoBehaviour
 {
     [Header("Timing")]
-    public float lifetime = 0.6f;
+    public float lifetime;
 
     [Header("Scale Pop")]
-    public float startScaleMultiplier = 0.8f;   // starts slightly smaller
-    public float popScaleMultiplier = 1.1f;     // grows a little bigger than normal
-    public float popDuration = 0.12f;           // how fast the pop happens
+    public float startScaleMultiplier;   // starts slightly smaller
+    public float popScaleMultiplier;     // grows a little bigger than normal
+    public float popDuration;           // how fast the pop happens
 
     private SpriteRenderer sr;
     private float timer;
@@ -19,7 +19,7 @@ public class JudgementPopup : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         baseScale = transform.localScale;
 
-        // Start slightly smaller for a subtle pop-in effect
+        // Start a bit smaller for a subtle pop effect
         transform.localScale = baseScale * startScaleMultiplier;
     }
 
@@ -27,13 +27,11 @@ public class JudgementPopup : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        // --- Scale pop animation ---
+        //Scale pop animation
         if (timer <= popDuration)
         {
             float t = timer / popDuration;
 
-            // First half: grow from small -> slightly larger than normal
-            // Second half: settle back to normal size
             if (t < 0.5f)
             {
                 float growT = t / 0.5f;
@@ -58,7 +56,7 @@ public class JudgementPopup : MonoBehaviour
             transform.localScale = baseScale;
         }
 
-        // --- Fade out in place ---
+        // Fade out
         if (sr != null)
         {
             Color c = sr.color;

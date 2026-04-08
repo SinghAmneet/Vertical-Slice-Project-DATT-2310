@@ -47,7 +47,7 @@ public class TutorialManager : MonoBehaviour
     {
         switch (step)
         {
-            // STEP 0: Move until player reaches x = 30
+            // Move until player reaches x = 30
             case 0:
                 if (player != null && player.position.x >= targetMoveX)
                 {
@@ -55,7 +55,7 @@ public class TutorialManager : MonoBehaviour
                 }
                 break;
 
-            // STEP 1: Pick up 2 items
+            // Pick up 2 items
             case 1:
                 if (playerInventory != null && playerInventory.GetItems().Count >= requiredPickupCount)
                 {
@@ -63,7 +63,7 @@ public class TutorialManager : MonoBehaviour
                 }
                 break;
 
-            // STEP 2: Drop all picked-up items
+            // Drop all picked up items
             case 2:
                 if (playerInventory != null && playerInventory.GetItems().Count == 0)
                 {
@@ -71,7 +71,7 @@ public class TutorialManager : MonoBehaviour
                 }
                 break;
 
-            // STEP 3: Slay mushroom
+            //Slay mushroom
             case 3:
                 if (mushroomDead)
                 {
@@ -79,7 +79,7 @@ public class TutorialManager : MonoBehaviour
                 }
                 break;
 
-            // STEP 4: Pot instruction stays until pot interaction hides text
+            //Pot instruction stays until pot interaction hides text
             case 4:
                 // Wait here. Pot script will hide text and mark tutorial complete.
                 break;

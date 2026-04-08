@@ -16,7 +16,7 @@ public class OrthoZoom : MonoBehaviour
 
     [Header("Smoothing")]
     public bool smoothZoom = true;
-    public float zoomSmoothSpeed = 10f;
+    public float zoomSmoothSpeed;
 
     private float targetOrthoSize;
 
@@ -27,7 +27,7 @@ public class OrthoZoom : MonoBehaviour
 
         if (virtualCamera == null)
         {
-            Debug.LogError("OrthoZoom: No CinemachineVirtualCamera found.");
+            //Debug.LogError("OrthoZoom: No CinemachineVirtualCamera found.");
             enabled = false;
             return;
         }

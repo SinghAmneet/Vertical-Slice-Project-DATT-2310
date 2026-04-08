@@ -14,7 +14,7 @@ public class CharacterController2D : MonoBehaviour
 {
 
     Rigidbody2D rigidbody2d;
-    [SerializeField] float speed = 2f; // Movement speed in units per second
+    [SerializeField] float speed; // Movement speed in units per second
     [SerializeField] Transform graphics;
     Vector2 motionVector;
     Animator animator;

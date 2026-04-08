@@ -12,9 +12,9 @@ public class CountdownUI : MonoBehaviour
 
     [Header("Countdown")]
     public bool autoStartCountdown = false;
-    public int startNumber = 3;
-    public float cookDisplayTime = 1.5f;
-    public float songStartDelayAfterCook = 1.7f;
+    public int startNumber;
+    public float cookDisplayTime;
+    public float songStartDelayAfterCook;
 
     [Header("Countdown Sound")]
     public AudioSource audioSource;
@@ -26,7 +26,7 @@ public class CountdownUI : MonoBehaviour
     {
         if (songController == null || countdownText == null)
         {
-            Debug.LogError("CountdownUI: Missing references.");
+            //Debug.LogError("CountdownUI: Missing references.");
             enabled = false;
             return;
         }
@@ -42,7 +42,7 @@ public class CountdownUI : MonoBehaviour
         if (countdownStarted) return;
         countdownStarted = true;
 
-        Debug.Log("CountdownUI: BeginCountdown called.");
+        //Debug.Log("CountdownUI: BeginCountdown called.");
 
         if (backgroundVisualController != null)
             backgroundVisualController.StartCountdownFade();
@@ -57,7 +57,7 @@ public class CountdownUI : MonoBehaviour
         for (int i = startNumber; i >= 1; i--)
         {
             countdownText.text = i.ToString();
-            Debug.Log("CountdownUI: " + i);
+            //Debug.Log("CountdownUI: " + i);
 
             PlayCountdownSound(i);
 
@@ -65,13 +65,13 @@ public class CountdownUI : MonoBehaviour
         }
 
         countdownText.text = "COOK!";
-        Debug.Log("CountdownUI: COOK!");
+        //Debug.Log("CountdownUI: COOK!");
 
         PlayCountdownSound(0); // COOK sound
 
         yield return new WaitForSecondsRealtime(songStartDelayAfterCook);
 
-        Debug.Log("CountdownUI: Calling SongController.BeginSong()");
+        //Debug.Log("CountdownUI: Calling SongController.BeginSong()");
         songController.BeginSong();
 
         float remaining = cookDisplayTime - songStartDelayAfterCook;
@@ -101,7 +101,6 @@ public class CountdownUI : MonoBehaviour
                 audioSource.pitch = 1.4f;
                 break;
         }
-
         audioSource.PlayOneShot(popSound);
     }
 }

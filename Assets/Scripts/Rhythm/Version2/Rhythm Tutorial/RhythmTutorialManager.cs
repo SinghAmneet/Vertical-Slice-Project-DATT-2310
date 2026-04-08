@@ -23,18 +23,18 @@ public class RhythmTutorialManager : MonoBehaviour
     public TutorialStraightLine tutorialPathLine;
 
     [Header("Tutorial Note Settings")]
-    public float noteSpacing = 3f;
-    public float noteY = -0.5f;
-    public float tutorialYOffset = 1.5f;
-    public float approachDuration = 0.8f;
-    public float hitRadius = 0.5f;
-    public float perfectThreshold = 0.90f;
-    public float resetDelay = 0.5f;
+    public float noteSpacing;
+    public float noteY;
+    public float tutorialYOffset;
+    public float approachDuration;
+    public float hitRadius;
+    public float perfectThreshold;
+    public float resetDelay;
 
     [Header("Outro Animation")]
-    public float outroDuration = 0.45f;
-    public float outroMoveAmount = 0.8f;
-    public float outroScaleAmount = 0.9f;
+    public float outroDuration;
+    public float outroMoveAmount;
+    public float outroScaleAmount;
 
     private readonly List<TutorialNoteObject> tutorialNotes = new List<TutorialNoteObject>();
     private int currentIndex = 0;
@@ -176,12 +176,12 @@ public class RhythmTutorialManager : MonoBehaviour
             }
         }
 
+        
         if (activeNote != null && activeNote.HasMissed())
         {
             StartCoroutine(ResetTutorialRoutine("Perfect only - try again"));
         }
     }
-
     void BuildTutorialSet()
     {
         ClearTutorialNotes();
@@ -196,7 +196,7 @@ public class RhythmTutorialManager : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            Vector2 pos = new Vector2((i - 1) * noteSpacing, noteY + tutorialYOffset);
+            Vector2 pos = new Vector2((i - 1) * noteSpacing, noteY+tutorialYOffset);
 
             GameObject obj = Instantiate(tutorialNotePrefab, pos, Quaternion.identity, tutorialNotesParent);
             TutorialNoteObject note = obj.GetComponent<TutorialNoteObject>();

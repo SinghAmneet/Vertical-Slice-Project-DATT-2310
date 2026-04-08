@@ -5,15 +5,15 @@ using UnityEngine;
 public class SongController : MonoBehaviour
 {
     public AudioSource audioSource;
-    public double songOffset = 0.0;
+    public double songOffset;
 
     [Header("Song Settings")]
-    public float bpm = 111f;
-    public double songLength = 63.6;
+    public float bpm;
+    public double songLength;
 
     [Header("UI")]
     public GameplayUI gameplayUI;
-    public float gameplayUIDelay = 0.3f;
+    public float gameplayUIDelay;
 
     public GameManager gameManager;
 
@@ -39,10 +39,10 @@ public class SongController : MonoBehaviour
 
         double songTime = GetSongTime();
 
-        if (songTime >= songLength)
+        if (songTime>= songLength)
         {
             songFinished = true;
-            Debug.Log("SongController: Song finished.");
+            //Debug.Log("SongController: Song finished.");
 
             if (gameManager != null)
                 gameManager.ShowFinalResults();
@@ -59,17 +59,16 @@ public class SongController : MonoBehaviour
         if (started) return;
 
         started = true;
-        Debug.Log("SongController: BeginSong called.");
+        //Debug.Log("SongController: BeginSong called.");
 
         RefreshBeatData();
 
-        if (gameplayUI != null)
-            StartCoroutine(ShowGameplayUIDelayed());
+        if (gameplayUI != null) StartCoroutine(ShowGameplayUIDelayed());
 
         dspSongStartTime = AudioSettings.dspTime + 0.05;
         audioSource.PlayScheduled(dspSongStartTime);
 
-        Debug.Log("SongController: Audio scheduled.");
+        //Debug.Log("SongController: Audio scheduled.");
     }
 
     IEnumerator ShowGameplayUIDelayed()

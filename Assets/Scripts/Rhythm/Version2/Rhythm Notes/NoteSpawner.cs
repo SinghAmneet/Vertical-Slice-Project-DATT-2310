@@ -15,25 +15,25 @@ public class NoteSpawner : MonoBehaviour
     public List<NoteData> chart = new List<NoteData>();
 
     [Header("Timing")]
-    public float approachDuration = 0.8f;
-    public float previewLead = 0.6f;
-    public int spawnBeatStride = 2;
-    public double songLength = 63.6;
+    public float approachDuration;
+    public float previewLead;
+    public int spawnBeatStride;
+    public double songLength;
 
     [Header("End Behavior")]
-    public double endHitCutoffSeconds = 0.5;
+    public double endHitCutoffSeconds;
 
     [Header("Start Behavior")]
-    public int startingBeatIndex = 1;
-    public double missWindow = 0.15;
+    public int startingBeatIndex;
+    public double missWindow;
 
     [Header("Guide Line")]
     public PathLineManager pathLine;
 
     [Header("Spawn Spacing")]
-    public float minDistanceFromLastNote = 1.2f;
-    public float minDistanceFromAnyNote = 0.9f;
-    public int maxSpawnAttempts = 25;
+    public float minDistanceFromLastNote;
+    public float minDistanceFromAnyNote;
+    public int maxSpawnAttempts;
 
     private double secondsPerBeat;
     private int nextBeatIndex;
@@ -47,7 +47,7 @@ public class NoteSpawner : MonoBehaviour
     {
         if (songController == null)
         {
-            Debug.LogError("NoteSpawner: songController not assigned.");
+            //Debug.LogError("NoteSpawner: songController not assigned.");
             enabled = false;
             return;
         }
@@ -65,7 +65,7 @@ public class NoteSpawner : MonoBehaviour
         if (!loggedSongStart)
         {
             loggedSongStart = true;
-            Debug.Log("NoteSpawner: songTime is now >= 0, spawning phase started.");
+            //Debug.Log("NoteSpawner: songTime is now >= 0, spawning phase started.");
         }
 
         if (useManualChart) SpawnFromManualChart(songTime);
