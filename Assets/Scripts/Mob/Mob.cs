@@ -16,6 +16,7 @@ public class Mob : MonoBehaviour
     public float maxIdleTime; // max time for standing still
 
     public GameObject alertUI;
+    public AudioSource attackSound;
 
     // systems
     public MobMovement movement { get; private set; }
@@ -225,6 +226,11 @@ public class Mob : MonoBehaviour
     public void RegisterAttack()
     {
         combat.RegisterHits(data.damage);
+    }
+
+    public void PlayAttackSound()
+    {
+        attackSound.PlayOneShot(attackSound.clip);
     }
 
     public void StartDash()

@@ -24,6 +24,8 @@ public class Attack : State
         playingAnim = true;
         mob.PlayAttackAnimation();
 
+        mob.PlayAttackSound();
+
         if (mob.data.hasDashAttack)
         {
             //mob.movement.SetDash(mob.GetPlrDirection() * mob.data.dashSpeed);
