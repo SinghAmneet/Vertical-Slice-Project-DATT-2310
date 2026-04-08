@@ -10,8 +10,6 @@ public class Gameloop : MonoBehaviour
 
     public TextMeshProUGUI dishObjectText;
 
-    public Health plrHealth;
-
     public Dish[] dishes;
     public List<Dish> finishedDishes;
     private Dish currentDish;

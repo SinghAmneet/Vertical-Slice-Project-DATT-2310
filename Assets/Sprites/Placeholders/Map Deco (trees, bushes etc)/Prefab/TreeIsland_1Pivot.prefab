@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4385392706569021847}
   - component: {fileID: 9030098474916651357}
   - component: {fileID: 4644260203297071502}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TreeIsland_1Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -157,14 +157,9 @@ public class CheatMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             Toggle();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
