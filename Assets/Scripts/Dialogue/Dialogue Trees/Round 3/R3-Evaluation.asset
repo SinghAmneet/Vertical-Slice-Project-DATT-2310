@@ -23,20 +23,24 @@ MonoBehaviour:
   - speaker: 1
     speech: 1
     va: {fileID: 8300000, guid: 9b79d9f93bfd67e44946b5369a4f19d4, type: 3}
-    dialogue: " I risked my life for this kingdom\u2026 for her\u2026 and yet, here
-      I stand. But perhaps now is not the time for revenge.\r\n"
+    dialogue: '[Pause:0.3]I risked my life for this kingdom[Rate:0.2]...[Rate:Default]
+      for her[Rate:0.2]...[Rate:Default] and yet,[Pause:0.3] here I stand.[Pause:0.3]
+      But perhaps now is not the time for revenge.
+
+'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 1
     va: {fileID: 8300000, guid: 58de7469dc5a8854aac5ada1c29ad559, type: 3}
-    dialogue: ' Patience, Kenny. Loyalty above all. Say nothing. Do nothing.'
+    dialogue: Patience, Kenny.[Pause:0.4] Loyalty above all.[Pause:0.3] Say nothing.[Pause:0.4]
+      Do nothing.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: d64ce337474f6c54892afeecf2cba139, type: 3}
-    dialogue: ' Your Majesty, the dish is ready for your table.'
+    dialogue: '[Pause:0.3]Your Majesty, the dish is ready for your table.'
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: b5082822c8b536f46a33a2550adb0d02, type: 2}
   endChoices: []

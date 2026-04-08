@@ -35,7 +35,7 @@ MonoBehaviour:
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: e21ab8a7bf9e99a4794026992096f5fc, type: 3}
-    dialogue: I shall take my leave now
+    dialogue: '[Pause:0.3]I shall take my leave now'
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: 3a06e8921c6902b49a713b583d2aa3c7, type: 2}
   endChoices: []

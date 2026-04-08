@@ -31,8 +31,8 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 9922a413f5d44504eabf2b6edfc2b79e, type: 3}
-    dialogue: 'Hm... His food is always extraordinary! You are his wife, have a taste
-      first.
+    dialogue: '[Pause:0.8]Hm[Rate:0.25]...[Rate:Default] His food is always [Pause:0.3][Rate:0.085]extraordinary![Rate:Default][Pause:0.6]
+      You are his wife,[Pause:0.4] have a taste first.
 
 '
     startAction: {fileID: 0}
@@ -46,25 +46,27 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: bedc61c046afb5146a3c67e9a92d0d70, type: 3}
-    dialogue: Hm?
+    dialogue: '[Pause:0.6]Hm?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 3
     speech: 0
     va: {fileID: 8300000, guid: 46c7414f770662d4aaf5472306b495a3, type: 3}
-    dialogue: Ah, Kenny, this looks... unusual. How wobbly, how... enticing
+    dialogue: Ah,[Pause:0.7] Kenny,[Pause:0.9] this looks[Rate:0.2]...[Rate:Default]
+      unusual.[Pause:1] How wobbly,[Pause:1.2] how... enticing
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: 0c7fab78c189b8f408fd932ad4062cba, type: 3}
-    dialogue: Stop!
+    dialogue: '[Pause:0.6]Stop!'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: a6e35cc025c5d164987746515bb17644, type: 3}
-    dialogue: Though you have betrayed me, I still have no desire to see you die.
+    dialogue: Though you have betrayed me,[Pause:0.3][Rate:0.05] I still have no
+      desire to see you die.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
@@ -79,19 +81,21 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: e15f4697ffaa84f449e1a6ea3161803e, type: 3}
-    dialogue: I did not think you would dare poison my food... how surprising.
+    dialogue: '[Pause:0.3]I did not think you would [Rate:0.15]dare poison[Rate:Default]
+      my food[Rate:0.25]...[Rate:Default] how surprising.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 1
     va: {fileID: 8300000, guid: 768b7851c0821ae438e4a104d76f676b, type: 3}
-    dialogue: ' Chat, are we cooked?'
+    dialogue: '[Pause:1]Chat,[Pause:0.4] are we cooked?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 5eab46273c2fdcb46a5fa3d7134d3fd3, type: 3}
-    dialogue: Traitor! You shall not leave the palace alive. Guards!
+    dialogue: '[Pause:0.7]Traitor![Pause:0.7] You shall not leave the palace alive.[Pause:0.4]
+      Guards!'
     startAction: {fileID: 0}
     endAction: {fileID: 11400000, guid: fa0b313778b06a847bd631c280c8377b, type: 2}
   endChoices: []

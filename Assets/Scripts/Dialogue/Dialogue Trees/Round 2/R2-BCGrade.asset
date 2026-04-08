@@ -31,7 +31,8 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 2525d0dd5612935409319595ffe2502d, type: 3}
-    dialogue: Hmph. Edible, I suppose... for now. Consider yourself fortunate, Chef.
+    dialogue: '[Pause:0.4]Hmph.[Pause:0.8] Edible, I suppose[Rate:0.2]...[Rate:Default]
+      for now.[Pause:0.4] Consider yourself fortunate, Chef.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1

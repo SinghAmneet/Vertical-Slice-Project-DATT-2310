@@ -16,7 +16,9 @@ MonoBehaviour:
   - speaker: 1
     speech: 1
     va: {fileID: 8300000, guid: 338e66f8f865e10458c9f5048dbe38e6, type: 3}
-    dialogue: 'Oh.. So all my risk, all my effort... and for her? Never enough, huh?
+    dialogue: '[Pause:0.7]Oh[Rate:0.3]...[Rate:Default] So[Pause:0.4] all my risk,[Pause:0.4]
+      all my effort[Rate:0.25]...[Rate:Default] all for her?[Pause:0.4] Never enough,
+      huh?
 
 '
     startAction: {fileID: 0}
@@ -24,7 +26,7 @@ MonoBehaviour:
   - speaker: 1
     speech: 1
     va: {fileID: 8300000, guid: 00fbfd5a6b2660145b2220eda554daee, type: 3}
-    dialogue: What should I do?
+    dialogue: '[Pause:0.5]What should I do?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices:

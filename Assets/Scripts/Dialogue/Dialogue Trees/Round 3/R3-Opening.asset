@@ -24,20 +24,20 @@ MonoBehaviour:
   - speaker: 3
     speech: 0
     va: {fileID: 8300000, guid: 9a12c39fe5d7e4f418058debf4138b3c, type: 3}
-    dialogue: Ehehe
+    dialogue: '[Pause:0.8]Ehehe'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 3
     speech: 0
     va: {fileID: 8300000, guid: 410ec088741408343b6cc75398ac3000, type: 3}
-    dialogue: "You sure that Kenny won\u2019t be coming back?\r\n"
+    dialogue: "[Rate:0.045]You sure that Kenny won\u2019t be coming back?\r\n"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 089293753b796b04f86079c0b2331833, type: 3}
-    dialogue: The place I sent him was the most dangerous in the realm. Even if he
-      somehow discovered it...
+    dialogue: '[Pause:0.5]The place I sent him was the most dangerous in the realm.
+      Even if he somehow discovered it...'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 4
@@ -50,13 +50,14 @@ MonoBehaviour:
   - speaker: 3
     speech: 0
     va: {fileID: 8300000, guid: 5a332adb9d10823408288fc660f6718d, type: 3}
-    dialogue: Wait... did he hear us? My lord... Did he hear us?
+    dialogue: '[Pause:0.55]Wait[Rate:0.25]...[Rate:Default] did he hear us?[Pause:0.5]
+      My lord[Rate:0.2]...[Rate:Default] Did he hear us?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: fd04447364f78b045be1f163646c4b68, type: 3}
-    dialogue: "Calm yourself, I don\u2019t believe so."
+    dialogue: "[Pause:0.5]Calm yourself,[Pause:0.4] I don\u2019t believe so."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 0
@@ -70,33 +71,35 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 44ee5d3f3e8b62947a76067ff3500c2e, type: 3}
-    dialogue: Ah, Chef Kenny... you... returned. Alive
+    dialogue: '[Pause:0.5]Ah,[Pause:0.4] Chef Kenny[Rate:0.2]...[Rate:Default] you[Rate:0.2]...[Rate:Default]
+      returned.[Pause:0.3] Alive.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: f3a00d7c343ac12448ba0d193ddfea7f, type: 3}
-    dialogue: I trust your journey was... uneventful?
+    dialogue: '[Pause:0.8]I trust your journey was[Rate:0.2]...[Rate:Default] uneventful?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: 7b7460026c91612409bd493bdd8cf877, type: 3}
-    dialogue: "Yes, your Majesty. I have returned safely, kinda, I guess... and brought
-      the next course to your table. \r\n"
+    dialogue: "Yes, your Majesty. I have returned safely,[Pause:0.5] kinda,[Pause:0.55]
+      and brought the next course to your table. \r\n"
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: b2e677d6c085ade468861cdb2ec3b399, type: 3}
-    dialogue: I also see my dear wife here. I wonder what brings her to the palace.
+    dialogue: I also see my dear wife here.[Pause:0.7][Rate:0.05] I wonder what brings
+      her to the palace.
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: bfb42ebdf9dad054ab11e9698d222252, type: 3}
-    dialogue: ' She is my guest today. We knew you would return, so... why not celebrate
-      the occasion, hmm? '
+    dialogue: '[Pause:0.6]She is my guest today.[Pause:0.5] We knew you would return,
+      so[Rate:0.2]...[Rate:Default] why not celebrate the occasion,[Pause:0.3] hmm? '
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices: []

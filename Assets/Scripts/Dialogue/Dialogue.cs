@@ -64,6 +64,8 @@ public class Dialogue : MonoBehaviour
         ClearDisplay();
         currentTree = startingDialogueTree;
 
+        continueText.GetComponent<TextMeshProUGUI>().text = "(left click) to continue";
+
         if (EndingData.currentEnding == endings.WrongDialogue) currentTree = restartTree;
         EndingData.currentEnding = endings.None;
 

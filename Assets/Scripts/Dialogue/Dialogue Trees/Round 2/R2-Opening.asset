@@ -16,33 +16,34 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: a836bfa917b07f840964630575297d82, type: 3}
-    dialogue: "Aha! Come, tell me\u2014what masterpiece graces our table this evening?"
+    dialogue: "[Pause:0.4]Aha![Pause:0.4] Come,[Pause:0.4] tell me[Pause:0.4]\u2014what
+      masterpiece graces our table this evening?"
     startAction: {fileID: 11400000, guid: 367dccbc140e33d43a4117d80e9f4aab, type: 2}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: 39af45c7643e0234f8fa65513eba270b, type: 3}
-    dialogue: It carries my sweat... and blood.[Pause:0.4] Literally.[Pause:0.4]
-      I trust it will satisfy, Your Majesty.
+    dialogue: '[Pause:0.4]It carries my sweat... and blood.[Pause:0.4] Literally.[Pause:0.4]
+      I trust it will satisfy, Your Majesty.'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: 57331ab6cb8ac7a4b94ffc33eec297d3, type: 3}
-    dialogue: During my expedition, I encountered a pant moonfish
+    dialogue: '[Pause:0.3]During my expedition,[Pause:0.2] I encountered a pant moonfish'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 376f87bc01d861b4b8678619cae79d67, type: 3}
-    dialogue: ...A what?
+    dialogue: '[Pause:0.4]...A what?'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
     speech: 0
     va: {fileID: 8300000, guid: 0cae66432a6e20847b6ab33788b5792a, type: 3}
-    dialogue: 'A fish wearing trousers, sire. I pan-fried it with a touch of morning
-      oil and... body salt.
+    dialogue: '[Pause:0.4]A fish wearing trousers, sire. I pan-fried it with a touch
+      of morning oil and[Rate:0.2]...[Rate:Default] body salt.
 
 '
     startAction: {fileID: 0}
@@ -56,8 +57,8 @@ MonoBehaviour:
   - speaker: 2
     speech: 0
     va: {fileID: 8300000, guid: 0f2b82c8ee29b4f4e9bec5fcf65e40f9, type: 3}
-    dialogue: "Sadly, Your Majesty, no. They\u2019ve been part of its flavour since
-      birth."
+    dialogue: "[Pause:0.3]Sadly, Your Majesty, no. They\u2019ve been part of its
+      flavour since birth."
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   endChoices: []

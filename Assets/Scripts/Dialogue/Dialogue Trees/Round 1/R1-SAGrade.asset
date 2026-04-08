@@ -17,7 +17,7 @@ MonoBehaviour:
     speech: 0
     va: {fileID: 8300000, guid: bb95c07c77aae2e49a4b4d4d090ea280, type: 3}
     dialogue: ' Exquisite.[Pause:1] Truly Exquisite![Pause:0.5] I knew my faith in
-      you was not misplaced You are, without question,[Pause:0.5] the finest chef
+      you was not misplaced. You are, without question,[Pause:0.5] the finest chef
       in my kingdom.
 
 '
@@ -44,7 +44,7 @@ MonoBehaviour:
   - speaker: 1
     speech: 1
     va: {fileID: 8300000, guid: 7e72b32b179628c449e9fe34ce18a8d0, type: 3}
-    dialogue: '[Pause:0.5]What a big bag'
+    dialogue: '[Pause:1]What a big bag'
     startAction: {fileID: 0}
     endAction: {fileID: 0}
   - speaker: 1
